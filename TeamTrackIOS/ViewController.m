@@ -16,6 +16,10 @@
 @implementation ViewController
 
 - (void)viewDidLoad {
+    
+    // Test
+    [self test_populateArray];
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
@@ -27,7 +31,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return self.timers.count;
 }
 
 // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
@@ -36,6 +40,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellIden = @"myCell";
+    Timer *myTimer = [self.timers objectAtIndex:indexPath.row];
+    Athelete *myAthelete = [self.athelets objectAtIndex:indexPath.row];
     
     TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIden];
     
@@ -45,12 +51,54 @@
         cell = [tableView dequeueReusableCellWithIdentifier:cellIden];
     }
     
-    cell.nameLabel.text = @"Colin";
-    
+    cell.nameLabel.text = myAthelete.name;
+    cell.timeLabel.text = [myTimer getCurrentTime];
     
     //cell.textLabel.text = [tableData objectAtIndex:indexPath.row];
     
     return cell;
+}
+
+
+
+#pragma mark - IBActions
+
+
+- (IBAction)startButtonPressed:(id)sender
+{
+    for (Timer *aTimer in self.timers) {
+        [aTimer startTimer];
+    }
+    
+    [self.tableView reloadData];
+}
+
+- (IBAction)updateButtonPressed:(id)sender
+{
+    [self.tableView reloadData];
+}
+
+
+#pragma mark - Helpers
+
+
+- (void)test_populateArray
+{
+    NSString *nameStr = @"Colin ";
+    self.athelets = [[NSMutableArray alloc]init];
+    self.timers = [[NSMutableArray alloc]init];
+    
+    // Create 5 rows with Athelete and Timer
+    for (int i = 0; i < 5; i++) {
+        
+        Athelete *myAthelete = [[Athelete alloc]init];
+        myAthelete.name =  [nameStr stringByAppendingString:[NSString stringWithFormat:@"%i", i]];
+        [self.athelets addObject:myAthelete];
+        
+        Timer *myTimer = [[Timer alloc]init];
+        [self.timers addObject:myTimer];
+    }
+
 }
 
 

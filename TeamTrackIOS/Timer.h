@@ -10,7 +10,24 @@
 
 @interface Timer : NSObject
 {
+    NSDate *start;
+    NSDate *end;
     
+    BOOL running;
+    NSTimeInterval startTime;
+
 }
+
+- (void)startTimer;
+- (void)stopTimer;
+//- (double) timeElapsedInSeconds;
+//- (double) timeElapsedInMilliseconds;
+//- (double) timeElapsedInMinutes;
+
+
+- (NSString *)getCurrentTime;
+
+@property (nonatomic, retain) NSString *nameStr;
+@property (nonatomic, retain) NSString *timeStr;
 
 @end

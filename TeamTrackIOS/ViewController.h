@@ -7,20 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "Timer.h"
+#import "Athelete.h"
 
 
 @interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 {
-    NSMutableArray *myArray;
+    
 }
 
 
-@property (strong, nonatomic) UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, retain) IBOutlet UIButton *startButton;
-
+@property (nonatomic, retain) NSMutableArray *athelets;
+@property (nonatomic, retain) NSMutableArray *timers;
 
 - (IBAction)startButtonPressed:(id)sender;
+- (IBAction)updateButtonPressed:(id)sender;
 
 
 @end
