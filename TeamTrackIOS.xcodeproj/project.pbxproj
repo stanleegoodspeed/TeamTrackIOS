@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B1B4CAF1B718076007B0FAF /* Timer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B1B4CAE1B718076007B0FAF /* Timer.m */; };
 		3B8897821B701AE300BEBEA0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8897811B701AE300BEBEA0 /* main.m */; };
 		3B8897851B701AE300BEBEA0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8897841B701AE300BEBEA0 /* AppDelegate.m */; };
-		3B8897881B701AE300BEBEA0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8897871B701AE300BEBEA0 /* ViewController.m */; };
-		3B88978B1B701AE300BEBEA0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3B8897891B701AE300BEBEA0 /* Main.storyboard */; };
 		3B88978D1B701AE300BEBEA0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B88978C1B701AE300BEBEA0 /* Images.xcassets */; };
-		3B8897901B701AE300BEBEA0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B88978E1B701AE300BEBEA0 /* LaunchScreen.xib */; };
 		3B88979C1B701AE400BEBEA0 /* TeamTrackIOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B88979B1B701AE400BEBEA0 /* TeamTrackIOSTests.m */; };
+		3B8897AA1B701DDE00BEBEA0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8897A81B701DDE00BEBEA0 /* ViewController.m */; };
+		3B8897AB1B701DDE00BEBEA0 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B8897A91B701DDE00BEBEA0 /* ViewController.xib */; };
+		3B8897AF1B70287800BEBEA0 /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8897AD1B70287800BEBEA0 /* TableViewCell.m */; };
+		3B8897B01B70287800BEBEA0 /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B8897AE1B70287800BEBEA0 /* TableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,19 +29,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B1B4CAD1B718076007B0FAF /* Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timer.h; sourceTree = "<group>"; };
+		3B1B4CAE1B718076007B0FAF /* Timer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Timer.m; sourceTree = "<group>"; };
 		3B88977C1B701AE300BEBEA0 /* TeamTrackIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamTrackIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B8897801B701AE300BEBEA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B8897811B701AE300BEBEA0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3B8897831B701AE300BEBEA0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3B8897841B701AE300BEBEA0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3B8897861B701AE300BEBEA0 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3B8897871B701AE300BEBEA0 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		3B88978A1B701AE300BEBEA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3B88978C1B701AE300BEBEA0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		3B88978F1B701AE300BEBEA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		3B8897951B701AE400BEBEA0 /* TeamTrackIOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TeamTrackIOSTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B88979A1B701AE400BEBEA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B88979B1B701AE400BEBEA0 /* TeamTrackIOSTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TeamTrackIOSTests.m; sourceTree = "<group>"; };
+		3B8897A71B701DDE00BEBEA0 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		3B8897A81B701DDE00BEBEA0 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		3B8897A91B701DDE00BEBEA0 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		3B8897AC1B70287800BEBEA0 /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
+		3B8897AD1B70287800BEBEA0 /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
+		3B8897AE1B70287800BEBEA0 /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,11 +89,15 @@
 			children = (
 				3B8897831B701AE300BEBEA0 /* AppDelegate.h */,
 				3B8897841B701AE300BEBEA0 /* AppDelegate.m */,
-				3B8897861B701AE300BEBEA0 /* ViewController.h */,
-				3B8897871B701AE300BEBEA0 /* ViewController.m */,
-				3B8897891B701AE300BEBEA0 /* Main.storyboard */,
+				3B8897A71B701DDE00BEBEA0 /* ViewController.h */,
+				3B8897A81B701DDE00BEBEA0 /* ViewController.m */,
+				3B1B4CAD1B718076007B0FAF /* Timer.h */,
+				3B1B4CAE1B718076007B0FAF /* Timer.m */,
+				3B8897A91B701DDE00BEBEA0 /* ViewController.xib */,
+				3B8897AC1B70287800BEBEA0 /* TableViewCell.h */,
+				3B8897AD1B70287800BEBEA0 /* TableViewCell.m */,
+				3B8897AE1B70287800BEBEA0 /* TableViewCell.xib */,
 				3B88978C1B701AE300BEBEA0 /* Images.xcassets */,
-				3B88978E1B701AE300BEBEA0 /* LaunchScreen.xib */,
 				3B88977F1B701AE300BEBEA0 /* Supporting Files */,
 			);
 			path = TeamTrackIOS;
@@ -199,8 +209,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B88978B1B701AE300BEBEA0 /* Main.storyboard in Resources */,
-				3B8897901B701AE300BEBEA0 /* LaunchScreen.xib in Resources */,
+				3B8897AB1B701DDE00BEBEA0 /* ViewController.xib in Resources */,
+				3B8897B01B70287800BEBEA0 /* TableViewCell.xib in Resources */,
 				3B88978D1B701AE300BEBEA0 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,7 +229,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3B8897881B701AE300BEBEA0 /* ViewController.m in Sources */,
+				3B1B4CAF1B718076007B0FAF /* Timer.m in Sources */,
+				3B8897AA1B701DDE00BEBEA0 /* ViewController.m in Sources */,
+				3B8897AF1B70287800BEBEA0 /* TableViewCell.m in Sources */,
 				3B8897851B701AE300BEBEA0 /* AppDelegate.m in Sources */,
 				3B8897821B701AE300BEBEA0 /* main.m in Sources */,
 			);
@@ -242,25 +254,6 @@
 			targetProxy = 3B8897961B701AE400BEBEA0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		3B8897891B701AE300BEBEA0 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3B88978A1B701AE300BEBEA0 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		3B88978E1B701AE300BEBEA0 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3B88978F1B701AE300BEBEA0 /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		3B88979D1B701AE400BEBEA0 /* Debug */ = {
@@ -416,6 +409,7 @@
 				3B8897A11B701AE400BEBEA0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3B8897A21B701AE400BEBEA0 /* Build configuration list for PBXNativeTarget "TeamTrackIOSTests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +418,7 @@
 				3B8897A41B701AE400BEBEA0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
