@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "Timer.h"
 #import "Athelete.h"
+#import "TimerViewCell.h"
 
 
-@interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, TimerDelegate, TimerCellDelegate>
 {
     
 }

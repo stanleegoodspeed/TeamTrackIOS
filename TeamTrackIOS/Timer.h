@@ -8,26 +8,29 @@
 
 #import <Foundation/Foundation.h>
 
+// Declare delegate
+@protocol TimerDelegate;
+
+
 @interface Timer : NSObject
 {
-    NSDate *start;
-    NSDate *end;
-    
     BOOL running;
     NSTimeInterval startTime;
-
 }
 
 - (void)startTimer;
 - (void)stopTimer;
-//- (double) timeElapsedInSeconds;
-//- (double) timeElapsedInMilliseconds;
-//- (double) timeElapsedInMinutes;
-
-
 - (NSString *)getCurrentTime;
 
 @property (nonatomic, retain) NSString *nameStr;
 @property (nonatomic, retain) NSString *timeStr;
+@property (nonatomic, weak) id<TimerDelegate> delegate;
+
+@end
+
+// Delegate definition
+@protocol TimerDelegate <NSObject>
+
+- (void)timer:(Timer *)timer didUpdate:(NSString *)value;
 
 @end

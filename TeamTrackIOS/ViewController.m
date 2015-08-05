@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-#import "TableViewCell.h"
 
 @interface ViewController ()
 
@@ -43,16 +42,18 @@
     Timer *myTimer = [self.timers objectAtIndex:indexPath.row];
     Athelete *myAthelete = [self.athelets objectAtIndex:indexPath.row];
     
-    TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIden];
+    TimerViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIden];
+    cell.delegate = self;
     
     if(!cell)
     {
-        [tableView registerNib:[UINib nibWithNibName:@"TableViewCell" bundle:nil ]forCellReuseIdentifier:cellIden];
+        [tableView registerNib:[UINib nibWithNibName:@"TimerViewCell" bundle:nil ]forCellReuseIdentifier:cellIden];
         cell = [tableView dequeueReusableCellWithIdentifier:cellIden];
     }
     
     cell.nameLabel.text = myAthelete.name;
     cell.timeLabel.text = [myTimer getCurrentTime];
+    cell.tag = indexPath.row;
     
     //cell.textLabel.text = [tableData objectAtIndex:indexPath.row];
     
@@ -96,9 +97,24 @@
         [self.athelets addObject:myAthelete];
         
         Timer *myTimer = [[Timer alloc]init];
+        myTimer.delegate = self;
         [self.timers addObject:myTimer];
     }
 
+}
+
+#pragma mark - Timer Delegate
+
+- (void)timer:(Timer *)timer didUpdate:(NSString *)value
+{
+    [self.tableView reloadData];
+}
+
+#pragma mark - Timer Cell Delegate
+
+- (void)timerDidPressStop:(TimerViewCell *)timerCell atIndex:(NSInteger)index
+{
+    [[self.timers objectAtIndex:[[self.tableView indexPathForCell:timerCell] row]] stopTimer];
 }
 
 

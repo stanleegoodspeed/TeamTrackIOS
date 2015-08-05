@@ -18,29 +18,8 @@
     return self;
 }
 
-#pragma mark - Version 1
 
-//- (void) startTimer {
-//    start = [NSDate date];
-//}
-//
-//- (void) stopTimer {
-//    end = [NSDate date];
-//}
-//
-//- (double) timeElapsedInSeconds {
-//    return [end timeIntervalSinceDate:start];
-//}
-//
-//- (double) timeElapsedInMilliseconds {
-//    return [self timeElapsedInSeconds] * 1000.0f;
-//}
-//
-//- (double) timeElapsedInMinutes {
-//    return [self timeElapsedInSeconds] / 60.0f;
-//}
-
-#pragma mark - Version 2
+#pragma mark - Timing Methods
 
 - (void)startTimer
 {
@@ -77,15 +56,30 @@
     self.timeStr = [NSString stringWithFormat:@"%u:%02u.%u",mins,secs,fraction];
     
     [self performSelector:@selector(updateTime) withObject:self afterDelay:0.1];
+    
+    // Send notice to parent to reload table
+    [self updateTimeLabel];
 }
 
 
 #pragma mark - Helpers
 
-// Returns the time str so the label can be updated in the parent class
+// Returns the time string so the label can be updated in the parent class
 - (NSString *)getCurrentTime
 {
     return self.timeStr;
+}
+
+// Tells the parent to call the getCurrentTime() function of the child
+- (void)updateTimeLabel
+{
+    id<TimerDelegate> strongDelegate = self.delegate;
+    
+    // Our delegate method is optional, so we should
+    // check that the delegate implements it
+    if ([strongDelegate respondsToSelector:@selector(timer:didUpdate:)]) {
+        [strongDelegate timer:self didUpdate:@"test"];
+    }
 }
 
 @end
