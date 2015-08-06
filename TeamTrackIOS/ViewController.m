@@ -98,6 +98,7 @@
         
         Timer *myTimer = [[Timer alloc]init];
         myTimer.delegate = self;
+        myTimer.index = i; // used for saving splits later (see saveSplit:)
         [self.timers addObject:myTimer];
     }
 
@@ -110,9 +111,15 @@
     [self.tableView reloadData];
 }
 
-- (void)splitTrigger:(Timer *)timer
+- (void)saveSplit:(Timer *)timer withObject:(Split *)split
 {
-    
+    // Save split object to athelete split array
+    [[[self.atheletes objectAtIndex:timer.index] splits] addObject:split];
+}
+
+- (void)saveFinishTime:(Timer *)timer withFinishTime:(NSTimeInterval)finishTime
+{
+    [[self.atheletes objectAtIndex:timer.index] setFinishTime:finishTime];
 }
 
 #pragma mark - Timer Cell Delegate

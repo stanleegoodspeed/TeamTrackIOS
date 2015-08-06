@@ -7,6 +7,7 @@
 //
 
 #import "Timer.h"
+#import "Split.h"
 
 @implementation Timer
 
@@ -14,6 +15,7 @@
     self = [super init];
     if (self != nil) {
         running = false;
+        splitCounter = 0;
     }
     return self;
 }
@@ -41,10 +43,20 @@
     running = false;
     NSTimeInterval currentTime = [NSDate timeIntervalSinceReferenceDate];
     NSTimeInterval finishTime = currentTime - masterStartTime;
+    
+    id<TimerDelegate> strongDelegate = self.delegate;
+    
+    // Our delegate method is optional, so we should
+    // check that the delegate implements it
+    if ([strongDelegate respondsToSelector:@selector(saveFinishTime:withFinishTime:)]) {
+        [strongDelegate saveFinishTime:self withFinishTime:finishTime];
+    }
 }
 
 - (void)triggerSplit
 {
+    splitCounter++;
+    
     // Reset time label and start time
     startTime = [NSDate timeIntervalSinceReferenceDate];
     self.timeStr = [NSString stringWithFormat:@"%u:%02u.%u",0,0,0];
@@ -53,12 +65,18 @@
     NSTimeInterval currentTime = [NSDate timeIntervalSinceReferenceDate];
     NSTimeInterval elapsed = currentTime - startTime;
     
+    // Create split object
+    Split *mySplit = [[Split alloc]init];
+    mySplit.splitNumber = splitCounter;
+    mySplit.splitTime = elapsed;
+    
+    
     id<TimerDelegate> strongDelegate = self.delegate;
     
     // Our delegate method is optional, so we should
     // check that the delegate implements it
-    if ([strongDelegate respondsToSelector:@selector(saveSplit:)]) {
-        [strongDelegate saveSplit:self];
+    if ([strongDelegate respondsToSelector:@selector(saveSplit:withObject:)]) {
+        [strongDelegate saveSplit:self withObject:mySplit];
     }
 }
 

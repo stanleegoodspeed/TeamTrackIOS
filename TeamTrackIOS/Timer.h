@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Split.h"
 
 // Declare delegate
 @protocol TimerDelegate;
@@ -17,6 +18,7 @@
     BOOL running;
     NSTimeInterval startTime;
     NSTimeInterval masterStartTime;
+    NSInteger splitCounter;
 }
 
 - (void)startTimer;
@@ -27,6 +29,7 @@
 @property (nonatomic, retain) NSString *nameStr;
 @property (nonatomic, retain) NSString *timeStr;
 @property (nonatomic, weak) id<TimerDelegate> delegate;
+@property (nonatomic, assign) NSInteger index;
 
 @end
 
@@ -34,7 +37,8 @@
 @protocol TimerDelegate <NSObject>
 
 - (void)timerDidUpdate:(Timer *)timer;
-- (void)saveSplit:(Timer *)timer;
+- (void)saveSplit:(Timer *)timer withObject:(Split *)split;
+- (void)saveFinishTime:(Timer *)timer withFinishTime:(NSTimeInterval)finishTime;
 
 
 @end

@@ -11,5 +11,6 @@
 @interface Split : NSObject
 
 @property (nonatomic, assign) NSInteger splitNumber;
+@property (nonatomic, assign) NSTimeInterval splitTime;
 
 @end
