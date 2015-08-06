@@ -11,6 +11,7 @@
 		3B1B4CB71B725DE0007B0FAF /* Athelete.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B1B4CB61B725DE0007B0FAF /* Athelete.m */; };
 		3B7E25E91B727605002FDA0A /* TimerViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B7E25E71B727605002FDA0A /* TimerViewCell.m */; };
 		3B7E25EA1B727605002FDA0A /* TimerViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B7E25E81B727605002FDA0A /* TimerViewCell.xib */; };
+		3B7E25ED1B72D2F0002FDA0A /* Split.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B7E25EC1B72D2F0002FDA0A /* Split.m */; };
 		3B8897821B701AE300BEBEA0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8897811B701AE300BEBEA0 /* main.m */; };
 		3B8897851B701AE300BEBEA0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8897841B701AE300BEBEA0 /* AppDelegate.m */; };
 		3B88978D1B701AE300BEBEA0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B88978C1B701AE300BEBEA0 /* Images.xcassets */; };
@@ -37,6 +38,8 @@
 		3B7E25E61B727605002FDA0A /* TimerViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimerViewCell.h; path = ../TimerViewCell.h; sourceTree = "<group>"; };
 		3B7E25E71B727605002FDA0A /* TimerViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimerViewCell.m; path = ../TimerViewCell.m; sourceTree = "<group>"; };
 		3B7E25E81B727605002FDA0A /* TimerViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TimerViewCell.xib; path = ../TimerViewCell.xib; sourceTree = "<group>"; };
+		3B7E25EB1B72D2F0002FDA0A /* Split.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Split.h; sourceTree = "<group>"; };
+		3B7E25EC1B72D2F0002FDA0A /* Split.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Split.m; sourceTree = "<group>"; };
 		3B88977C1B701AE300BEBEA0 /* TeamTrackIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamTrackIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B8897801B701AE300BEBEA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3B8897811B701AE300BEBEA0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -95,6 +98,8 @@
 				3B8897A71B701DDE00BEBEA0 /* ViewController.h */,
 				3B8897A81B701DDE00BEBEA0 /* ViewController.m */,
 				3B8897A91B701DDE00BEBEA0 /* ViewController.xib */,
+				3B7E25EB1B72D2F0002FDA0A /* Split.h */,
+				3B7E25EC1B72D2F0002FDA0A /* Split.m */,
 				3B1B4CB51B725DE0007B0FAF /* Athelete.h */,
 				3B1B4CB61B725DE0007B0FAF /* Athelete.m */,
 				3B1B4CAD1B718076007B0FAF /* Timer.h */,
@@ -236,6 +241,7 @@
 			files = (
 				3B1B4CAF1B718076007B0FAF /* Timer.m in Sources */,
 				3B8897AA1B701DDE00BEBEA0 /* ViewController.m in Sources */,
+				3B7E25ED1B72D2F0002FDA0A /* Split.m in Sources */,
 				3B1B4CB71B725DE0007B0FAF /* Athelete.m in Sources */,
 				3B7E25E91B727605002FDA0A /* TimerViewCell.m in Sources */,
 				3B8897851B701AE300BEBEA0 /* AppDelegate.m in Sources */,

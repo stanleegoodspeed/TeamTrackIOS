@@ -16,10 +16,12 @@
 {
     BOOL running;
     NSTimeInterval startTime;
+    NSTimeInterval masterStartTime;
 }
 
 - (void)startTimer;
 - (void)stopTimer;
+- (void)triggerSplit;
 - (NSString *)getCurrentTime;
 
 @property (nonatomic, retain) NSString *nameStr;
@@ -31,6 +33,8 @@
 // Delegate definition
 @protocol TimerDelegate <NSObject>
 
-- (void)timer:(Timer *)timer didUpdate:(NSString *)value;
+- (void)timerDidUpdate:(Timer *)timer;
+- (void)saveSplit:(Timer *)timer;
+
 
 @end

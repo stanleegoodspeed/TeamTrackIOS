@@ -27,6 +27,7 @@
     {
         running = true;
         startTime = [NSDate timeIntervalSinceReferenceDate];
+        masterStartTime = [NSDate timeIntervalSinceReferenceDate];
         [self updateTime];
     }
     else
@@ -38,6 +39,27 @@
 - (void)stopTimer
 {
     running = false;
+    NSTimeInterval currentTime = [NSDate timeIntervalSinceReferenceDate];
+    NSTimeInterval finishTime = currentTime - masterStartTime;
+}
+
+- (void)triggerSplit
+{
+    // Reset time label and start time
+    startTime = [NSDate timeIntervalSinceReferenceDate];
+    self.timeStr = [NSString stringWithFormat:@"%u:%02u.%u",0,0,0];
+    
+    // Get the split and send to parent for storage/push
+    NSTimeInterval currentTime = [NSDate timeIntervalSinceReferenceDate];
+    NSTimeInterval elapsed = currentTime - startTime;
+    
+    id<TimerDelegate> strongDelegate = self.delegate;
+    
+    // Our delegate method is optional, so we should
+    // check that the delegate implements it
+    if ([strongDelegate respondsToSelector:@selector(saveSplit:)]) {
+        [strongDelegate saveSplit:self];
+    }
 }
 
 - (void)updateTime
@@ -77,8 +99,8 @@
     
     // Our delegate method is optional, so we should
     // check that the delegate implements it
-    if ([strongDelegate respondsToSelector:@selector(timer:didUpdate:)]) {
-        [strongDelegate timer:self didUpdate:@"test"];
+    if ([strongDelegate respondsToSelector:@selector(timerDidUpdate:)]) {
+        [strongDelegate timerDidUpdate:self];
     }
 }
 

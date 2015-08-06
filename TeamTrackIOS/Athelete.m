@@ -13,7 +13,7 @@
 - (id) init {
     self = [super init];
     if (self != nil) {
-
+        self.splits = [[NSMutableArray alloc]init];
     }
     return self;
 }

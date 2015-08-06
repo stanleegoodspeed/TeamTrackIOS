@@ -40,7 +40,7 @@
 {
     static NSString *cellIden = @"myCell";
     Timer *myTimer = [self.timers objectAtIndex:indexPath.row];
-    Athelete *myAthelete = [self.athelets objectAtIndex:indexPath.row];
+    Athelete *myAthelete = [self.atheletes objectAtIndex:indexPath.row];
     
     TimerViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIden];
     cell.delegate = self;
@@ -86,7 +86,7 @@
 - (void)test_populateArray
 {
     NSString *nameStr = @"Colin ";
-    self.athelets = [[NSMutableArray alloc]init];
+    self.atheletes = [[NSMutableArray alloc]init];
     self.timers = [[NSMutableArray alloc]init];
     
     // Create 5 rows with Athelete and Timer
@@ -94,7 +94,7 @@
         
         Athelete *myAthelete = [[Athelete alloc]init];
         myAthelete.name =  [nameStr stringByAppendingString:[NSString stringWithFormat:@"%i", i]];
-        [self.athelets addObject:myAthelete];
+        [self.atheletes addObject:myAthelete];
         
         Timer *myTimer = [[Timer alloc]init];
         myTimer.delegate = self;
@@ -105,16 +105,26 @@
 
 #pragma mark - Timer Delegate
 
-- (void)timer:(Timer *)timer didUpdate:(NSString *)value
+- (void)timerDidUpdate:(Timer *)timer
 {
     [self.tableView reloadData];
 }
 
+- (void)splitTrigger:(Timer *)timer
+{
+    
+}
+
 #pragma mark - Timer Cell Delegate
 
-- (void)timerDidPressStop:(TimerViewCell *)timerCell atIndex:(NSInteger)index
+- (void)timerDidPressStop:(TimerViewCell *)timerCell
 {
     [[self.timers objectAtIndex:[[self.tableView indexPathForCell:timerCell] row]] stopTimer];
+}
+
+- (void)timerDidPressSplit:(TimerViewCell *)timerCell
+{
+    [[self.timers objectAtIndex:[[self.tableView indexPathForCell:timerCell] row]] triggerSplit];
 }
 
 

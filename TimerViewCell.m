@@ -24,22 +24,25 @@
 
 - (IBAction)stopButtonPressed:(id)sender
 {
-    UITableViewCell *clickedCell = (UITableViewCell *)[[sender superview] superview];
-    //NSIndexPath *clickedButtonPath = [self.tableView indexPathForCell:clickedCell];
-    
-
     id<TimerCellDelegate> strongDelegate = self.delegate;
     
     // Our delegate method is optional, so we should
     // check that the delegate implements it
-    if ([strongDelegate respondsToSelector:@selector(timerDidPressStop:atIndex:)]) {
-        [strongDelegate timerDidPressStop:self atIndex:1];
+    if ([strongDelegate respondsToSelector:@selector(timerDidPressStop:)]) {
+        [strongDelegate timerDidPressStop:self];
     }
 }
 
-- (IBAction)lapButtonPressed:(id)sender
+- (IBAction)splitButtonPressed:(id)sender
 {
+    id<TimerCellDelegate> strongDelegate = self.delegate;
     
+    // Our delegate method is optional, so we should
+    // check that the delegate implements it
+    if ([strongDelegate respondsToSelector:@selector(timerDidPressSplit:)]) {
+        [strongDelegate timerDidPressSplit:self];
+    }
+
 }
 
 @end

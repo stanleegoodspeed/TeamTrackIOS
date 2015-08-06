@@ -20,7 +20,7 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, retain) IBOutlet UIButton *startButton;
-@property (nonatomic, retain) NSMutableArray *athelets;
+@property (nonatomic, retain) NSMutableArray *atheletes;
 @property (nonatomic, retain) NSMutableArray *timers;
 
 - (IBAction)startButtonPressed:(id)sender;

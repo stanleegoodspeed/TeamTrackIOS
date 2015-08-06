@@ -36,18 +36,18 @@
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhX-lP-aIJ">
                         <rect key="frame" x="234" y="7" width="46" height="30"/>
-                        <state key="normal" title="Lap">
+                        <state key="normal" title="Split">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                         <connections>
-                            <action selector="lapButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="0b7-w2-Icg"/>
+                            <action selector="splitButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="T7R-hb-iZk"/>
                         </connections>
                     </button>
                 </subviews>
             </tableViewCellContentView>
             <connections>
-                <outlet property="lapButton" destination="yhX-lP-aIJ" id="q9W-60-CCH"/>
                 <outlet property="nameLabel" destination="zp9-N2-ytH" id="36C-Pp-wgW"/>
+                <outlet property="splitButton" destination="yhX-lP-aIJ" id="WBa-UF-FXG"/>
                 <outlet property="stopButton" destination="Sng-mr-hea" id="d9W-sh-aBu"/>
                 <outlet property="timeLabel" destination="GEk-6s-jZt" id="wI8-Nm-Y42"/>
             </connections>

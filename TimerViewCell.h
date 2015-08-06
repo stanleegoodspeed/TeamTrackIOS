@@ -17,19 +17,20 @@
 
 @property (nonatomic, retain) IBOutlet UILabel *nameLabel;
 @property (nonatomic, retain) IBOutlet UILabel *timeLabel;
-@property (nonatomic, retain) IBOutlet UIButton *lapButton;
+@property (nonatomic, retain) IBOutlet UIButton *splitButton;
 @property (nonatomic, retain) IBOutlet UIButton *stopButton;
 @property (nonatomic, weak) id<TimerCellDelegate> delegate;
 
 
 - (IBAction)stopButtonPressed:(id)sender;
-- (IBAction)lapButtonPressed:(id)sender;
+- (IBAction)splitButtonPressed:(id)sender;
 
 @end
 
 // Delegate definition
 @protocol TimerCellDelegate <NSObject>
 
-- (void)timerDidPressStop:(TimerViewCell *)timerCell atIndex:(NSInteger)index;
+- (void)timerDidPressStop:(TimerViewCell *)timerCell;
+- (void)timerDidPressSplit:(TimerViewCell *)timerCell;
 
 @end
