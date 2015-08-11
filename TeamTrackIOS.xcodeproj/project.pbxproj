@@ -18,6 +18,10 @@
 		3B88979C1B701AE400BEBEA0 /* TeamTrackIOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B88979B1B701AE400BEBEA0 /* TeamTrackIOSTests.m */; };
 		3B8897AA1B701DDE00BEBEA0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8897A81B701DDE00BEBEA0 /* ViewController.m */; };
 		3B8897AB1B701DDE00BEBEA0 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B8897A91B701DDE00BEBEA0 /* ViewController.xib */; };
+		3BE2F0EA1B7A76D700E770F1 /* AthleteSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2F0E81B7A76D700E770F1 /* AthleteSelectViewController.m */; };
+		3BE2F0EB1B7A76D700E770F1 /* AthleteSelectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BE2F0E91B7A76D700E770F1 /* AthleteSelectViewController.xib */; };
+		3BE2F0EF1B7A78B100E770F1 /* AthleteSelectViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2F0ED1B7A78B100E770F1 /* AthleteSelectViewCell.m */; };
+		3BE2F0F01B7A78B100E770F1 /* AthleteSelectViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BE2F0EE1B7A78B100E770F1 /* AthleteSelectViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +56,12 @@
 		3B8897A71B701DDE00BEBEA0 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		3B8897A81B701DDE00BEBEA0 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		3B8897A91B701DDE00BEBEA0 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		3BE2F0E71B7A76D700E770F1 /* AthleteSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AthleteSelectViewController.h; sourceTree = "<group>"; };
+		3BE2F0E81B7A76D700E770F1 /* AthleteSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AthleteSelectViewController.m; sourceTree = "<group>"; };
+		3BE2F0E91B7A76D700E770F1 /* AthleteSelectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AthleteSelectViewController.xib; sourceTree = "<group>"; };
+		3BE2F0EC1B7A78B100E770F1 /* AthleteSelectViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AthleteSelectViewCell.h; sourceTree = "<group>"; };
+		3BE2F0ED1B7A78B100E770F1 /* AthleteSelectViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AthleteSelectViewCell.m; sourceTree = "<group>"; };
+		3BE2F0EE1B7A78B100E770F1 /* AthleteSelectViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AthleteSelectViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +105,9 @@
 			children = (
 				3B8897831B701AE300BEBEA0 /* AppDelegate.h */,
 				3B8897841B701AE300BEBEA0 /* AppDelegate.m */,
+				3BE2F0E71B7A76D700E770F1 /* AthleteSelectViewController.h */,
+				3BE2F0E81B7A76D700E770F1 /* AthleteSelectViewController.m */,
+				3BE2F0E91B7A76D700E770F1 /* AthleteSelectViewController.xib */,
 				3B8897A71B701DDE00BEBEA0 /* ViewController.h */,
 				3B8897A81B701DDE00BEBEA0 /* ViewController.m */,
 				3B8897A91B701DDE00BEBEA0 /* ViewController.xib */,
@@ -107,6 +120,9 @@
 				3B7E25E61B727605002FDA0A /* TimerViewCell.h */,
 				3B7E25E71B727605002FDA0A /* TimerViewCell.m */,
 				3B7E25E81B727605002FDA0A /* TimerViewCell.xib */,
+				3BE2F0EC1B7A78B100E770F1 /* AthleteSelectViewCell.h */,
+				3BE2F0ED1B7A78B100E770F1 /* AthleteSelectViewCell.m */,
+				3BE2F0EE1B7A78B100E770F1 /* AthleteSelectViewCell.xib */,
 				3B88978C1B701AE300BEBEA0 /* Images.xcassets */,
 				3B88977F1B701AE300BEBEA0 /* Supporting Files */,
 			);
@@ -221,6 +237,8 @@
 			files = (
 				3B8897AB1B701DDE00BEBEA0 /* ViewController.xib in Resources */,
 				3B7E25EA1B727605002FDA0A /* TimerViewCell.xib in Resources */,
+				3BE2F0EB1B7A76D700E770F1 /* AthleteSelectViewController.xib in Resources */,
+				3BE2F0F01B7A78B100E770F1 /* AthleteSelectViewCell.xib in Resources */,
 				3B88978D1B701AE300BEBEA0 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -243,8 +261,10 @@
 				3B8897AA1B701DDE00BEBEA0 /* ViewController.m in Sources */,
 				3B7E25ED1B72D2F0002FDA0A /* Split.m in Sources */,
 				3B1B4CB71B725DE0007B0FAF /* Athelete.m in Sources */,
+				3BE2F0EF1B7A78B100E770F1 /* AthleteSelectViewCell.m in Sources */,
 				3B7E25E91B727605002FDA0A /* TimerViewCell.m in Sources */,
 				3B8897851B701AE300BEBEA0 /* AppDelegate.m in Sources */,
+				3BE2F0EA1B7A76D700E770F1 /* AthleteSelectViewController.m in Sources */,
 				3B8897821B701AE300BEBEA0 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

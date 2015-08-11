@@ -14,7 +14,20 @@
 
 @implementation ViewController
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        UINavigationItem *n = [self navigationItem];
+        [n setTitle:@"Time Athletes"];
+    }
+    
+    return self;
+}
+
 - (void)viewDidLoad {
+    
+    // Initialization
     
     // Test
     [self test_populateArray];
@@ -76,7 +89,7 @@
 
 - (IBAction)updateButtonPressed:(id)sender
 {
-    [self.tableView reloadData];
+    NSString *testStr = @"test";
 }
 
 
@@ -133,6 +146,8 @@
 {
     [[self.timers objectAtIndex:[[self.tableView indexPathForCell:timerCell] row]] triggerSplit];
 }
+
+
 
 
 /*
