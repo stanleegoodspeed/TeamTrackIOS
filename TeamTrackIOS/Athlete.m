@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 Colin Cole. All rights reserved.
 //
 
-#import "Athelete.h"
+#import "Athlete.h"
 
-@implementation Athelete
+@implementation Athlete
 
 - (id) init {
     self = [super init];

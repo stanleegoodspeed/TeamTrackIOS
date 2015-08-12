@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Athelete : NSObject
+@interface Athlete : NSObject
 
 
 @property (nonatomic, retain) NSString *name;

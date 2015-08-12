@@ -18,8 +18,18 @@
 {
     self = [super init];
     if (self) {
-        UINavigationItem *n = [self navigationItem];
-        [n setTitle:@"Time Athletes"];
+        [[self navigationItem]setTitle:@"Stopwatch"];
+    }
+    
+    return self;
+}
+
+- (id)initWithSelectedAthletes:(NSArray *)selectedAthletes
+{
+    self = [super init];
+    if (self) {
+        self.atheletes = [[NSArray alloc]initWithArray:selectedAthletes];
+        [[self navigationItem]setTitle:@"Stopwatch"];
     }
     
     return self;
@@ -53,7 +63,7 @@
 {
     static NSString *cellIden = @"myCell";
     Timer *myTimer = [self.timers objectAtIndex:indexPath.row];
-    Athelete *myAthelete = [self.atheletes objectAtIndex:indexPath.row];
+    Athlete *myAthelete = [self.atheletes objectAtIndex:indexPath.row];
     
     TimerViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIden];
     cell.delegate = self;
@@ -98,16 +108,16 @@
 
 - (void)test_populateArray
 {
-    NSString *nameStr = @"Colin ";
-    self.atheletes = [[NSMutableArray alloc]init];
+    //NSString *nameStr = @"Colin ";
+    //self.atheletes = [[NSMutableArray alloc]init];
     self.timers = [[NSMutableArray alloc]init];
     
     // Create 5 rows with Athelete and Timer
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < self.atheletes.count; i++) {
         
-        Athelete *myAthelete = [[Athelete alloc]init];
-        myAthelete.name =  [nameStr stringByAppendingString:[NSString stringWithFormat:@"%i", i]];
-        [self.atheletes addObject:myAthelete];
+        //Athlete *myAthelete = [[Athlete alloc]init];
+        //myAthelete.name =  [nameStr stringByAppendingString:[NSString stringWithFormat:@"%i", i]];
+        //[self.atheletes addObject:myAthelete];
         
         Timer *myTimer = [[Timer alloc]init];
         myTimer.delegate = self;
@@ -115,6 +125,10 @@
         [self.timers addObject:myTimer];
     }
 
+}
+
+-(void)goBack {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - Timer Delegate

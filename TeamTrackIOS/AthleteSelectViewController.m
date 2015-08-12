@@ -14,11 +14,26 @@
 
 @implementation AthleteSelectViewController
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        // Navbar setup
+        [[self navigationItem]setTitle:@"Select Athletes"];
+        self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+        
+        // Init
+        self.selectedAthletes = [[NSMutableArray alloc]init];
+    }
+    
+    return self;
+}
+
 - (void)viewDidLoad {
     
     // Test
     [self test_populateArray];
-    
+        
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
@@ -27,6 +42,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - UITableSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -40,7 +57,7 @@
 {
     static NSString *cellIden = @"myCell";
     AthleteSelectViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIden];
-    Athelete *myAthelete = [self.allAthletes objectAtIndex:indexPath.row];
+    Athlete *myAthelete = [self.allAthletes objectAtIndex:indexPath.row];
     
     if(!cell)
     {
@@ -54,11 +71,19 @@
 
 }
 
+#pragma mark - UITableDelegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Add selection to array
+    [self.selectedAthletes addObject:[self.allAthletes objectAtIndex:indexPath.row]];
+}
+
 #pragma mark - IBAction
 
 - (IBAction)nextBtnPressed:(id)sender
 {
-    ViewController *timerViewController = [[ViewController alloc] init];
+    ViewController *timerViewController = [[ViewController alloc] initWithSelectedAthletes:self.selectedAthletes];
     [[self navigationController] pushViewController:timerViewController animated:YES];
 }
 
@@ -74,7 +99,7 @@
     // Create 5 rows with Athelete and Timer
     for (int i = 0; i < 5; i++) {
         
-        Athelete *myAthelete = [[Athelete alloc]init];
+        Athlete *myAthelete = [[Athlete alloc]init];
         myAthelete.name =  [nameStr stringByAppendingString:[NSString stringWithFormat:@"%i", i]];
         [self.allAthletes addObject:myAthelete];
     }

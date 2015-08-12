@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Timer.h"
-#import "Athelete.h"
+#import "Athlete.h"
 #import "TimerViewCell.h"
 
 
@@ -20,11 +20,13 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, retain) IBOutlet UIButton *startButton;
-@property (nonatomic, retain) NSMutableArray *atheletes;
+@property (nonatomic, retain) NSArray *atheletes;
 @property (nonatomic, retain) NSMutableArray *timers;
 
 - (IBAction)startButtonPressed:(id)sender;
 - (IBAction)updateButtonPressed:(id)sender;
+
+- (id)initWithSelectedAthletes:(NSArray *)selectedAthletes;
 
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Athelete.h"
+#import "Athlete.h"
 #import "AthleteSelectViewCell.h"
 #import "ViewController.h"
 
