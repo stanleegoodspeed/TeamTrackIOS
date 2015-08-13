@@ -74,7 +74,7 @@
         cell = [tableView dequeueReusableCellWithIdentifier:cellIden];
     }
     
-    cell.nameLabel.text = myAthelete.name;
+    cell.nameLabel.text = myAthelete.firstName;
     cell.timeLabel.text = [myTimer getCurrentTime];
     cell.tag = indexPath.row;
     

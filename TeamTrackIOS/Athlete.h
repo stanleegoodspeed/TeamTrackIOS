@@ -11,9 +11,9 @@
 @interface Athlete : NSObject
 
 
-@property (nonatomic, retain) NSString *name;
+@property (nonatomic, retain) NSString *firstName;
 @property (nonatomic, retain) NSString *lastName;
-@property (nonatomic, assign) NSInteger runInRaceID;
+@property (nonatomic, assign) NSString *runInRaceID;
 @property (nonatomic, retain) NSMutableArray *splits;
 @property (nonatomic, assign) NSTimeInterval finishTime;
 

@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AthleteSelectViewController">
             <connections>
+                <outlet property="fetchButton" destination="abk-hq-gX7" id="RRV-p7-cEg"/>
                 <outlet property="nextBtn" destination="iEV-80-sFk" id="f9w-Xn-heP"/>
                 <outlet property="tableView" destination="PCC-Q5-Mt8" id="c5e-la-XGY"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -31,7 +32,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iEV-80-sFk">
-                    <rect key="frame" x="156" y="587" width="62" height="39"/>
+                    <rect key="frame" x="156" y="576" width="62" height="39"/>
                     <state key="normal" title="Next">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -39,10 +40,19 @@
                         <action selector="nextBtnPressed:" destination="-1" eventType="touchUpInside" id="MG2-VH-dCM"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="abk-hq-gX7">
+                    <rect key="frame" x="164" y="613" width="39" height="30"/>
+                    <state key="normal" title="Fetch">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="fetchData:" destination="-1" eventType="touchUpInside" id="Mmb-ab-whn"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-            <point key="canvasLocation" x="598.5" y="486.5"/>
+            <point key="canvasLocation" x="241.5" y="348.5"/>
         </view>
     </objects>
 </document>

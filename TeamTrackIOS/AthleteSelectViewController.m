@@ -32,7 +32,8 @@
 - (void)viewDidLoad {
     
     // Test
-    [self test_populateArray];
+    //[self test_populateArray];
+    [self fetchData:nil];
         
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -65,7 +66,7 @@
         cell = [tableView dequeueReusableCellWithIdentifier:cellIden];
     }
     
-    cell.nameLabel.text = myAthelete.name;
+    cell.nameLabel.text = myAthelete.firstName;
     
     return cell;
 
@@ -87,6 +88,39 @@
     [[self navigationController] pushViewController:timerViewController animated:YES];
 }
 
+- (IBAction)fetchData:(id)sender
+{
+    jsonData = [[NSMutableData alloc]init];
+    
+    NSURL *url = [NSURL URLWithString:@"http://himrod.home/~Colin/TeamTrack/api/index.php/getrunners"];
+    
+    NSURLRequest *req = [NSURLRequest requestWithURL:url];
+    connection = [[NSURLConnection alloc]initWithRequest:req delegate:self startImmediately:YES];
+}
+
+#pragma mark - NSURLConnection Delegate
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    self.allAthletes = [[NSMutableArray alloc]init];
+    NSError *error = nil;
+    NSArray *athleteArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+    
+    for (int i = 0; i < athleteArray.count; i++) {
+        Athlete *myAthlete = [[Athlete alloc]init];
+        myAthlete.firstName = [athleteArray[i] valueForKey:@"firstName"];
+        myAthlete.lastName = [athleteArray[i] valueForKey:@"lastName"];
+        myAthlete.runInRaceID = [athleteArray[i] valueForKey:@"runnerID"];
+        [self.allAthletes addObject:myAthlete];
+    }
+    
+    [self.tableView reloadData];
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    NSLog(@"error: %@",[error localizedDescription]);
+}
 
 #pragma mark - Helpers
 
@@ -100,7 +134,7 @@
     for (int i = 0; i < 5; i++) {
         
         Athlete *myAthelete = [[Athlete alloc]init];
-        myAthelete.name =  [nameStr stringByAppendingString:[NSString stringWithFormat:@"%i", i]];
+        //myAthelete.name =  [nameStr stringByAppendingString:[NSString stringWithFormat:@"%i", i]];
         [self.allAthletes addObject:myAthelete];
     }
     
