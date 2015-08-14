@@ -10,14 +10,17 @@
 #import "Athlete.h"
 #import "AthleteSelectViewCell.h"
 #import "ViewController.h"
+#import "PostToServer.h"
 
-@interface AthleteSelectViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, NSURLConnectionDelegate>
+@interface AthleteSelectViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, NSURLConnectionDelegate, PostToServerDelegate>
 {
-    __weak IBOutlet UIButton *nextBtn;
-    __weak IBOutlet UIButton *fetchButton;
+    __weak IBOutlet UIButton *nextButton;
     
     NSMutableData *jsonData;
     NSURLConnection *connection;
+    NSNumber *raceID;
+    
+    int counter;
 }
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -25,6 +28,7 @@
 @property (nonatomic, retain) NSMutableArray *selectedAthletes;
 
 - (IBAction)nextBtnPressed:(id)sender;
-- (IBAction)fetchData:(id)sender;
+
+- (id)initWithRaceID:(NSNumber *)raceID;
 
 @end

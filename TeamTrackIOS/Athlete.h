@@ -15,6 +15,7 @@
 
 @property (nonatomic, retain) NSString *firstName;
 @property (nonatomic, retain) NSString *lastName;
+@property (nonatomic, retain) NSNumber *runnerID;
 @property (nonatomic, retain) NSNumber *runInRaceID;
 @property (nonatomic, retain) NSMutableArray *splits;
 @property (nonatomic, retain) NSNumber *finishTime;

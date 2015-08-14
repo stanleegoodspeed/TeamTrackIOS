@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "ViewController.h"
 #import "AthleteSelectViewController.h"
+#import "CreateWorkoutViewController.h"
 
 @interface AppDelegate ()
 
@@ -21,11 +22,9 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
-    AthleteSelectViewController *athleteSelectViewController = [[AthleteSelectViewController alloc]init];
-    UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:athleteSelectViewController];
-    //self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
-    //navController.navigationBarHidden = TRUE;
-    //self.window.rootViewController = self.viewController;
+    //AthleteSelectViewController *athleteSelectViewController = [[AthleteSelectViewController alloc]init];
+    CreateWorkoutViewController *workoutViewController = [[CreateWorkoutViewController alloc]init];
+    UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:workoutViewController];
     
     [[self window] setRootViewController:navController];
     

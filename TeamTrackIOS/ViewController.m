@@ -101,6 +101,7 @@
     NSMutableDictionary *projectDictionary = [NSMutableDictionary dictionaryWithCapacity:1];
     [projectDictionary setObject:myAthlete.runInRaceID forKey:@"runInRaceID"];
     [projectDictionary setObject:myAthlete.finishTime forKey:@"finishTime"];
+
     
     NSError *jsonSerializationError = nil;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:projectDictionary options:NSJSONWritingPrettyPrinted error:&jsonSerializationError];
@@ -158,7 +159,7 @@
 }
 
 - (void)goBack {
-    [self.navigationController popViewControllerAnimated:YES];
+    //[self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - Timer Delegate

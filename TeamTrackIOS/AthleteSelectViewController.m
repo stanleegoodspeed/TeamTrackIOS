@@ -14,7 +14,7 @@
 
 @implementation AthleteSelectViewController
 
-- (id)init
+- (id)initWithRaceID:(NSNumber *)race_ID
 {
     self = [super init];
     if (self) {
@@ -24,6 +24,8 @@
         
         // Init
         self.selectedAthletes = [[NSMutableArray alloc]init];
+        raceID = race_ID;
+        counter = 0;
     }
     
     return self;
@@ -31,9 +33,8 @@
 
 - (void)viewDidLoad {
     
-    // Test
-    //[self test_populateArray];
-    [self fetchData:nil];
+    // Fetch runner list
+    [self fetchData];
         
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -84,17 +85,40 @@
 
 - (IBAction)nextBtnPressed:(id)sender
 {
-    ViewController *timerViewController = [[ViewController alloc] initWithSelectedAthletes:self.selectedAthletes];
-    [[self navigationController] pushViewController:timerViewController animated:YES];
+    NSURL *url = [NSURL URLWithString:@"http://himrod.home/~Colin/TeamTrack/api/index.php/postrunnerinrace"];
+    NSMutableDictionary *dataDictionary = [NSMutableDictionary dictionaryWithCapacity:1];
+    
+    for (Athlete *myAthlete in self.selectedAthletes) {
+        
+        [dataDictionary setObject:raceID forKey:@"fkRaceID"];
+        [dataDictionary setObject:myAthlete.runnerID forKey:@"fkRunnerID"];
+        
+        PostToServer *postToServer = [[PostToServer alloc]init];
+        postToServer.delegate = self;
+        [postToServer postDataToServer:dataDictionary withURL:url];
+    }
 }
 
-- (IBAction)fetchData:(id)sender
+#pragma mark - PostToServer Delegate
+
+- (void)didCompletePost:(BOOL)status withData:(NSString *)data
 {
-    jsonData = [[NSMutableData alloc]init];
-    NSURL *url = [NSURL URLWithString:@"http://himrod.home/~Colin/TeamTrack/api/index.php/getrunners"];
+    counter++;
+    // Receive and set new data
+    //NSInteger tmp = [data integerValue];
+    //raceID = [NSNumber numberWithInteger:tmp];
     
-    NSURLRequest *req = [NSURLRequest requestWithURL:url];
-    connection = [[NSURLConnection alloc]initWithRequest:req delegate:self startImmediately:YES];
+//    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"UUID == 18"];
+//    NSArray *filteredArray = [myArray filteredArrayUsingPredicate:predicate];
+//    id firstFoundObject = filteredArray.firstObject;
+//    NSLog(@"Result: %@", firstFoundObject);
+    
+    if(counter == self.selectedAthletes.count)
+    {
+        // Push View Controller
+        ViewController *timerViewController = [[ViewController alloc] initWithSelectedAthletes:self.selectedAthletes];
+        [[self navigationController] pushViewController:timerViewController animated:YES];
+    }
 }
 
 #pragma mark - NSURLConnection Delegate
@@ -114,8 +138,7 @@
         Athlete *myAthlete = [[Athlete alloc]init];
         myAthlete.firstName = [athleteArray[i] valueForKey:@"firstName"];
         myAthlete.lastName = [athleteArray[i] valueForKey:@"lastName"];
-        //myAthlete.runInRaceID = [athleteArray[i] valueForKey:@"runnerID"];
-        myAthlete.runInRaceID = [NSNumber numberWithInt:3]; // NEEDS TO BE CHANGED!!!!! 8/13/15
+        myAthlete.runnerID = [athleteArray[i] valueForKey:@"runnerID"];
         [self.allAthletes addObject:myAthlete];
     }
     
@@ -129,6 +152,14 @@
 
 #pragma mark - Helpers
 
+- (void)fetchData
+{
+    jsonData = [[NSMutableData alloc]init];
+    NSURL *url = [NSURL URLWithString:@"http://himrod.home/~Colin/TeamTrack/api/index.php/getrunners"];
+    
+    NSURLRequest *req = [NSURLRequest requestWithURL:url];
+    connection = [[NSURLConnection alloc]initWithRequest:req delegate:self startImmediately:YES];
+}
 
 - (void)test_populateArray
 {

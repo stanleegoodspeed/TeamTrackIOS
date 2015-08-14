@@ -24,6 +24,7 @@
         self.firstName = [aDecoder decodeObjectForKey:@"firstName"];
         self.lastName = [aDecoder decodeObjectForKey:@"lastName"];
         self.runInRaceID = [aDecoder decodeObjectForKey:@"runInRaceID"];
+        self.runnerID = [aDecoder decodeObjectForKey:@"runnerID"];
         self.finishTime = [aDecoder decodeObjectForKey:@"finishTime"];
         
     }
@@ -35,6 +36,7 @@
     [aCoder encodeObject:self.firstName forKey:@"firstName"];
     [aCoder encodeObject:self.lastName forKey:@"lastName"];
     [aCoder encodeObject:self.runInRaceID forKey:@"runInRaceID"];
+    [aCoder encodeObject:self.runnerID forKey:@"runnerID"];
     [aCoder encodeObject:self.finishTime forKey:@"finishTime"];
     //[aCoder encodeObject:self.lastName forKey:@"lastName"];
 }
