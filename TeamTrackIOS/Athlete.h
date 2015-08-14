@@ -8,14 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Athlete : NSObject
-
+@interface Athlete : NSObject <NSCoding>
+{
+    
+}
 
 @property (nonatomic, retain) NSString *firstName;
 @property (nonatomic, retain) NSString *lastName;
-@property (nonatomic, assign) NSString *runInRaceID;
+@property (nonatomic, retain) NSNumber *runInRaceID;
 @property (nonatomic, retain) NSMutableArray *splits;
-@property (nonatomic, assign) NSTimeInterval finishTime;
+@property (nonatomic, retain) NSNumber *finishTime;
 
 
 @end

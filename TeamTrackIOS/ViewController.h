@@ -12,9 +12,11 @@
 #import "TimerViewCell.h"
 
 
-@interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, TimerDelegate, TimerCellDelegate>
+@interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, TimerDelegate, TimerCellDelegate, NSURLConnectionDelegate>
 {
     
+    __weak IBOutlet UIButton *saveButton;
+    NSURLConnection *connection;
 }
 
 
@@ -24,7 +26,8 @@
 @property (nonatomic, retain) NSMutableArray *timers;
 
 - (IBAction)startButtonPressed:(id)sender;
-- (IBAction)updateButtonPressed:(id)sender;
+- (IBAction)saveButtonPressed:(id)sender;
+
 
 - (id)initWithSelectedAthletes:(NSArray *)selectedAthletes;
 

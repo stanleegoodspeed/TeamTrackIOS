@@ -37,10 +37,8 @@
 
 - (void)viewDidLoad {
     
-    // Initialization
-    
-    // Test
-    [self test_populateArray];
+    // Create Timer objects for selected athletes
+    [self createTimers];
     
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -97,27 +95,59 @@
     [self.tableView reloadData];
 }
 
-- (IBAction)updateButtonPressed:(id)sender
+- (IBAction)saveButtonPressed:(id)sender
 {
-    NSString *testStr = @"test";
+    Athlete *myAthlete = [self.atheletes objectAtIndex:0];
+    NSMutableDictionary *projectDictionary = [NSMutableDictionary dictionaryWithCapacity:1];
+    [projectDictionary setObject:myAthlete.runInRaceID forKey:@"runInRaceID"];
+    [projectDictionary setObject:myAthlete.finishTime forKey:@"finishTime"];
+    
+    NSError *jsonSerializationError = nil;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:projectDictionary options:NSJSONWritingPrettyPrinted error:&jsonSerializationError];
+    
+    if(!jsonSerializationError) {
+        NSString *serJSON = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        NSLog(@"Serialized JSON: %@", serJSON);
+    } else {
+        NSLog(@"JSON Encoding Failed: %@", [jsonSerializationError localizedDescription]);
+    }
+    
+    NSURL *url = [NSURL URLWithString:@"http://himrod.home/~Colin/TeamTrack/api/index.php/postrunnertime"];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:90];
+    [request setHTTPMethod:@"POST"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [request setHTTPBody: jsonData];
+    
+    connection = [[NSURLConnection alloc]initWithRequest:request delegate:self startImmediately:YES];
 }
 
+#pragma mark - NSURLConnection Delegate
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    NSString *dataStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    NSLog(@"data str: %@",dataStr);
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection;
+{
+    NSLog(@"finished!");
+}
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    NSLog(@"error: %@",[error localizedDescription]);
+}
 
 #pragma mark - Helpers
 
-
-- (void)test_populateArray
+- (void)createTimers
 {
-    //NSString *nameStr = @"Colin ";
-    //self.atheletes = [[NSMutableArray alloc]init];
     self.timers = [[NSMutableArray alloc]init];
     
     // Create 5 rows with Athelete and Timer
     for (int i = 0; i < self.atheletes.count; i++) {
-        
-        //Athlete *myAthelete = [[Athlete alloc]init];
-        //myAthelete.name =  [nameStr stringByAppendingString:[NSString stringWithFormat:@"%i", i]];
-        //[self.atheletes addObject:myAthelete];
         
         Timer *myTimer = [[Timer alloc]init];
         myTimer.delegate = self;
@@ -127,7 +157,7 @@
 
 }
 
--(void)goBack {
+- (void)goBack {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -146,7 +176,8 @@
 
 - (void)saveFinishTime:(Timer *)timer withFinishTime:(NSTimeInterval)finishTime
 {
-    [[self.atheletes objectAtIndex:timer.index] setFinishTime:finishTime];
+    NSNumber *tmpNumber = [[NSNumber alloc]initWithDouble:finishTime];
+    [[self.atheletes objectAtIndex:timer.index] setFinishTime:tmpNumber];
 }
 
 #pragma mark - Timer Cell Delegate
@@ -162,16 +193,5 @@
 }
 
 
-
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

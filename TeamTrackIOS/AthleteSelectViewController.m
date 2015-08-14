@@ -91,7 +91,6 @@
 - (IBAction)fetchData:(id)sender
 {
     jsonData = [[NSMutableData alloc]init];
-    
     NSURL *url = [NSURL URLWithString:@"http://himrod.home/~Colin/TeamTrack/api/index.php/getrunners"];
     
     NSURLRequest *req = [NSURLRequest requestWithURL:url];
@@ -102,15 +101,21 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
+    [jsonData appendData:data];
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection;
+{
     self.allAthletes = [[NSMutableArray alloc]init];
     NSError *error = nil;
-    NSArray *athleteArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+    NSArray *athleteArray = [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:&error];
     
     for (int i = 0; i < athleteArray.count; i++) {
         Athlete *myAthlete = [[Athlete alloc]init];
         myAthlete.firstName = [athleteArray[i] valueForKey:@"firstName"];
         myAthlete.lastName = [athleteArray[i] valueForKey:@"lastName"];
-        myAthlete.runInRaceID = [athleteArray[i] valueForKey:@"runnerID"];
+        //myAthlete.runInRaceID = [athleteArray[i] valueForKey:@"runnerID"];
+        myAthlete.runInRaceID = [NSNumber numberWithInt:3]; // NEEDS TO BE CHANGED!!!!! 8/13/15
         [self.allAthletes addObject:myAthlete];
     }
     
@@ -127,7 +132,6 @@
 
 - (void)test_populateArray
 {
-    NSString *nameStr = @"Johnny ";
     self.allAthletes = [[NSMutableArray alloc]init];
     
     // Create 5 rows with Athelete and Timer

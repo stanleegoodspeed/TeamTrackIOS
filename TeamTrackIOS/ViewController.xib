@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController">
             <connections>
+                <outlet property="saveButton" destination="2Rh-fV-Rg6" id="ZtV-kb-40j"/>
                 <outlet property="startButton" destination="PyZ-GI-JrK" id="h5K-kJ-xeV"/>
                 <outlet property="tableView" destination="g9r-0V-ubT" id="VZN-FB-UCD"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -33,10 +34,19 @@
                         <action selector="startButtonPressed:" destination="-1" eventType="touchUpInside" id="neK-zM-EHj"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Rh-fV-Rg6">
+                    <rect key="frame" x="164" y="571" width="46" height="30"/>
+                    <state key="normal" title="Save">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="saveButtonPressed:" destination="-1" eventType="touchUpInside" id="peT-0a-MDL"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-            <point key="canvasLocation" x="521.5" y="290.5"/>
+            <point key="canvasLocation" x="135.5" y="286.5"/>
         </view>
     </objects>
 </document>

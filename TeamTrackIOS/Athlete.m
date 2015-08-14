@@ -18,5 +18,26 @@
     return self;
 }
 
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super init]) {
+        self.firstName = [aDecoder decodeObjectForKey:@"firstName"];
+        self.lastName = [aDecoder decodeObjectForKey:@"lastName"];
+        self.runInRaceID = [aDecoder decodeObjectForKey:@"runInRaceID"];
+        self.finishTime = [aDecoder decodeObjectForKey:@"finishTime"];
+        
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.firstName forKey:@"firstName"];
+    [aCoder encodeObject:self.lastName forKey:@"lastName"];
+    [aCoder encodeObject:self.runInRaceID forKey:@"runInRaceID"];
+    [aCoder encodeObject:self.finishTime forKey:@"finishTime"];
+    //[aCoder encodeObject:self.lastName forKey:@"lastName"];
+}
+
 
 @end
