@@ -23,7 +23,10 @@
         self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
         
         // Init
-        self.selectedAthletes = [[NSMutableArray alloc]init];
+        selectedAthletes = [[NSMutableArray alloc]init];
+        selectedAthletesWithID = [[NSMutableArray alloc]init];
+        athleteDict = [[NSMutableDictionary alloc]init];
+        allAthletes = [[NSMutableArray alloc]init];
         raceID = race_ID;
         counter = 0;
     }
@@ -49,7 +52,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.allAthletes.count;
+    return allAthletes.count;
 }
 
 // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
@@ -59,7 +62,7 @@
 {
     static NSString *cellIden = @"myCell";
     AthleteSelectViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIden];
-    Athlete *myAthelete = [self.allAthletes objectAtIndex:indexPath.row];
+    Athlete *myAthelete = [allAthletes objectAtIndex:indexPath.row];
     
     if(!cell)
     {
@@ -78,7 +81,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Add selection to array
-    [self.selectedAthletes addObject:[self.allAthletes objectAtIndex:indexPath.row]];
+    [selectedAthletes addObject:[allAthletes objectAtIndex:indexPath.row]];
 }
 
 #pragma mark - IBAction
@@ -88,7 +91,7 @@
     NSURL *url = [NSURL URLWithString:@"http://himrod.home/~Colin/TeamTrack/api/index.php/postrunnerinrace"];
     NSMutableDictionary *dataDictionary = [NSMutableDictionary dictionaryWithCapacity:1];
     
-    for (Athlete *myAthlete in self.selectedAthletes) {
+    for (Athlete *myAthlete in selectedAthletes) {
         
         [dataDictionary setObject:raceID forKey:@"fkRaceID"];
         [dataDictionary setObject:myAthlete.runnerID forKey:@"fkRunnerID"];
@@ -101,22 +104,21 @@
 
 #pragma mark - PostToServer Delegate
 
-- (void)didCompletePost:(BOOL)status withData:(NSString *)data
+- (void)didCompletePost:(BOOL)status withData:(NSString *)data withDict:(NSDictionary *)dataDict
 {
     counter++;
-    // Receive and set new data
-    //NSInteger tmp = [data integerValue];
-    //raceID = [NSNumber numberWithInteger:tmp];
+    NSLog(@"data string is: %@", data);
+    id myRunnerID = [dataDict valueForKey:@"runnerID"];
+    id myRunInRaceID = [dataDict valueForKey:@"runInRaceID"];
     
-//    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"UUID == 18"];
-//    NSArray *filteredArray = [myArray filteredArrayUsingPredicate:predicate];
-//    id firstFoundObject = filteredArray.firstObject;
-//    NSLog(@"Result: %@", firstFoundObject);
+    Athlete *myAthleteObject = [athleteDict valueForKey:myRunnerID];
+    myAthleteObject.runInRaceID = (NSNumber *)myRunInRaceID;
+    [selectedAthletesWithID addObject:myAthleteObject];
     
-    if(counter == self.selectedAthletes.count)
+    if(counter == selectedAthletes.count)
     {
         // Push View Controller
-        ViewController *timerViewController = [[ViewController alloc] initWithSelectedAthletes:self.selectedAthletes];
+        ViewController *timerViewController = [[ViewController alloc] initWithSelectedAthletes:selectedAthletesWithID];
         [[self navigationController] pushViewController:timerViewController animated:YES];
     }
 }
@@ -130,7 +132,6 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection;
 {
-    self.allAthletes = [[NSMutableArray alloc]init];
     NSError *error = nil;
     NSArray *athleteArray = [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:&error];
     
@@ -139,7 +140,8 @@
         myAthlete.firstName = [athleteArray[i] valueForKey:@"firstName"];
         myAthlete.lastName = [athleteArray[i] valueForKey:@"lastName"];
         myAthlete.runnerID = [athleteArray[i] valueForKey:@"runnerID"];
-        [self.allAthletes addObject:myAthlete];
+        [allAthletes addObject:myAthlete];
+        [athleteDict setObject:myAthlete forKey:myAthlete.runnerID];
     }
     
     [self.tableView reloadData];
@@ -163,14 +165,14 @@
 
 - (void)test_populateArray
 {
-    self.allAthletes = [[NSMutableArray alloc]init];
+    
     
     // Create 5 rows with Athelete and Timer
     for (int i = 0; i < 5; i++) {
         
         Athlete *myAthelete = [[Athlete alloc]init];
         //myAthelete.name =  [nameStr stringByAppendingString:[NSString stringWithFormat:@"%i", i]];
-        [self.allAthletes addObject:myAthelete];
+        [allAthletes addObject:myAthelete];
     }
     
 }

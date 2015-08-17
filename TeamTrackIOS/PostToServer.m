@@ -35,9 +35,13 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
+    NSError *error = nil;
     NSLog(@"Receiving data...");
     if(data) {
         dataReturned = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        dataDict = [NSJSONSerialization JSONObjectWithData:data
+                                                   options:NSJSONReadingMutableContainers
+                                                     error:&error];
     }
     
 }
@@ -46,8 +50,8 @@
 {
     id<PostToServerDelegate> strongDelegate = self.delegate;
     
-    if ([strongDelegate respondsToSelector:@selector(didCompletePost:withData:)]) {
-        [strongDelegate didCompletePost:TRUE withData:dataReturned];
+    if ([strongDelegate respondsToSelector:@selector(didCompletePost:withData:withDict:)]) {
+        [strongDelegate didCompletePost:TRUE withData:dataReturned withDict:dataDict];
     }
 }
 
@@ -57,8 +61,8 @@
     
     id<PostToServerDelegate> strongDelegate = self.delegate;
     
-    if ([strongDelegate respondsToSelector:@selector(didCompletePost:withData:)]) {
-        [strongDelegate didCompletePost:FALSE withData:dataReturned];
+    if ([strongDelegate respondsToSelector:@selector(didCompletePost:withData:withDict:)]) {
+        [strongDelegate didCompletePost:FALSE withData:dataReturned withDict:dataDict];
     }
 }
 

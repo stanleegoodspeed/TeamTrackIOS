@@ -15,17 +15,19 @@
 @interface AthleteSelectViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, NSURLConnectionDelegate, PostToServerDelegate>
 {
     __weak IBOutlet UIButton *nextButton;
+    int counter;
     
     NSMutableData *jsonData;
     NSURLConnection *connection;
     NSNumber *raceID;
-    
-    int counter;
+    NSMutableArray *selectedAthletesWithID;
+    NSMutableDictionary *athleteDict;
+    NSMutableArray *selectedAthletes;
+    NSMutableArray *allAthletes;
 }
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic, retain) NSMutableArray *allAthletes;
-@property (nonatomic, retain) NSMutableArray *selectedAthletes;
+
 
 - (IBAction)nextBtnPressed:(id)sender;
 

@@ -15,6 +15,7 @@
 {
     NSURLConnection *connection;
     NSString *dataReturned;
+    NSDictionary *dataDict;
 }
 
 @property (nonatomic, weak) id<PostToServerDelegate> delegate;
@@ -25,6 +26,6 @@
 
 @protocol PostToServerDelegate <NSObject>
 
-- (void)didCompletePost:(BOOL)status withData:(NSString *)data;
+- (void)didCompletePost:(BOOL)status withData:(NSString *)data withDict:(NSDictionary *)dataDict;
 
 @end

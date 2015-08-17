@@ -70,7 +70,7 @@
 
 #pragma mark - PostToServer Delegate
 
-- (void)didCompletePost:(BOOL)status withData:(NSString *)data
+- (void)didCompletePost:(BOOL)status withData:(NSString *)data withDict:(NSDictionary *)dataDict
 {
     // Receive and set new data
     NSInteger tmp = [data integerValue];
