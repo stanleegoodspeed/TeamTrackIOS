@@ -26,6 +26,19 @@
     return self;
 }
 
+- (id)initWithAthletes:(NSArray *)myAthletes
+{
+    self = [super init];
+    if (self) {
+        [[self navigationItem]setTitle:@"Results"];
+        self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+        self.expandedCells = [[NSMutableArray alloc]init];
+        athletes = [[NSArray alloc]initWithArray:myAthletes];
+    }
+    
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -58,7 +71,15 @@
         cell = [tableView dequeueReusableCellWithIdentifier:cellIden];
     }
     
+    double elapsed = [myAthelete.finishTime doubleValue];
+    int mins = (int) (elapsed / 60.0);
+    elapsed -= mins * 60;
+    int secs = (int) (elapsed);
+    elapsed -= secs;
+    int fraction = elapsed * 10.0;
+    
     cell.nameLabel.text = [NSString stringWithFormat:@"%@ %@",myAthelete.firstName, myAthelete.lastName];
+    cell.finishTimeLabel.text = [NSString stringWithFormat:@"%u:%02u.%u",mins,secs,fraction];
     
     return cell;
     

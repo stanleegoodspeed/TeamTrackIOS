@@ -18,4 +18,6 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *expandedCells;
 
+- (id)initWithAthletes:(NSArray *)athletes;
+
 @end

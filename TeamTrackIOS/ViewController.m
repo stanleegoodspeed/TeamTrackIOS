@@ -158,9 +158,12 @@
 - (void)didCompletePost:(BOOL)status withData:(NSString *)data withDict:(NSDictionary *)dataDict
 {
     counter ++;
-    if(counter == splitCount)
+    if(counter == (splitCount + self.atheletes.count))
     {
         NSLog(@"Complete!");
+        // Push View Controller
+        ResultsViewController *resultsViewController = [[ResultsViewController alloc]initWithAthletes:self.atheletes];
+        [[self navigationController] pushViewController:resultsViewController animated:YES];
     }
 }
 
