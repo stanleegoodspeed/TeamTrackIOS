@@ -10,13 +10,17 @@
 #import "Timer.h"
 #import "Athlete.h"
 #import "TimerViewCell.h"
+#import "PostToServer.h"
+#import "ResultsViewController.h"
 
 
-@interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, TimerDelegate, TimerCellDelegate, NSURLConnectionDelegate>
+@interface ViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, TimerDelegate, TimerCellDelegate, PostToServerDelegate>
 {
     
     __weak IBOutlet UIButton *saveButton;
     NSURLConnection *connection;
+    int counter;
+    int splitCount;
 }
 
 
@@ -24,10 +28,11 @@
 @property (nonatomic, retain) IBOutlet UIButton *startButton;
 @property (nonatomic, retain) NSArray *atheletes;
 @property (nonatomic, retain) NSMutableArray *timers;
+@property (weak, nonatomic) IBOutlet UIButton *viewResultsButton;
 
 - (IBAction)startButtonPressed:(id)sender;
 - (IBAction)saveButtonPressed:(id)sender;
-
+- (IBAction)nextButotnPressed:(id)sender;
 
 - (id)initWithSelectedAthletes:(NSArray *)selectedAthletes;
 

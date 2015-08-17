@@ -41,13 +41,17 @@
 - (void)stopTimer
 {
     running = false;
+
+    // Save final split
+    [self triggerSplit];
+    
+    // Finish time calc
     NSTimeInterval currentTime = [NSDate timeIntervalSinceReferenceDate];
     NSTimeInterval finishTime = currentTime - masterStartTime;
-    
+
     id<TimerDelegate> strongDelegate = self.delegate;
     
-    // Our delegate method is optional, so we should
-    // check that the delegate implements it
+    // Save finish time
     if ([strongDelegate respondsToSelector:@selector(saveFinishTime:withFinishTime:)]) {
         [strongDelegate saveFinishTime:self withFinishTime:finishTime];
     }
@@ -57,19 +61,20 @@
 {
     splitCounter++;
     
+    // Get the split and send to parent for storage/push
+    NSTimeInterval currentTime = [NSDate timeIntervalSinceReferenceDate];
+    NSTimeInterval elapsed = currentTime - startTime;
+    NSNumber *tmpNumber = [[NSNumber alloc]initWithDouble:elapsed];
+    NSNumber *tmpSplitNum = [[NSNumber alloc]initWithInteger:splitCounter];
+    
     // Reset time label and start time
     startTime = [NSDate timeIntervalSinceReferenceDate];
     self.timeStr = [NSString stringWithFormat:@"%u:%02u.%u",0,0,0];
     
-    // Get the split and send to parent for storage/push
-    NSTimeInterval currentTime = [NSDate timeIntervalSinceReferenceDate];
-    NSTimeInterval elapsed = currentTime - startTime;
-    
     // Create split object
     Split *mySplit = [[Split alloc]init];
-    mySplit.splitNumber = splitCounter;
-    mySplit.splitTime = elapsed;
-    
+    mySplit.splitNumber = tmpSplitNum;
+    mySplit.splitTime = tmpNumber;
     
     id<TimerDelegate> strongDelegate = self.delegate;
     

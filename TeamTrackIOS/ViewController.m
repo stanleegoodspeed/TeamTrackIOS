@@ -19,6 +19,7 @@
     self = [super init];
     if (self) {
         [[self navigationItem]setTitle:@"Stopwatch"];
+        counter = 0;
     }
     
     return self;
@@ -30,6 +31,7 @@
     if (self) {
         self.atheletes = [[NSArray alloc]initWithArray:selectedAthletes];
         [[self navigationItem]setTitle:@"Stopwatch"];
+        counter = 0;
     }
     
     return self;
@@ -85,6 +87,13 @@
 
 #pragma mark - IBActions
 
+- (IBAction)nextButotnPressed:(id)sender
+{
+    // Push View Controller
+    ResultsViewController *resultsViewController = [[ResultsViewController alloc]init];
+    [[self navigationController] pushViewController:resultsViewController animated:YES];
+}
+
 
 - (IBAction)startButtonPressed:(id)sender
 {
@@ -97,57 +106,43 @@
 
 - (IBAction)saveButtonPressed:(id)sender
 {
-    Athlete *myAthlete = [self.atheletes objectAtIndex:0];
-    NSMutableDictionary *projectDictionary = [NSMutableDictionary dictionaryWithCapacity:1];
-    [projectDictionary setObject:myAthlete.runInRaceID forKey:@"runInRaceID"];
-    [projectDictionary setObject:myAthlete.finishTime forKey:@"finishTime"];
-
+    splitCount = 0; // used to get total count of all splits stored - used in didCompletePost()
     
-    NSError *jsonSerializationError = nil;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:projectDictionary options:NSJSONWritingPrettyPrinted error:&jsonSerializationError];
-    
-    if(!jsonSerializationError) {
-        NSString *serJSON = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-        NSLog(@"Serialized JSON: %@", serJSON);
-    } else {
-        NSLog(@"JSON Encoding Failed: %@", [jsonSerializationError localizedDescription]);
+    for (Athlete *myAthlete in self.atheletes) {
+        
+        // Save finishTime
+        NSURL *url = [NSURL URLWithString:@"http://himrod.home/~Colin/TeamTrack/api/index.php/postrunnertime"];
+        NSMutableDictionary *dataDictionary = [NSMutableDictionary dictionaryWithCapacity:1];
+        [dataDictionary setObject:myAthlete.runInRaceID forKey:@"runInRaceID"];
+        [dataDictionary setObject:myAthlete.finishTime forKey:@"finishTime"];
+        
+        PostToServer *postToServer = [[PostToServer alloc]init];
+        postToServer.delegate = self;
+        [postToServer postDataToServer:dataDictionary withURL:url];
+        
+        // For each athlete, save all splits
+        for (Split *mySplit in myAthlete.splits) {
+            splitCount++;
+            NSURL *url2 = [NSURL URLWithString:@"http://himrod.home/~Colin/TeamTrack/api/index.php/postrunnersplit"];
+            NSMutableDictionary *dataDictionary2 = [NSMutableDictionary dictionaryWithCapacity:1];
+            [dataDictionary2 setObject:myAthlete.runInRaceID forKey:@"runInRaceID"];
+            [dataDictionary2 setObject:mySplit.splitNumber forKey:@"splitNumber"];
+            [dataDictionary2 setObject:mySplit.splitTime forKey:@"splitTime"];
+            
+            PostToServer *postToServer = [[PostToServer alloc]init];
+            postToServer.delegate = self;
+            [postToServer postDataToServer:dataDictionary2 withURL:url2];
+        }
     }
-    
-    NSURL *url = [NSURL URLWithString:@"http://himrod.home/~Colin/TeamTrack/api/index.php/postrunnertime"];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:90];
-    [request setHTTPMethod:@"POST"];
-    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    [request setHTTPBody: jsonData];
-    
-    connection = [[NSURLConnection alloc]initWithRequest:request delegate:self startImmediately:YES];
 }
 
-#pragma mark - NSURLConnection Delegate
-
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
-{
-    NSString *dataStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    NSLog(@"data str: %@",dataStr);
-}
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection;
-{
-    NSLog(@"finished!");
-}
-
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
-{
-    NSLog(@"error: %@",[error localizedDescription]);
-}
 
 #pragma mark - Helpers
 
 - (void)createTimers
 {
     self.timers = [[NSMutableArray alloc]init];
-    
-    // Create 5 rows with Athelete and Timer
+
     for (int i = 0; i < self.atheletes.count; i++) {
         
         Timer *myTimer = [[Timer alloc]init];
@@ -158,8 +153,15 @@
 
 }
 
-- (void)goBack {
-    //[self.navigationController popViewControllerAnimated:YES];
+#pragma mark - PostToServer Delegate
+
+- (void)didCompletePost:(BOOL)status withData:(NSString *)data withDict:(NSDictionary *)dataDict
+{
+    counter ++;
+    if(counter == splitCount)
+    {
+        NSLog(@"Complete!");
+    }
 }
 
 #pragma mark - Timer Delegate
