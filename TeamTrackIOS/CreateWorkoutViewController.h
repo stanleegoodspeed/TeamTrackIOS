@@ -13,9 +13,9 @@
 @interface CreateWorkoutViewController : UIViewController <NSURLConnectionDelegate,PostToServerDelegate>
 {
     
+    __weak IBOutlet UIButton *nextBtn;
     __weak IBOutlet UITextField *workoutNameInput;
     __weak IBOutlet UITextField *eventNameInput;
-    __weak IBOutlet UIButton *nextButton;
     
     NSURLConnection *connection;
     NSNumber *raceID;

@@ -112,7 +112,7 @@
 // Returns the time string so the label can be updated in the parent class
 - (NSString *)getCurrentTime
 {
-    return self.timeStr;
+    return self.timeStr ? self.timeStr : @"0:00.0";
 }
 
 // Tells the parent to call the getCurrentTime() function of the child

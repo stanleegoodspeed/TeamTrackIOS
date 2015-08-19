@@ -92,22 +92,12 @@
     cell.timeLabel.text = [myTimer getCurrentTime];
     cell.tag = indexPath.row;
     
-    //cell.textLabel.text = [tableData objectAtIndex:indexPath.row];
-    
     return cell;
 }
 
 
 
 #pragma mark - IBActions
-
-//- (IBAction)nextButotnPressed:(id)sender
-//{
-//    // Push View Controller
-//    ResultsViewController *resultsViewController = [[ResultsViewController alloc]init];
-//    [[self navigationController] pushViewController:resultsViewController animated:YES];
-//}
-
 
 - (IBAction)startButtonPressed:(id)sender
 {

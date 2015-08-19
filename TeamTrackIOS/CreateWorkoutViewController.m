@@ -52,29 +52,9 @@
     [dataDictionary setObject:workoutNameInput.text forKey:@"workoutName"];
     [dataDictionary setObject:eventNameInput.text forKey:@"eventName"];
     
-    //PostToServer *postToServer = [[PostToServer alloc]init];
     PostToServer *postToServer = [PostToServer sharedStore];
     postToServer.delegate = self;
     [postToServer postDataToServer:dataDictionary withURL:url];
-    
-//    NSError *jsonSerializationError = nil;
-//    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:projectDictionary options:NSJSONWritingPrettyPrinted error:&jsonSerializationError];
-//    
-//    if(!jsonSerializationError) {
-//        NSString *serJSON = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-//        NSLog(@"Serialized JSON: %@", serJSON);
-//    } else {
-//        NSLog(@"JSON Encoding Failed: %@", [jsonSerializationError localizedDescription]);
-//    }
-//    
-//
-//    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:90];
-//    [request setHTTPMethod:@"POST"];
-//    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-//    [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-//    [request setHTTPBody: jsonData];
-//    
-//    connection = [[NSURLConnection alloc]initWithRequest:request delegate:self startImmediately:YES];
 }
 
 #pragma mark - PostToServer Delegate
