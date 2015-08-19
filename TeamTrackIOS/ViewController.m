@@ -29,8 +29,22 @@
 {
     self = [super init];
     if (self) {
+        
+        // Navbar setup
+        CGRect frame = CGRectMake(0, 0, 400, 44);
+        UILabel *label = [[UILabel alloc] initWithFrame:frame];
+        label.backgroundColor = [UIColor clearColor];
+        label.textAlignment = NSTextAlignmentCenter;
+        label.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:21];
+        label.textColor = [UIColor blackColor];
+        label.text = @"Stopwatch";
+        [[self navigationItem]setTitleView:label];
+        self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+        UIBarButtonItem *saveButton= [[UIBarButtonItem alloc]initWithTitle:@"Save" style:UIBarButtonItemStylePlain target:self action:@selector(saveButtonPressed:)];
+        self.navigationItem.rightBarButtonItem = saveButton;
+        
+        // Var init
         self.atheletes = [[NSArray alloc]initWithArray:selectedAthletes];
-        [[self navigationItem]setTitle:@"Stopwatch"];
         counter = 0;
     }
     
@@ -87,12 +101,12 @@
 
 #pragma mark - IBActions
 
-- (IBAction)nextButotnPressed:(id)sender
-{
-    // Push View Controller
-    ResultsViewController *resultsViewController = [[ResultsViewController alloc]init];
-    [[self navigationController] pushViewController:resultsViewController animated:YES];
-}
+//- (IBAction)nextButotnPressed:(id)sender
+//{
+//    // Push View Controller
+//    ResultsViewController *resultsViewController = [[ResultsViewController alloc]init];
+//    [[self navigationController] pushViewController:resultsViewController animated:YES];
+//}
 
 
 - (IBAction)startButtonPressed:(id)sender

@@ -18,8 +18,16 @@
 {
     self = [super init];
     if (self) {
-        // Navbar setup
-        [[self navigationItem]setTitle:@"Create Workout"];
+
+        CGRect frame = CGRectMake(0, 0, 400, 44);
+        UILabel *label = [[UILabel alloc] initWithFrame:frame];
+        label.backgroundColor = [UIColor clearColor];
+        label.textAlignment = NSTextAlignmentCenter;
+        label.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:21];
+        label.textColor = [UIColor blackColor];
+        label.text = @"Create Workout";
+        [[self navigationItem]setTitleView:label];
+
         self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     }
     

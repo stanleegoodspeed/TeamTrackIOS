@@ -19,8 +19,18 @@
     self = [super init];
     if (self) {
         // Navbar setup
-        [[self navigationItem]setTitle:@"Select Athletes"];
+        CGRect frame = CGRectMake(0, 0, 400, 44);
+        UILabel *label = [[UILabel alloc] initWithFrame:frame];
+        label.backgroundColor = [UIColor clearColor];
+        label.textAlignment = NSTextAlignmentCenter;
+        label.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:21];
+        label.textColor = [UIColor blackColor];
+        label.text = @"Select Athletes";
+        [[self navigationItem]setTitleView:label];
+        
         self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+        UIBarButtonItem *nextButton = [[UIBarButtonItem alloc]initWithTitle:@"Next" style:UIBarButtonItemStylePlain target:self action:@selector(nextBtnPressed)];
+        self.navigationItem.rightBarButtonItem = nextButton;
         
         // Init
         selectedAthletes = [[NSMutableArray alloc]init];
@@ -86,7 +96,7 @@
 
 #pragma mark - IBAction
 
-- (IBAction)nextBtnPressed:(id)sender
+- (IBAction)nextBtnPressed
 {
     NSURL *url = [NSURL URLWithString:@"http://himrod.home/~Colin/TeamTrack/api/index.php/postrunnerinrace"];
     NSMutableDictionary *dataDictionary = [NSMutableDictionary dictionaryWithCapacity:1];
@@ -108,7 +118,6 @@
 - (void)didCompletePost:(BOOL)status withData:(NSString *)data withDict:(NSDictionary *)dataDict
 {
     counter++;
-    NSLog(@"data string is: %@", data);
     id myRunnerID = [dataDict valueForKey:@"runnerID"];
     id myRunInRaceID = [dataDict valueForKey:@"runInRaceID"];
     
@@ -162,20 +171,6 @@
     
     NSURLRequest *req = [NSURLRequest requestWithURL:url];
     connection = [[NSURLConnection alloc]initWithRequest:req delegate:self startImmediately:YES];
-}
-
-- (void)test_populateArray
-{
-    
-    
-    // Create 5 rows with Athelete and Timer
-    for (int i = 0; i < 5; i++) {
-        
-        Athlete *myAthelete = [[Athlete alloc]init];
-        //myAthelete.name =  [nameStr stringByAppendingString:[NSString stringWithFormat:@"%i", i]];
-        [allAthletes addObject:myAthelete];
-    }
-    
 }
 
 @end

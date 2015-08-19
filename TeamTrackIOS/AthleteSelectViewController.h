@@ -14,7 +14,7 @@
 
 @interface AthleteSelectViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, NSURLConnectionDelegate, PostToServerDelegate>
 {
-    __weak IBOutlet UIButton *nextButton;
+    //__weak IBOutlet UIButton *nextButton;
     int counter;
     
     NSMutableData *jsonData;
@@ -27,9 +27,6 @@
 }
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-
-
-- (IBAction)nextBtnPressed:(id)sender;
 
 - (id)initWithRaceID:(NSNumber *)raceID;
 

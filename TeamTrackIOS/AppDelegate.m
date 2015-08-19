@@ -7,8 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
-#import "AthleteSelectViewController.h"
 #import "CreateWorkoutViewController.h"
 
 @interface AppDelegate ()
@@ -22,9 +20,11 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     
-    //AthleteSelectViewController *athleteSelectViewController = [[AthleteSelectViewController alloc]init];
     CreateWorkoutViewController *workoutViewController = [[CreateWorkoutViewController alloc]init];
     UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:workoutViewController];
+    [[UINavigationBar appearance]setTintColor:[UIColor whiteColor]]; // it set color of bar button item text
+    [[UINavigationBar appearance]setBarTintColor:[UIColor colorWithRed:254.0/255.0 green:109.0/255.0 blue:139.0/255.0 alpha:1]]; // it set color of navigation
+    //[[UINavigationBar appearance]setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"AppleSDGothicNeo-Thin" size:21], NSFontAttributeName, nil]];
     
     [[self window] setRootViewController:navController];
     

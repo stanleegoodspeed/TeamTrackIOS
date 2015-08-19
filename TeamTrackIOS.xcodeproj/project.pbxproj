@@ -29,6 +29,7 @@
 		3BE2F0EB1B7A76D700E770F1 /* AthleteSelectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BE2F0E91B7A76D700E770F1 /* AthleteSelectViewController.xib */; };
 		3BE2F0EF1B7A78B100E770F1 /* AthleteSelectViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2F0ED1B7A78B100E770F1 /* AthleteSelectViewCell.m */; };
 		3BE2F0F01B7A78B100E770F1 /* AthleteSelectViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BE2F0EE1B7A78B100E770F1 /* AthleteSelectViewCell.xib */; };
+		3BF313B61B84E129008E2BD6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BF313B51B84E129008E2BD6 /* LaunchScreen.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		3BE2F0EC1B7A78B100E770F1 /* AthleteSelectViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AthleteSelectViewCell.h; sourceTree = "<group>"; };
 		3BE2F0ED1B7A78B100E770F1 /* AthleteSelectViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AthleteSelectViewCell.m; sourceTree = "<group>"; };
 		3BE2F0EE1B7A78B100E770F1 /* AthleteSelectViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AthleteSelectViewCell.xib; sourceTree = "<group>"; };
+		3BF313B51B84E129008E2BD6 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 			children = (
 				3B8897831B701AE300BEBEA0 /* AppDelegate.h */,
 				3B8897841B701AE300BEBEA0 /* AppDelegate.m */,
+				3BF313B51B84E129008E2BD6 /* LaunchScreen.xib */,
 				3BE2F0E71B7A76D700E770F1 /* AthleteSelectViewController.h */,
 				3BE2F0E81B7A76D700E770F1 /* AthleteSelectViewController.m */,
 				3BE2F0E91B7A76D700E770F1 /* AthleteSelectViewController.xib */,
@@ -271,6 +274,7 @@
 				3BE2F0EB1B7A76D700E770F1 /* AthleteSelectViewController.xib in Resources */,
 				3B951E3C1B824D3F00FE3EB9 /* ResultParentViewCell.xib in Resources */,
 				3BE2F0F01B7A78B100E770F1 /* AthleteSelectViewCell.xib in Resources */,
+				3BF313B61B84E129008E2BD6 /* LaunchScreen.xib in Resources */,
 				3B88978D1B701AE300BEBEA0 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
