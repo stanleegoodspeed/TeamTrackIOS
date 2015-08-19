@@ -18,12 +18,14 @@
     NSDictionary *dataDict;
 }
 
++ (PostToServer *)sharedStore;
 @property (nonatomic, weak) id<PostToServerDelegate> delegate;
-
 - (void)postDataToServer:(NSMutableDictionary *)dataDictionary withURL:(NSURL *)url;
 
 @end
 
+
+// Delegate declaration
 @protocol PostToServerDelegate <NSObject>
 
 - (void)didCompletePost:(BOOL)status withData:(NSString *)data withDict:(NSDictionary *)dataDict;

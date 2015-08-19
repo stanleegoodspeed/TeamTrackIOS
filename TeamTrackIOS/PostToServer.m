@@ -10,6 +10,22 @@
 
 @implementation PostToServer
 
+// Singleton declaration
++ (PostToServer *)sharedStore
+{
+    static PostToServer *sharedStore = nil;
+    if(!sharedStore)
+        sharedStore = [[super allocWithZone:nil]init];
+    
+    return sharedStore;
+}
+
+// Override of allocWithZone - (alloc is just a dummy call that actually calls allocWithZone:)
++ (id)allocWithZone:(struct _NSZone *)zone
+{
+    return [self sharedStore];
+}
+
 - (void)postDataToServer:(NSMutableDictionary *)dataDictionary withURL:(NSURL *)url;
 {
     NSError *jsonSerializationError = nil;

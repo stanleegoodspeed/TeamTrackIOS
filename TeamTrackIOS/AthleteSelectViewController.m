@@ -96,7 +96,8 @@
         [dataDictionary setObject:raceID forKey:@"fkRaceID"];
         [dataDictionary setObject:myAthlete.runnerID forKey:@"fkRunnerID"];
         
-        PostToServer *postToServer = [[PostToServer alloc]init];
+        //PostToServer *postToServer = [[PostToServer alloc]init];
+        PostToServer *postToServer = [PostToServer sharedStore];
         postToServer.delegate = self;
         [postToServer postDataToServer:dataDictionary withURL:url];
     }

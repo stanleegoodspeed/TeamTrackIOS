@@ -44,7 +44,8 @@
     [dataDictionary setObject:workoutNameInput.text forKey:@"workoutName"];
     [dataDictionary setObject:eventNameInput.text forKey:@"eventName"];
     
-    PostToServer *postToServer = [[PostToServer alloc]init];
+    //PostToServer *postToServer = [[PostToServer alloc]init];
+    PostToServer *postToServer = [PostToServer sharedStore];
     postToServer.delegate = self;
     [postToServer postDataToServer:dataDictionary withURL:url];
     

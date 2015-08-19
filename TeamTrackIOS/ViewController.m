@@ -116,7 +116,8 @@
         [dataDictionary setObject:myAthlete.runInRaceID forKey:@"runInRaceID"];
         [dataDictionary setObject:myAthlete.finishTime forKey:@"finishTime"];
         
-        PostToServer *postToServer = [[PostToServer alloc]init];
+        //PostToServer *postToServer = [[PostToServer alloc]init];
+        PostToServer *postToServer = [PostToServer sharedStore];
         postToServer.delegate = self;
         [postToServer postDataToServer:dataDictionary withURL:url];
         
@@ -129,8 +130,8 @@
             [dataDictionary2 setObject:mySplit.splitNumber forKey:@"splitNumber"];
             [dataDictionary2 setObject:mySplit.splitTime forKey:@"splitTime"];
             
-            PostToServer *postToServer = [[PostToServer alloc]init];
-            postToServer.delegate = self;
+            //PostToServer *postToServer = [[PostToServer alloc]init];
+            //postToServer.delegate = self;
             [postToServer postDataToServer:dataDictionary2 withURL:url2];
         }
     }
