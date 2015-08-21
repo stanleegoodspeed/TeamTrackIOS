@@ -24,6 +24,7 @@
     NSMutableDictionary *athleteDict;
     NSMutableArray *selectedAthletes;
     NSMutableArray *allAthletes;
+    NSMutableArray *checkedData;
 }
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;

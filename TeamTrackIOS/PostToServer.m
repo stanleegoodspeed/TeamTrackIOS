@@ -26,8 +26,9 @@
     return [self sharedStore];
 }
 
-- (void)postDataToServer:(NSMutableDictionary *)dataDictionary withURL:(NSURL *)url;
+- (void)postDataToServer:(NSMutableDictionary *)dataDictionary withQuery:(NSString *)queryStr
 {
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%s%@",APIURL,queryStr]];
     NSError *jsonSerializationError = nil;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dataDictionary options:NSJSONWritingPrettyPrinted error:&jsonSerializationError];
     

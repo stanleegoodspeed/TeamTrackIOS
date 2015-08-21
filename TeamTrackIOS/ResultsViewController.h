@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ResultParentViewCell.h"
 #import "Athlete.h"
+#import "SplitsViewController.h"
 
 @interface ResultsViewController : UIViewController <UITableViewDataSource, UITableViewDataSource>
 {
@@ -16,7 +17,7 @@
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) NSMutableArray *expandedCells;
+//@property (strong, nonatomic) NSMutableArray *expandedCells;
 
 - (id)initWithAthletes:(NSArray *)athletes;
 

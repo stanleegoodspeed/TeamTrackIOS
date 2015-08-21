@@ -19,7 +19,7 @@
     self = [super init];
     if (self) {
         // Navbar setup
-        CGRect frame = CGRectMake(0, 0, 400, 44);
+        CGRect frame = CGRectMake(0, 0, 300, 44);
         UILabel *label = [[UILabel alloc] initWithFrame:frame];
         label.backgroundColor = [UIColor clearColor];
         label.textAlignment = NSTextAlignmentCenter;
@@ -27,16 +27,21 @@
         label.textColor = [UIColor blackColor];
         label.text = @"Select Athletes";
         [[self navigationItem]setTitleView:label];
+        self.navigationItem.hidesBackButton = YES;
         
-        self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+        //self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
         UIBarButtonItem *nextButton = [[UIBarButtonItem alloc]initWithTitle:@"Next" style:UIBarButtonItemStylePlain target:self action:@selector(nextBtnPressed)];
         self.navigationItem.rightBarButtonItem = nextButton;
+        
+        UIBarButtonItem *backToStartButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(backToStartButtonPressed:)];
+        self.navigationItem.leftBarButtonItem = backToStartButton;
         
         // Init
         selectedAthletes = [[NSMutableArray alloc]init];
         selectedAthletesWithID = [[NSMutableArray alloc]init];
         athleteDict = [[NSMutableDictionary alloc]init];
         allAthletes = [[NSMutableArray alloc]init];
+        checkedData = [[NSMutableArray alloc]init];
         raceID = race_ID;
         counter = 0;
     }
@@ -80,7 +85,7 @@
         cell = [tableView dequeueReusableCellWithIdentifier:cellIden];
     }
     
-    cell.nameLabel.text = myAthelete.firstName;
+    cell.nameLabel.text = [NSString stringWithFormat:@"%@ %@",myAthelete.firstName, myAthelete.lastName];
     
     return cell;
 
@@ -90,15 +95,24 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Add selection to array
-    [selectedAthletes addObject:[allAthletes objectAtIndex:indexPath.row]];
+    UITableViewCell *newCell = [tableView cellForRowAtIndexPath:indexPath];
+    if (newCell.accessoryType == UITableViewCellAccessoryNone) {
+        newCell.accessoryType = UITableViewCellAccessoryCheckmark;
+        [selectedAthletes addObject:[allAthletes objectAtIndex:indexPath.row]];
+    }else {
+        newCell.accessoryType = UITableViewCellAccessoryNone;
+        [selectedAthletes removeObject:[allAthletes objectAtIndex:indexPath.row]];
+    }
+    
+    [self.tableView reloadData];    
 }
 
 #pragma mark - IBAction
 
 - (IBAction)nextBtnPressed
 {
-    NSURL *url = [NSURL URLWithString:@"http://himrod.home/~Colin/TeamTrack/api/index.php/postrunnerinrace"];
+    //NSURL *url = [NSURL URLWithString:@"http://himrod.home/~Colin/TeamTrack/api/index.php/postrunnerinrace"];
+    NSString *queryStr = @"postrunnerinrace";
     NSMutableDictionary *dataDictionary = [NSMutableDictionary dictionaryWithCapacity:1];
     
     for (Athlete *myAthlete in selectedAthletes) {
@@ -109,9 +123,15 @@
         //PostToServer *postToServer = [[PostToServer alloc]init];
         PostToServer *postToServer = [PostToServer sharedStore];
         postToServer.delegate = self;
-        [postToServer postDataToServer:dataDictionary withURL:url];
+        [postToServer postDataToServer:dataDictionary withQuery:queryStr];
     }
 }
+
+- (IBAction)backToStartButtonPressed:(id)sender
+{
+    [[self navigationController] popToRootViewControllerAnimated:YES];
+}
+                                              
 
 #pragma mark - PostToServer Delegate
 

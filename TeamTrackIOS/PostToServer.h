@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#define APIURL "http://himrod.home/~Colin/TeamTrack/api/index.php/"
 
 // Declare delegate
 @protocol PostToServerDelegate;
@@ -20,7 +21,7 @@
 
 + (PostToServer *)sharedStore;
 @property (nonatomic, weak) id<PostToServerDelegate> delegate;
-- (void)postDataToServer:(NSMutableDictionary *)dataDictionary withURL:(NSURL *)url;
+- (void)postDataToServer:(NSMutableDictionary *)dataDictionary withQuery:(NSString *)queryStr;
 
 @end
 

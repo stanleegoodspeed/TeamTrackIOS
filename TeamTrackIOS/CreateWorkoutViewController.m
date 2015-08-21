@@ -27,14 +27,28 @@
         label.textColor = [UIColor blackColor];
         label.text = @"Create Workout";
         [[self navigationItem]setTitleView:label];
-
-        self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     }
     
     return self;
 }
 
 - (void)viewDidLoad {
+    
+// TODO ** add circular iOS8 button style
+//
+//    CGFloat buttonSize = 50;
+//    CGRect buttonRect = CGRectMake(100.0,
+//                                   100.0,
+//                                   buttonSize,
+//                                   buttonSize);
+//    MRoundedButton *button = [[MRoundedButton alloc] initWithFrame:buttonRect
+//                                                       buttonStyle:MRoundedButtonSubtitle
+//                                              appearanceIdentifier:@"3"];
+//    button.textLabel.text = @"Start";
+//    button.textLabel.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:10];
+//    //button.backgroundColor = [UIColor clearColor];
+//    [self.view addSubview:button];
+    
     
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -47,14 +61,15 @@
 
 - (IBAction)nextButtonPressed:(id)sender
 {
-    NSURL *url = [NSURL URLWithString:@"http://himrod.home/~Colin/TeamTrack/api/index.php/postrace"];
+    //NSURL *url = [NSURL URLWithString:@"http://himrod.home/~Colin/TeamTrack/api/index.php/postrace"];
+    NSString *queryStr = @"postrace";
     NSMutableDictionary *dataDictionary = [NSMutableDictionary dictionaryWithCapacity:1];
     [dataDictionary setObject:workoutNameInput.text forKey:@"workoutName"];
     [dataDictionary setObject:eventNameInput.text forKey:@"eventName"];
     
     PostToServer *postToServer = [PostToServer sharedStore];
     postToServer.delegate = self;
-    [postToServer postDataToServer:dataDictionary withURL:url];
+    [postToServer postDataToServer:dataDictionary withQuery:queryStr];
 }
 
 #pragma mark - PostToServer Delegate

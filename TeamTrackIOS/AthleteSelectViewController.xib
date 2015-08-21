@@ -16,8 +16,9 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="PCC-Q5-Mt8">
-                    <rect key="frame" x="0.0" y="67" width="367" height="592"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <rect key="frame" x="8" y="28" width="346" height="623"/>
+                    <color key="backgroundColor" red="0.096614670580000006" green="0.7671243687" blue="0.63097003699999998" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="sectionIndexBackgroundColor" red="0.096614670580000006" green="0.7671243687" blue="0.63097003699999998" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="Dfk-hU-TVt"/>
                         <outlet property="delegate" destination="-1" id="Gqq-4w-kFz"/>
@@ -30,8 +31,8 @@
                     </state>
                 </button>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <color key="backgroundColor" red="0.096614670580000006" green="0.7671243687" blue="0.63097003699999998" alpha="1" colorSpace="calibratedRGB"/>
+            <nil key="simulatedTopBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <variation key="default">
                 <mask key="subviews">

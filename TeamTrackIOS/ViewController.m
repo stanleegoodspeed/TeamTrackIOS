@@ -39,9 +39,13 @@
         label.textColor = [UIColor blackColor];
         label.text = @"Stopwatch";
         [[self navigationItem]setTitleView:label];
-        self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+        [[self navigationItem]setHidesBackButton:YES];
+        
         UIBarButtonItem *saveButton= [[UIBarButtonItem alloc]initWithTitle:@"Save" style:UIBarButtonItemStylePlain target:self action:@selector(saveButtonPressed:)];
         self.navigationItem.rightBarButtonItem = saveButton;
+        
+        UIBarButtonItem *backToStartButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(backToStartButtonPressed:)];
+        self.navigationItem.leftBarButtonItem = backToStartButton;
         
         // Var init
         self.atheletes = [[NSArray alloc]initWithArray:selectedAthletes];
@@ -108,6 +112,11 @@
     [self.tableView reloadData];
 }
 
+- (IBAction)backToStartButtonPressed:(id)sender
+{
+    [[self navigationController] popToRootViewControllerAnimated:YES];
+}
+
 - (IBAction)saveButtonPressed:(id)sender
 {
     splitCount = 0; // used to get total count of all splits stored - used in didCompletePost()
@@ -115,7 +124,8 @@
     for (Athlete *myAthlete in self.atheletes) {
         
         // Save finishTime
-        NSURL *url = [NSURL URLWithString:@"http://himrod.home/~Colin/TeamTrack/api/index.php/postrunnertime"];
+        //NSURL *url = [NSURL URLWithString:@"http://himrod.home/~Colin/TeamTrack/api/index.php/postrunnertime"];
+        NSString *queryStr = @"postrunnertime";
         NSMutableDictionary *dataDictionary = [NSMutableDictionary dictionaryWithCapacity:1];
         [dataDictionary setObject:myAthlete.runInRaceID forKey:@"runInRaceID"];
         [dataDictionary setObject:myAthlete.finishTime forKey:@"finishTime"];
@@ -123,20 +133,19 @@
         //PostToServer *postToServer = [[PostToServer alloc]init];
         PostToServer *postToServer = [PostToServer sharedStore];
         postToServer.delegate = self;
-        [postToServer postDataToServer:dataDictionary withURL:url];
+        [postToServer postDataToServer:dataDictionary withQuery:queryStr];
         
         // For each athlete, save all splits
         for (Split *mySplit in myAthlete.splits) {
             splitCount++;
-            NSURL *url2 = [NSURL URLWithString:@"http://himrod.home/~Colin/TeamTrack/api/index.php/postrunnersplit"];
+            //NSURL *url2 = [NSURL URLWithString:@"http://himrod.home/~Colin/TeamTrack/api/index.php/postrunnersplit"];
+            NSString *queryStr2 = @"postrunnersplit";
             NSMutableDictionary *dataDictionary2 = [NSMutableDictionary dictionaryWithCapacity:1];
             [dataDictionary2 setObject:myAthlete.runInRaceID forKey:@"runInRaceID"];
             [dataDictionary2 setObject:mySplit.splitNumber forKey:@"splitNumber"];
             [dataDictionary2 setObject:mySplit.splitTime forKey:@"splitTime"];
             
-            //PostToServer *postToServer = [[PostToServer alloc]init];
-            //postToServer.delegate = self;
-            [postToServer postDataToServer:dataDictionary2 withURL:url2];
+            [postToServer postDataToServer:dataDictionary2 withQuery:queryStr2];
         }
     }
 }

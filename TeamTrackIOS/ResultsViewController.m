@@ -20,7 +20,7 @@
     if (self) {
         [[self navigationItem]setTitle:@"Results"];
         self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
-        self.expandedCells = [[NSMutableArray alloc]init];
+//        self.expandedCells = [[NSMutableArray alloc]init];
     }
     
     return self;
@@ -30,9 +30,27 @@
 {
     self = [super init];
     if (self) {
-        [[self navigationItem]setTitle:@"Results"];
+        // Navbar setup
+        CGRect frame = CGRectMake(0, 0, 400, 44);
+        UILabel *label = [[UILabel alloc] initWithFrame:frame];
+        label.backgroundColor = [UIColor clearColor];
+        label.textAlignment = NSTextAlignmentCenter;
+        label.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:21];
+        label.textColor = [UIColor blackColor];
+        label.text = @"View Results";
+        [[self navigationItem]setTitleView:label];
+        [[self navigationItem]setHidesBackButton:YES];
+        
+        UIBarButtonItem *saveButton= [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:nil];
+        self.navigationItem.rightBarButtonItem = saveButton;
+        
         self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
-        self.expandedCells = [[NSMutableArray alloc]init];
+        
+        UIBarButtonItem *backToStartButton = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(backToStartButtonPressed:)];
+        self.navigationItem.leftBarButtonItem = backToStartButton;
+        
+        // Var init
+//        self.expandedCells = [[NSMutableArray alloc]init];
         athletes = [[NSArray alloc]initWithArray:myAthletes];
     }
     
@@ -91,32 +109,32 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    Athlete *myAthlete = [athletes objectAtIndex:indexPath.row];
+    SplitsViewController *splitsViewController = [[SplitsViewController alloc]initWithSplits:myAthlete.splits];
+    [[self navigationController] pushViewController:splitsViewController animated:YES];
     
-    if ([self.expandedCells containsObject:indexPath])
-    {
-        [self.expandedCells removeObject:indexPath];
-    }
-    else
-    {
-        [self.expandedCells addObject:indexPath];
-    }
-    [tableView beginUpdates];
-    [tableView endUpdates];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    CGFloat kExpandedCellHeight = 150;
+//    CGFloat kNormalCellHeigh = 50;
+//    
+//    if ([self.expandedCells containsObject:indexPath])
+//    {
+//        return kExpandedCellHeight; // It's not necessary a constant, though
+//    }
+//    else
+//    {
+//        return kNormalCellHeigh; // Again not necessary a constant
+//    }
+//}
+
+#pragma mark - IBActions
+
+- (IBAction)backToStartButtonPressed:(id)sender
 {
-    CGFloat kExpandedCellHeight = 150;
-    CGFloat kNormalCellHeigh = 50;
-    
-    if ([self.expandedCells containsObject:indexPath])
-    {
-        return kExpandedCellHeight; // It's not necessary a constant, though
-    }
-    else
-    {
-        return kNormalCellHeigh; // Again not necessary a constant
-    }
+    [[self navigationController] popToRootViewControllerAnimated:YES];
 }
 
 /*
