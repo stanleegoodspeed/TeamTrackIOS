@@ -43,7 +43,7 @@
     running = false;
 
     // Save final split
-    [self triggerSplit];
+    [self triggerSplit:FALSE];
     
     // Finish time calc
     NSTimeInterval currentTime = [NSDate timeIntervalSinceReferenceDate];
@@ -57,7 +57,7 @@
     }
 }
 
-- (void)triggerSplit
+- (void)triggerSplit:(BOOL)flag
 {
     splitCounter++;
     
@@ -67,9 +67,12 @@
     NSNumber *tmpNumber = [[NSNumber alloc]initWithDouble:elapsed];
     NSNumber *tmpSplitNum = [[NSNumber alloc]initWithInteger:splitCounter];
     
-    // Reset time label and start time
-    startTime = [NSDate timeIntervalSinceReferenceDate];
-    self.timeStr = [NSString stringWithFormat:@"%u:%02u.%u",0,0,0];
+    if(flag)
+    {
+        // Reset time label and start time
+        startTime = [NSDate timeIntervalSinceReferenceDate];
+        self.timeStr = [NSString stringWithFormat:@"%u:%02u.%u",0,0,0];
+    }
     
     // Create split object
     Split *mySplit = [[Split alloc]init];

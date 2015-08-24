@@ -12,5 +12,6 @@
 
 @property (nonatomic, retain) NSNumber *splitNumber;
 @property (nonatomic, retain) NSNumber *splitTime;
+@property (nonatomic, retain) NSNumber *runnerID;
 
 @end

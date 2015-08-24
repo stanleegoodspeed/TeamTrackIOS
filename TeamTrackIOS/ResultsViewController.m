@@ -20,7 +20,6 @@
     if (self) {
         [[self navigationItem]setTitle:@"Results"];
         self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
-//        self.expandedCells = [[NSMutableArray alloc]init];
     }
     
     return self;
@@ -37,7 +36,7 @@
         label.textAlignment = NSTextAlignmentCenter;
         label.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:21];
         label.textColor = [UIColor blackColor];
-        label.text = @"View Results";
+        label.text = @"Results";
         [[self navigationItem]setTitleView:label];
         [[self navigationItem]setHidesBackButton:YES];
         

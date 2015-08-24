@@ -23,7 +23,7 @@
 
 - (void)startTimer;
 - (void)stopTimer;
-- (void)triggerSplit;
+- (void)triggerSplit:(BOOL)flag;
 - (NSString *)getCurrentTime;
 
 @property (nonatomic, retain) NSString *nameStr;

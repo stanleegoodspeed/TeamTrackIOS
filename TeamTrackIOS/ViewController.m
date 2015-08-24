@@ -209,7 +209,7 @@
 
 - (void)timerDidPressSplit:(TimerViewCell *)timerCell
 {
-    [[self.timers objectAtIndex:[[self.tableView indexPathForCell:timerCell] row]] triggerSplit];
+    [[self.timers objectAtIndex:[[self.tableView indexPathForCell:timerCell] row]] triggerSplit:TRUE];
 }
 
 

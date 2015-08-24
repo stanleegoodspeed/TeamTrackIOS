@@ -17,18 +17,22 @@
     NSURLConnection *connection;
     NSString *dataReturned;
     NSDictionary *dataDict;
+    NSMutableData *dataBlock;
 }
 
 + (PostToServer *)sharedStore;
 @property (nonatomic, weak) id<PostToServerDelegate> delegate;
 - (void)postDataToServer:(NSMutableDictionary *)dataDictionary withQuery:(NSString *)queryStr;
-
+- (void)getDataFromServer:(NSString *)queryStr;
 @end
 
 
 // Delegate declaration
 @protocol PostToServerDelegate <NSObject>
 
+@optional
+
 - (void)didCompletePost:(BOOL)status withData:(NSString *)data withDict:(NSDictionary *)dataDict;
+- (void)didCompleteGet:(BOOL)status withData:(NSMutableData *)data;
 
 @end

@@ -9,7 +9,7 @@
                 <outlet property="createWorkoutButton" destination="fkb-1R-5bT" id="lPb-aa-nQ1"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewRacesButton" destination="agl-O4-aZn" id="k1J-0X-Drx"/>
-                <outlet property="welcomeLabel" destination="lMf-WL-rYM" id="Pvm-Ee-gJQ"/>
+                <outlet property="welcomeLabel" destination="lMf-WL-rYM" id="Gp4-mj-oNA"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -18,11 +18,14 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fkb-1R-5bT">
-                    <rect key="frame" x="111" y="259" width="152" height="30"/>
+                    <rect key="frame" x="111" y="232" width="152" height="30"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
                     <state key="normal" title="Create New Workout">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="createWorkoutPressed:" destination="-1" eventType="touchUpInside" id="JxE-9z-gVI"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lMf-WL-rYM">
                     <rect key="frame" x="33" y="188" width="308" height="30"/>
@@ -37,11 +40,14 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="agl-O4-aZn">
-                    <rect key="frame" x="111" y="297" width="152" height="30"/>
+                    <rect key="frame" x="111" y="280" width="152" height="30"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
                     <state key="normal" title="View My Races">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="viewRacesPressed:" destination="-1" eventType="touchUpInside" id="nIt-Wh-6bf"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6U-ka-Gqn">
                     <rect key="frame" x="209" y="184" width="42" height="21"/>

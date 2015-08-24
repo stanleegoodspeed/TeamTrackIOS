@@ -6,8 +6,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreateWorkoutViewController">
             <connections>
-                <outlet property="eventNameInput" destination="5KH-om-lfn" id="yOa-66-Wma"/>
+                <outlet property="eventNameInput" destination="5KH-om-lfn" id="NFi-dF-ENO"/>
                 <outlet property="nextBtn" destination="KWY-t8-P1f" id="gR9-lM-ET4"/>
+                <outlet property="typeInput" destination="apj-gt-bxO" id="QVe-pb-HsJ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="workoutNameInput" destination="2ac-1O-e1w" id="hnU-GC-GTP"/>
             </connections>
@@ -22,6 +23,9 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="16"/>
                     <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="6EH-27-77P"/>
+                    </connections>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Workout Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2ac-1O-e1w">
                     <rect key="frame" x="70" y="179" width="234" height="30"/>
@@ -37,8 +41,12 @@
                     <rect key="frame" x="70" y="261" width="234" height="1"/>
                     <color key="backgroundColor" red="0.89541903410000001" green="0.89541903410000001" blue="0.89541903410000001" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sT6-Rj-Xhs">
+                    <rect key="frame" x="70" y="310" width="234" height="1"/>
+                    <color key="backgroundColor" red="0.89541903410000001" green="0.89541903410000001" blue="0.89541903410000001" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KWY-t8-P1f">
-                    <rect key="frame" x="149" y="288" width="77" height="30"/>
+                    <rect key="frame" x="149" y="333" width="77" height="30"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
                     <state key="normal" title="Done">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -48,13 +56,19 @@
                         <action selector="nextButtonPressed:" destination="-1" eventType="touchUpInside" id="YuC-rQ-RJZ"/>
                     </connections>
                 </button>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Type" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="apj-gt-bxO">
+                    <rect key="frame" x="70" y="281" width="234" height="30"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" weight="thin" pointSize="16"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
             </subviews>
             <color key="backgroundColor" red="0.1052353286" green="0.83489188759999999" blue="0.68454342540000002" alpha="1" colorSpace="calibratedRGB"/>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
             <nil key="simulatedBottomBarMetrics"/>
             <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-            <point key="canvasLocation" x="728.5" y="327.5"/>
+            <point key="canvasLocation" x="-462.5" y="255.5"/>
         </view>
     </objects>
 </document>

@@ -26,6 +26,19 @@
     return [self sharedStore];
 }
 
+#pragma mark - GET
+
+- (void)getDataFromServer:(NSString *)queryStr
+{
+    NSURL *url = [NSURL URLWithString:queryStr];
+    dataBlock = [[NSMutableData alloc]init];
+    
+    NSURLRequest *req = [NSURLRequest requestWithURL:url];
+    connection = [[NSURLConnection alloc]initWithRequest:req delegate:self startImmediately:YES];
+}
+
+#pragma mark - POST
+
 - (void)postDataToServer:(NSMutableDictionary *)dataDictionary withQuery:(NSString *)queryStr
 {
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%s%@",APIURL,queryStr]];
@@ -59,6 +72,7 @@
         dataDict = [NSJSONSerialization JSONObjectWithData:data
                                                    options:NSJSONReadingMutableContainers
                                                      error:&error];
+        [dataBlock appendData:data];
     }
     
 }
@@ -70,8 +84,13 @@
     if ([strongDelegate respondsToSelector:@selector(didCompletePost:withData:withDict:)]) {
         [strongDelegate didCompletePost:TRUE withData:dataReturned withDict:dataDict];
     }
+    
+    if ([strongDelegate respondsToSelector:@selector(didCompleteGet:withData:)]) {
+        [strongDelegate didCompleteGet:TRUE withData:dataBlock];
+    }
 }
 
+// Show error popup!!!! ***TODO
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
     NSLog(@"error: %@",[error localizedDescription]);

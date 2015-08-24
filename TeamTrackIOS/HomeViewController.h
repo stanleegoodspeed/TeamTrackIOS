@@ -13,8 +13,10 @@
     
     __weak IBOutlet UIButton *viewRacesButton;
     __weak IBOutlet UIButton *createWorkoutButton;
-    __weak IBOutlet UILabel *welcomeLabel;
 }
+
+@property (weak, nonatomic) IBOutlet UILabel *welcomeLabel;
+
 
 - (IBAction)createWorkoutPressed:(id)sender;
 - (IBAction)viewRacesPressed:(id)sender;

@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PostToServer.h"
 
-@interface MyRacesViewController : UIViewController
+@interface MyRacesViewController : UIViewController<UITableViewDelegate,UITableViewDataSource, PostToServerDelegate>
+{
+    NSMutableArray *allRaces;
+    NSURLConnection *connection;
+    NSMutableArray *myAthletes;
+    BOOL flag;
+    
+}
+
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end

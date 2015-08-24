@@ -8,6 +8,7 @@
 
 #import "HomeViewController.h"
 #import "CreateWorkoutViewController.h"
+#import "MyRacesViewController.h"
 
 @interface HomeViewController ()
 
@@ -15,7 +16,32 @@
 
 @implementation HomeViewController
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        // Navbar setup
+        CGRect frame = CGRectMake(0, 0, 400, 44);
+        UILabel *label = [[UILabel alloc] initWithFrame:frame];
+        label.backgroundColor = [UIColor clearColor];
+        label.textAlignment = NSTextAlignmentCenter;
+        label.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:21];
+        label.textColor = [UIColor blackColor];
+        label.text = @"Home";
+        [[self navigationItem]setTitleView:label];
+        [[self navigationItem]setHidesBackButton:YES];
+        
+        self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+    }
+    
+    return self;
+}
+
+
 - (void)viewDidLoad {
+    
+    self.welcomeLabel.text = @"Welcome, Colin.";
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
@@ -36,7 +62,9 @@
 
 - (IBAction)viewRacesPressed:(id)sender
 {
-    
+    // Push View Controller
+    MyRacesViewController *myRacesViewController = [[MyRacesViewController alloc]init];
+    [[self navigationController] pushViewController:myRacesViewController animated:YES];
 }
 
 /*
