@@ -30,6 +30,7 @@
 
 - (void)getDataFromServer:(NSString *)queryStr
 {
+    queryType = TRUE;
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%s%@",APIURL,queryStr]];
     dataBlock = [[NSMutableData alloc]init];
     
@@ -41,6 +42,7 @@
 
 - (void)postDataToServer:(NSMutableDictionary *)dataDictionary withQuery:(NSString *)queryStr
 {
+    queryType = FALSE;
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%s%@",APIURL,queryStr]];
     NSError *jsonSerializationError = nil;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dataDictionary options:NSJSONWritingPrettyPrinted error:&jsonSerializationError];
@@ -81,13 +83,19 @@
 {
     id<PostToServerDelegate> strongDelegate = self.delegate;
     
-    if ([strongDelegate respondsToSelector:@selector(didCompletePost:withData:withDict:)]) {
-        [strongDelegate didCompletePost:TRUE withData:dataReturned withDict:dataDict];
+    if(queryType)
+    {
+        if ([strongDelegate respondsToSelector:@selector(didCompleteGet:withData:)]) {
+            [strongDelegate didCompleteGet:TRUE withData:dataBlock];
+        }
+    }
+    else
+    {
+        if ([strongDelegate respondsToSelector:@selector(didCompletePost:withData:withDict:)]) {
+            [strongDelegate didCompletePost:TRUE withData:dataReturned withDict:dataDict];
+        }
     }
     
-    if ([strongDelegate respondsToSelector:@selector(didCompleteGet:withData:)]) {
-        [strongDelegate didCompleteGet:TRUE withData:dataBlock];
-    }
 }
 
 // Show error popup!!!! ***TODO

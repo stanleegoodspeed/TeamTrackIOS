@@ -18,6 +18,7 @@
     NSString *dataReturned;
     NSDictionary *dataDict;
     NSMutableData *dataBlock;
+    BOOL queryType;
 }
 
 + (PostToServer *)sharedStore;

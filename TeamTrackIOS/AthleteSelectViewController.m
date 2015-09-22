@@ -140,7 +140,7 @@
     id myRunnerID = [dataDict valueForKey:@"runnerID"];
     id myRunInRaceID = [dataDict valueForKey:@"runInRaceID"];
     
-    Athlete *myAthleteObject = [athleteDict valueForKey:myRunnerID];
+    Athlete *myAthleteObject = [athleteDict objectForKey:myRunnerID];
     myAthleteObject.runInRaceID = (NSNumber *)myRunInRaceID;
     [selectedAthletesWithID addObject:myAthleteObject];
     

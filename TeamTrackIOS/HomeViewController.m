@@ -37,6 +37,11 @@
     return self;
 }
 
+- (id)initWithUserID:(NSNumber *)userID
+{
+    return self;
+}
+
 
 - (void)viewDidLoad {
         

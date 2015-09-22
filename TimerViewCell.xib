@@ -14,7 +14,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sng-mr-hea">
-                        <rect key="frame" x="297" y="0.0" width="83" height="51"/>
+                        <rect key="frame" x="297" y="0.0" width="83" height="49"/>
                         <color key="backgroundColor" red="0.9468513257575758" green="0.21972976758862089" blue="0.25994090686794219" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -27,7 +27,7 @@
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yhX-lP-aIJ">
-                        <rect key="frame" x="225" y="0.0" width="77" height="51"/>
+                        <rect key="frame" x="225" y="0.0" width="77" height="49"/>
                         <color key="backgroundColor" red="0.20000000000000001" green="0.59999999999999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

@@ -54,6 +54,23 @@
     
     [self.view addGestureRecognizer:tap];
     
+    workoutNameInput.layer.cornerRadius=8.0f;
+    workoutNameInput.layer.masksToBounds=YES;
+    workoutNameInput.layer.borderColor=[[UIColor whiteColor]CGColor];
+    workoutNameInput.layer.borderWidth= 1.0f;
+    
+    self.eventNameInput.layer.cornerRadius=8.0f;
+    self.eventNameInput.layer.masksToBounds=YES;
+    self.eventNameInput.layer.borderColor=[[UIColor whiteColor]CGColor];
+    self.eventNameInput.layer.borderWidth= 1.0f;
+    
+    typeInput.layer.cornerRadius=8.0f;
+    typeInput.layer.masksToBounds=YES;
+    typeInput.layer.borderColor=[[UIColor whiteColor]CGColor];
+    typeInput.layer.borderWidth= 1.0f;
+
+    
+    
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
@@ -128,8 +145,9 @@
 - (void)didCompletePost:(BOOL)status withData:(NSString *)data withDict:(NSDictionary *)dataDict
 {
     // Receive and set new data
-    NSInteger tmp = [data integerValue];
+    NSInteger tmp = [[dataDict objectForKey:@"insertId"] intValue];
     raceID = [NSNumber numberWithInteger:tmp];
+    
     
     // Push View Controller
     AthleteSelectViewController *athleteSelectViewController = [[AthleteSelectViewController alloc]initWithRaceID:raceID];
