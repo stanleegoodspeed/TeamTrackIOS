@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#define APIURL "http://himrod.home/~Colin/TeamTrack/api/index.php/"
+#define APIURL "http://192.168.1.3:4444/"
 
 // Declare delegate
 @protocol PostToServerDelegate;

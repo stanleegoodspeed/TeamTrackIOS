@@ -12,7 +12,7 @@
 #import "ViewController.h"
 #import "PostToServer.h"
 
-@interface AthleteSelectViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, NSURLConnectionDelegate, PostToServerDelegate>
+@interface AthleteSelectViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, PostToServerDelegate>
 {
     //__weak IBOutlet UIButton *nextButton;
     int counter;

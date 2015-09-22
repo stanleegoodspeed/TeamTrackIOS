@@ -24,7 +24,7 @@
         label.backgroundColor = [UIColor clearColor];
         label.textAlignment = NSTextAlignmentCenter;
         label.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:21];
-        label.textColor = [UIColor blackColor];
+        label.textColor = [UIColor whiteColor];
         label.text = @"Splits";
         [[self navigationItem]setTitleView:label];
                 

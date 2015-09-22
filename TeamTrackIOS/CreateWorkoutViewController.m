@@ -24,7 +24,7 @@
         label.backgroundColor = [UIColor clearColor];
         label.textAlignment = NSTextAlignmentCenter;
         label.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:21];
-        label.textColor = [UIColor blackColor];
+        label.textColor = [UIColor whiteColor];
         label.text = @"Create Workout";
         [[self navigationItem]setTitleView:label];
         [[self navigationItem]setHidesBackButton:YES];
@@ -75,13 +75,15 @@
 {
     NSNumber *coachID = [NSNumber numberWithInt:1]; // ***** FAKE!! - need to change **//
     NSNumber *typeID = [NSNumber numberWithInt:2]; // ***** FAKE!! - need to change **//
-    NSString *queryStr = @"postrace";
+    NSNumber *eventID = [NSNumber numberWithInt:1]; // ***** FAKE!! - need to change **//
+    NSString *queryStr = @"createWorkout";
     
     NSMutableDictionary *dataDictionary = [NSMutableDictionary dictionaryWithCapacity:1];
-    [dataDictionary setObject:workoutNameInput.text forKey:@"workoutName"];
-    [dataDictionary setObject:self.eventNameInput.text forKey:@"eventName"];
+    [dataDictionary setObject:workoutNameInput.text forKey:@"raceName"];
+    // ** Dummy values (see above!)
+    [dataDictionary setObject:eventID forKey:@"fk_eventID"];
     [dataDictionary setObject:coachID forKey:@"createdBy"];
-    [dataDictionary setObject:typeID forKey:@"type"];
+    [dataDictionary setObject:typeID forKey:@"fk_typeID"];
     
     PostToServer *postToServer = [PostToServer sharedStore];
     postToServer.delegate = self;

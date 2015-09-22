@@ -26,7 +26,7 @@
         label.backgroundColor = [UIColor clearColor];
         label.textAlignment = NSTextAlignmentCenter;
         label.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:21];
-        label.textColor = [UIColor blackColor];
+        label.textColor = [UIColor whiteColor];
         label.text = @"Home";
         [[self navigationItem]setTitleView:label];
         [[self navigationItem]setHidesBackButton:YES];
@@ -39,9 +39,7 @@
 
 
 - (void)viewDidLoad {
-    
-    self.welcomeLabel.text = @"Welcome, Colin.";
-    
+        
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }

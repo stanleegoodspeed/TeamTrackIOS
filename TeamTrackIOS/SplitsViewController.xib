@@ -25,7 +25,7 @@
                     </connections>
                 </tableView>
             </subviews>
-            <color key="backgroundColor" red="0.096614670580000006" green="0.7671243687" blue="0.63097003699999998" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.20000000000000001" green="0.59999999999999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <point key="canvasLocation" x="493.5" y="501.5"/>
         </view>

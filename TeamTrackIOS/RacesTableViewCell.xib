@@ -32,6 +32,7 @@
                 <outlet property="raceDateLabel" destination="YBE-fl-C6t" id="Rtw-XU-Szu"/>
                 <outlet property="raceNameLabel" destination="RVy-07-HbL" id="8jO-dL-u8l"/>
             </connections>
+            <point key="canvasLocation" x="273" y="302.5"/>
         </tableViewCell>
     </objects>
 </document>

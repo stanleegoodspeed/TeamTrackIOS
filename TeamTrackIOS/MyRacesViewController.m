@@ -27,7 +27,7 @@
         label.backgroundColor = [UIColor clearColor];
         label.textAlignment = NSTextAlignmentCenter;
         label.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:21];
-        label.textColor = [UIColor blackColor];
+        label.textColor = [UIColor whiteColor];
         label.text = @"My Races";
         [[self navigationItem]setTitleView:label];
         
@@ -95,7 +95,7 @@
     flag = TRUE;
     
     // *** HARDCODED CoachID *** // need to change!
-    NSString *queryStr = [NSString stringWithFormat:@"%@%i",@"http://himrod.home/~Colin/TeamTrack/api/index.php/getracespercoach/",1];
+    NSString *queryStr = [NSString stringWithFormat:@"%@%i",@"getWorkoutsCoach/",1];
     
     PostToServer *postToServer = [PostToServer sharedStore];
     postToServer.delegate = self;
@@ -110,7 +110,7 @@
     Race *myRace = [allRaces objectAtIndex:index];
     
     // Get Runners Per Race
-    NSString *queryStr = [NSString stringWithFormat:@"%@%i",@"http://himrod.home/~Colin/TeamTrack/api/index.php/getrunnerswithsplits/",[myRace.raceID intValue]];
+    NSString *queryStr = [NSString stringWithFormat:@"%@%i",@"getrunnerswithsplits/",[myRace.raceID intValue]];
     PostToServer *postToServer = [PostToServer sharedStore];
     postToServer.delegate = self;
     [postToServer getDataFromServer:queryStr];

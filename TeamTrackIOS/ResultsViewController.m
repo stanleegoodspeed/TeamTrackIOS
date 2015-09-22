@@ -35,7 +35,7 @@
         label.backgroundColor = [UIColor clearColor];
         label.textAlignment = NSTextAlignmentCenter;
         label.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:21];
-        label.textColor = [UIColor blackColor];
+        label.textColor = [UIColor whiteColor];
         label.text = @"Results";
         [[self navigationItem]setTitleView:label];
         [[self navigationItem]setHidesBackButton:YES];

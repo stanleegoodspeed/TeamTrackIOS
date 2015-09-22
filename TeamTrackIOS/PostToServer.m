@@ -30,7 +30,7 @@
 
 - (void)getDataFromServer:(NSString *)queryStr
 {
-    NSURL *url = [NSURL URLWithString:queryStr];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%s%@",APIURL,queryStr]];
     dataBlock = [[NSMutableData alloc]init];
     
     NSURLRequest *req = [NSURLRequest requestWithURL:url];

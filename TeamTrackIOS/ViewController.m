@@ -36,7 +36,7 @@
         label.backgroundColor = [UIColor clearColor];
         label.textAlignment = NSTextAlignmentCenter;
         label.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:21];
-        label.textColor = [UIColor blackColor];
+        label.textColor = [UIColor whiteColor];
         label.text = @"Stopwatch";
         [[self navigationItem]setTitleView:label];
         [[self navigationItem]setHidesBackButton:YES];
@@ -124,8 +124,7 @@
     for (Athlete *myAthlete in self.atheletes) {
         
         // Save finishTime
-        //NSURL *url = [NSURL URLWithString:@"http://himrod.home/~Colin/TeamTrack/api/index.php/postrunnertime"];
-        NSString *queryStr = @"postrunnertime";
+        NSString *queryStr = @"postWorkoutTime";
         NSMutableDictionary *dataDictionary = [NSMutableDictionary dictionaryWithCapacity:1];
         [dataDictionary setObject:myAthlete.runInRaceID forKey:@"runInRaceID"];
         [dataDictionary setObject:myAthlete.finishTime forKey:@"finishTime"];
@@ -138,10 +137,9 @@
         // For each athlete, save all splits
         for (Split *mySplit in myAthlete.splits) {
             splitCount++;
-            //NSURL *url2 = [NSURL URLWithString:@"http://himrod.home/~Colin/TeamTrack/api/index.php/postrunnersplit"];
-            NSString *queryStr2 = @"postrunnersplit";
+            NSString *queryStr2 = @"postSplit";
             NSMutableDictionary *dataDictionary2 = [NSMutableDictionary dictionaryWithCapacity:1];
-            [dataDictionary2 setObject:myAthlete.runInRaceID forKey:@"runInRaceID"];
+            [dataDictionary2 setObject:myAthlete.runInRaceID forKey:@"fk_runInRaceID"];
             [dataDictionary2 setObject:mySplit.splitNumber forKey:@"splitNumber"];
             [dataDictionary2 setObject:mySplit.splitTime forKey:@"splitTime"];
             

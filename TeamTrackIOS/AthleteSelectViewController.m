@@ -24,7 +24,7 @@
         label.backgroundColor = [UIColor clearColor];
         label.textAlignment = NSTextAlignmentCenter;
         label.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:21];
-        label.textColor = [UIColor blackColor];
+        label.textColor = [UIColor whiteColor];
         label.text = @"Select Athletes";
         [[self navigationItem]setTitleView:label];
         self.navigationItem.hidesBackButton = YES;
@@ -111,14 +111,13 @@
 
 - (IBAction)nextBtnPressed
 {
-    //NSURL *url = [NSURL URLWithString:@"http://himrod.home/~Colin/TeamTrack/api/index.php/postrunnerinrace"];
-    NSString *queryStr = @"postrunnerinrace";
+    NSString *queryStr = @"addAthleteToWorkout";
     NSMutableDictionary *dataDictionary = [NSMutableDictionary dictionaryWithCapacity:1];
     
     for (Athlete *myAthlete in selectedAthletes) {
         
-        [dataDictionary setObject:raceID forKey:@"fkRaceID"];
-        [dataDictionary setObject:myAthlete.runnerID forKey:@"fkRunnerID"];
+        [dataDictionary setObject:raceID forKey:@"fk_raceID"];
+        [dataDictionary setObject:myAthlete.runnerID forKey:@"fk_runnerID"];
         
         //PostToServer *postToServer = [[PostToServer alloc]init];
         PostToServer *postToServer = [PostToServer sharedStore];
@@ -155,15 +154,55 @@
 
 #pragma mark - NSURLConnection Delegate
 
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+//- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+//{
+//    [jsonData appendData:data];
+//}
+//
+//- (void)connectionDidFinishLoading:(NSURLConnection *)connection;
+//{
+//    NSError *error = nil;
+//    NSArray *athleteArray = [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:&error];
+//    
+//    for (int i = 0; i < athleteArray.count; i++) {
+//        Athlete *myAthlete = [[Athlete alloc]init];
+//        myAthlete.firstName = [athleteArray[i] valueForKey:@"firstName"];
+//        myAthlete.lastName = [athleteArray[i] valueForKey:@"lastName"];
+//        myAthlete.runnerID = [athleteArray[i] valueForKey:@"runnerID"];
+//        [allAthletes addObject:myAthlete];
+//        [athleteDict setObject:myAthlete forKey:myAthlete.runnerID];
+//    }
+//    
+//    [self.tableView reloadData];
+//}
+//
+//- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+//{
+//    NSLog(@"error: %@",[error localizedDescription]);
+//}
+
+#pragma mark - Helpers
+
+- (void)fetchData
 {
-    [jsonData appendData:data];
+//    jsonData = [[NSMutableData alloc]init];
+//    NSURL *url = [NSURL URLWithString:@"http://192.168.1.3:4444/getAthletes/1"];
+//    
+//    NSURLRequest *req = [NSURLRequest requestWithURL:url];
+//    connection = [[NSURLConnection alloc]initWithRequest:req delegate:self startImmediately:YES];
+    
+    NSString *queryStr = [NSString stringWithFormat:@"%@%i",@"getAthletes/",1]; /*HARDCODED - NEED TO FIX !!!! */
+    PostToServer *postToServer = [PostToServer sharedStore];
+    postToServer.delegate = self;
+    [postToServer getDataFromServer:queryStr];
 }
 
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection;
+#pragma mark - PostToServer Delegate
+
+- (void)didCompleteGet:(BOOL)status withData:(NSMutableData *)data
 {
     NSError *error = nil;
-    NSArray *athleteArray = [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:&error];
+    NSArray *athleteArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
     
     for (int i = 0; i < athleteArray.count; i++) {
         Athlete *myAthlete = [[Athlete alloc]init];
@@ -173,24 +212,9 @@
         [allAthletes addObject:myAthlete];
         [athleteDict setObject:myAthlete forKey:myAthlete.runnerID];
     }
-    
+
     [self.tableView reloadData];
-}
 
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
-{
-    NSLog(@"error: %@",[error localizedDescription]);
-}
-
-#pragma mark - Helpers
-
-- (void)fetchData
-{
-    jsonData = [[NSMutableData alloc]init];
-    NSURL *url = [NSURL URLWithString:@"http://himrod.home/~Colin/TeamTrack/api/index.php/getrunners"];
-    
-    NSURLRequest *req = [NSURLRequest requestWithURL:url];
-    connection = [[NSURLConnection alloc]initWithRequest:req delegate:self startImmediately:YES];
 }
 
 @end

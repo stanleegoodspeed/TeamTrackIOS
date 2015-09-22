@@ -25,7 +25,7 @@
     HomeViewController *homeViewController = [[HomeViewController alloc]init];
     UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:homeViewController];
     [[UINavigationBar appearance]setTintColor:[UIColor whiteColor]]; // it set color of bar button item text
-    [[UINavigationBar appearance]setBarTintColor:[UIColor colorWithRed:27.0/255.0 green:213.0/255.0 blue:175.0/255.0 alpha:1]]; // it set color of navigation
+    [[UINavigationBar appearance]setBarTintColor:[UIColor colorWithRed:51.0/255.0 green:153.0/255.0 blue:255.0/255.0 alpha:1]]; // it set color of navigation
     //[[UINavigationBar appearance]setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"AppleSDGothicNeo-Thin" size:21], NSFontAttributeName, nil]];
     
     [[self window] setRootViewController:navController];
