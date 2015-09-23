@@ -50,6 +50,7 @@
         // Var init
         self.atheletes = [[NSArray alloc]initWithArray:selectedAthletes];
         counter = 0;
+        stopPressedCount = 0;
     }
     
     return self;
@@ -59,6 +60,12 @@
     
     // Create Timer objects for selected athletes
     [self createTimers];
+    
+    // Disable tableView until user pressses start
+    self.tableView.userInteractionEnabled = FALSE;
+
+    // Disable the save button until all stop buttons have been pressed
+    self.navigationItem.rightBarButtonItem.enabled = FALSE;
     
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -105,6 +112,13 @@
 
 - (IBAction)startButtonPressed:(id)sender
 {
+    // disable start button once pressed
+    startButton.userInteractionEnabled = FALSE;
+    startButton.backgroundColor = [UIColor grayColor];
+    
+    // Enable tableview
+    self.tableView.userInteractionEnabled = TRUE;
+    
     for (Timer *aTimer in self.timers) {
         [aTimer startTimer];
     }
@@ -114,7 +128,8 @@
 
 - (IBAction)backToStartButtonPressed:(id)sender
 {
-    [[self navigationController] popToRootViewControllerAnimated:YES];
+    [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:1] animated:YES];
+    //[[self navigationController] popToRootViewControllerAnimated:YES];
 }
 
 - (IBAction)saveButtonPressed:(id)sender
@@ -167,7 +182,7 @@
 
 #pragma mark - PostToServer Delegate
 
-- (void)didCompletePost:(BOOL)status withData:(NSString *)data withDict:(NSDictionary *)dataDict
+- (void)didCompletePost:(NSDictionary *)dataDict
 {
     counter ++;
     if(counter == (splitCount + self.atheletes.count))
@@ -202,7 +217,13 @@
 
 - (void)timerDidPressStop:(TimerViewCell *)timerCell
 {
+    stopPressedCount++;
     [[self.timers objectAtIndex:[[self.tableView indexPathForCell:timerCell] row]] stopTimer];
+    if(stopPressedCount == self.timers.count)
+    {
+        // all timers have stopped, save button should now be available
+        self.navigationItem.rightBarButtonItem.enabled = TRUE;
+    }
 }
 
 - (void)timerDidPressSplit:(TimerViewCell *)timerCell

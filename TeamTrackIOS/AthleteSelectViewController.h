@@ -14,7 +14,6 @@
 
 @interface AthleteSelectViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, PostToServerDelegate>
 {
-    //__weak IBOutlet UIButton *nextButton;
     int counter;
     
     NSMutableData *jsonData;

@@ -9,21 +9,27 @@
 #import <UIKit/UIKit.h>
 #import "AthleteSelectViewController.h"
 #import "PostToServer.h"
+#import "Dropdown.h"
 
 @interface CreateWorkoutViewController : UIViewController <NSURLConnectionDelegate,PostToServerDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate>
 {
     
     __weak IBOutlet UIButton *nextBtn;
     __weak IBOutlet UITextField *workoutNameInput;
-    __weak IBOutlet UITextField *typeInput;
     
     NSURLConnection *connection;
     NSNumber *raceID;
-    NSMutableArray *eventTypes;
+    NSMutableArray *eventList;
+    NSMutableArray *typeList;
+    NSMutableArray *currentList;
+    UITextField *currentTextField;
+    NSNumber *eventPickedVal;
+    NSNumber *typePickedVal;
 }
 
-@property (weak, nonatomic) IBOutlet UITextField *eventNameInput;
-@property (weak, nonatomic) UIActionSheet *actionSheet;
+@property (strong, nonatomic) IBOutlet UITextField *eventNameInput;
+@property (strong, nonatomic) IBOutlet UITextField *typeNameInput;
+@property (strong, nonatomic) UIPickerView *pickerView;
 
 - (IBAction)nextButtonPressed:(id)sender;
 

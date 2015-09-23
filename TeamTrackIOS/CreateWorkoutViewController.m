@@ -7,6 +7,7 @@
 //
 
 #import "CreateWorkoutViewController.h"
+#import "KeychainWrapper.h"
 
 @interface CreateWorkoutViewController ()
 
@@ -29,11 +30,6 @@
         [[self navigationItem]setTitleView:label];
         [[self navigationItem]setHidesBackButton:YES];
         
-        // Var set
-        eventTypes = [[NSMutableArray alloc]init];
-        [eventTypes addObject:@"5K"];
-        [eventTypes addObject:@"800"];
-        [eventTypes addObject:@"400"];
     }
     
     return self;
@@ -41,12 +37,43 @@
 
 - (void)viewDidLoad {
     
-    UIPickerView *myPicker = [[UIPickerView alloc] init];
-    myPicker.delegate = self;
-    myPicker.dataSource = self;
-    myPicker.showsSelectionIndicator = YES;
-    self.eventNameInput.inputView = myPicker;
-        
+    // init arrays for picker
+    //eventList = [[NSMutableArray alloc]init];
+    
+    self.pickerView = [[UIPickerView alloc] init];
+    self.pickerView.delegate = self;
+    self.pickerView.dataSource = self;
+    self.pickerView.showsSelectionIndicator = YES;
+    self.eventNameInput.inputView = self.pickerView;
+    self.eventNameInput.delegate = self;
+    self.typeNameInput.delegate = self;
+    self.typeNameInput.inputView = self.pickerView;
+    
+    eventList = [[NSMutableArray alloc]init];
+//    Dropdown *myDrop1 = [[Dropdown alloc]init];
+//    myDrop1.code = [NSNumber numberWithInt:1];
+//    myDrop1.myDescription = @"100";
+//    [eventList addObject:myDrop1];
+//    Dropdown *myDrop2 = [[Dropdown alloc]init];
+//    myDrop2.code = [NSNumber numberWithInt:1];
+//    myDrop2.myDescription = @"200";
+//    [eventList addObject:myDrop2];
+    
+    typeList = [[NSMutableArray alloc]init];
+//    Dropdown *myDrop3 = [[Dropdown alloc]init];
+//    myDrop3.code = [NSNumber numberWithInt:1];
+//    myDrop3.myDescription = @"Race";
+//    [typeList addObject:myDrop3];
+//    Dropdown *myDrop5 = [[Dropdown alloc]init];
+//    myDrop5.code = [NSNumber numberWithInt:1];
+//    myDrop5.myDescription = @"Practice";
+//    [typeList addObject:myDrop5];
+    
+    //[eventList addObject:@"800"];
+    //[eventList addObject:@"400"];
+    
+    //[self.view addSubview:self.pickerView];
+    
     // Add TapRecognizer to auto-close keyboard when clicked outside of zone
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
@@ -64,11 +91,20 @@
     self.eventNameInput.layer.borderColor=[[UIColor whiteColor]CGColor];
     self.eventNameInput.layer.borderWidth= 1.0f;
     
-    typeInput.layer.cornerRadius=8.0f;
-    typeInput.layer.masksToBounds=YES;
-    typeInput.layer.borderColor=[[UIColor whiteColor]CGColor];
-    typeInput.layer.borderWidth= 1.0f;
+    self.typeNameInput.layer.cornerRadius=8.0f;
+    self.typeNameInput.layer.masksToBounds=YES;
+    self.typeNameInput.layer.borderColor=[[UIColor whiteColor]CGColor];
+    self.typeNameInput.layer.borderWidth= 1.0f;
+    
+    nextBtn.layer.cornerRadius=8.0f;
+    nextBtn.layer.masksToBounds=YES;
+    nextBtn.layer.borderColor=[[UIColor whiteColor]CGColor];
+    nextBtn.layer.borderWidth= 1.0f;
 
+    // Build dropdown picker
+    [self fetchTypes];
+
+    [self fetchEvents];
     
     
     [super viewDidLoad];
@@ -86,21 +122,37 @@
     [self.view endEditing:YES];
 }
 
+- (void)fetchEvents
+{
+    NSString *queryStr = @"getEvents";
+    PostToServer *postToServer = [PostToServer sharedStore];
+    postToServer.delegate = self;
+    [postToServer getDataFromServer:queryStr];
+}
+
+- (void)fetchTypes
+{
+    NSString *queryStr = @"getTypes";
+    PostToServer *postToServer = [PostToServer sharedStore];
+    postToServer.delegate = self;
+    [postToServer getDataFromServer:queryStr];
+}
+
 #pragma mark - IBAction
 
 - (IBAction)nextButtonPressed:(id)sender
 {
-    NSNumber *coachID = [NSNumber numberWithInt:1]; // ***** FAKE!! - need to change **//
-    NSNumber *typeID = [NSNumber numberWithInt:2]; // ***** FAKE!! - need to change **//
-    NSNumber *eventID = [NSNumber numberWithInt:1]; // ***** FAKE!! - need to change **//
+    // Pull userID from keychain
+    KeychainWrapper *keychainItem = [[KeychainWrapper alloc] init];
+    NSNumber *userID = [keychainItem myObjectForKey:(__bridge id)(kSecAttrService)];
+    
     NSString *queryStr = @"createWorkout";
     
     NSMutableDictionary *dataDictionary = [NSMutableDictionary dictionaryWithCapacity:1];
     [dataDictionary setObject:workoutNameInput.text forKey:@"raceName"];
-    // ** Dummy values (see above!)
-    [dataDictionary setObject:eventID forKey:@"fk_eventID"];
-    [dataDictionary setObject:coachID forKey:@"createdBy"];
-    [dataDictionary setObject:typeID forKey:@"fk_typeID"];
+    [dataDictionary setObject:eventPickedVal forKey:@"fk_eventID"];
+    [dataDictionary setObject:userID forKey:@"createdBy"];
+    [dataDictionary setObject:typePickedVal forKey:@"fk_typeID"];
     
     PostToServer *postToServer = [PostToServer sharedStore];
     postToServer.delegate = self;
@@ -117,32 +169,59 @@
 // returns the # of rows in each component..
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    return eventTypes.count;
+    return currentList.count;
 }
 
 #pragma mark - UIPickerViewDelegate
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    return [eventTypes objectAtIndex:row];
+    return [[currentList objectAtIndex:row] myDescription];
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    self.eventNameInput.text = [eventTypes objectAtIndex:row];
+    if(currentTextField == self.eventNameInput)
+    {
+        self.eventNameInput.text = [[currentList objectAtIndex:row] myDescription];
+        eventPickedVal = [[currentList objectAtIndex:row] myCode];
+    }
+    else
+    {
+        self.typeNameInput.text = [[currentList objectAtIndex:row] myDescription];
+        typePickedVal = [[currentList objectAtIndex:row] myCode];
+    }
+    
 }
 
 #pragma mark - UITextFieldDelegate
 
-- (BOOL) textFieldShouldBeginEditing:(UITextView *)textView
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField;
 {
-    //[self.eventNameInput becomeFirstResponder];
+    currentTextField = textField;
+    if (textField == self.eventNameInput)
+    {
+        //[self.eventNameInput becomeFirstResponder];
+        currentList = eventList;
+        [self.pickerView reloadAllComponents];
+        //[self animatePickerViewIn];
+        //return NO;
+    }
+    else if(textField == self.typeNameInput)
+    {
+        //[self.typeNameInput becomeFirstResponder];
+        currentList = typeList;
+        [self.pickerView reloadAllComponents];
+        //[self animatePickerViewIn];
+        //return NO;
+    }
+    
     return YES;
 }
 
 #pragma mark - PostToServer Delegate
 
-- (void)didCompletePost:(BOOL)status withData:(NSString *)data withDict:(NSDictionary *)dataDict
+- (void)didCompletePost:(NSDictionary *)dataDict
 {
     // Receive and set new data
     NSInteger tmp = [[dataDict objectForKey:@"insertId"] intValue];
@@ -154,26 +233,28 @@
     [[self navigationController] pushViewController:athleteSelectViewController animated:YES];
 }
 
-#pragma mark - NSURLConnection Delegate
-
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+- (void)didCompleteGet:(NSDictionary *)data
 {
-    NSString *dataStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    NSInteger tmp = [dataStr integerValue];
-    raceID = [NSNumber numberWithInteger:tmp];
+    NSMutableArray *localDropdownArr = [[NSMutableArray alloc]init];
+    NSArray *tmpArr = [data valueForKey:@"data"];
+    
+    for (int i = 0; i < tmpArr.count; i++) {
+        Dropdown *myDropdown = [[Dropdown alloc]init];
+        myDropdown.myCode = [tmpArr[i] valueForKey:@"myCode"];
+        myDropdown.myDescription = [tmpArr[i] valueForKey:@"myDescription"];
+        [localDropdownArr addObject:myDropdown];
+    }
+    
+    if([[data valueForKey:@"message"] isEqualToString:@"Events"])
+    {
+        eventList = localDropdownArr;
+    }
+    else
+    {
+        typeList = localDropdownArr;
+    }
 }
 
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection;
-{
-    NSLog(@"finished!");
-    AthleteSelectViewController *athleteSelectViewController = [[AthleteSelectViewController alloc]initWithRaceID:raceID];
-    [[self navigationController] pushViewController:athleteSelectViewController animated:YES];
-}
-
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
-{
-    NSLog(@"error: %@",[error localizedDescription]);
-}
 
 
 @end

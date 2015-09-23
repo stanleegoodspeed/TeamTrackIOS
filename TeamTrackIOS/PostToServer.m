@@ -31,8 +31,9 @@
 - (void)getDataFromServer:(NSString *)queryStr
 {
     queryType = TRUE;
+    //dataBlock = nil;
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%s%@",APIURL,queryStr]];
-    dataBlock = [[NSMutableData alloc]init];
+    //dataBlock = [[NSMutableData alloc]init];
     
     NSURLRequest *req = [NSURLRequest requestWithURL:url];
     connection = [[NSURLConnection alloc]initWithRequest:req delegate:self startImmediately:YES];
@@ -70,11 +71,10 @@
     NSError *error = nil;
     NSLog(@"Receiving data...");
     if(data) {
-        dataReturned = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         dataDict = [NSJSONSerialization JSONObjectWithData:data
                                                    options:NSJSONReadingMutableContainers
                                                      error:&error];
-        [dataBlock appendData:data];
+        //[dataBlock appendData:data];
     }
     
 }
@@ -85,17 +85,16 @@
     
     if(queryType)
     {
-        if ([strongDelegate respondsToSelector:@selector(didCompleteGet:withData:)]) {
-            [strongDelegate didCompleteGet:TRUE withData:dataBlock];
+        if ([strongDelegate respondsToSelector:@selector(didCompleteGet:)]) {
+            [strongDelegate didCompleteGet:dataDict];
         }
     }
     else
     {
-        if ([strongDelegate respondsToSelector:@selector(didCompletePost:withData:withDict:)]) {
-            [strongDelegate didCompletePost:TRUE withData:dataReturned withDict:dataDict];
+        if ([strongDelegate respondsToSelector:@selector(didCompletePost:)]) {
+            [strongDelegate didCompletePost:dataDict];
         }
     }
-    
 }
 
 // Show error popup!!!! ***TODO
@@ -103,11 +102,11 @@
 {
     NSLog(@"error: %@",[error localizedDescription]);
     
-    id<PostToServerDelegate> strongDelegate = self.delegate;
-    
-    if ([strongDelegate respondsToSelector:@selector(didCompletePost:withData:withDict:)]) {
-        [strongDelegate didCompletePost:FALSE withData:dataReturned withDict:dataDict];
-    }
+//    id<PostToServerDelegate> strongDelegate = self.delegate;
+//    
+//    if ([strongDelegate respondsToSelector:@selector(didCompletePost:withData:withDict:)]) {
+//        [strongDelegate didCompletePost:FALSE withData:dataReturned withDict:dataDict];
+//    }
 }
 
 @end

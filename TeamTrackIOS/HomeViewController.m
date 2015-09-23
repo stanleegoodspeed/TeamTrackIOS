@@ -37,13 +37,19 @@
     return self;
 }
 
-- (id)initWithUserID:(NSNumber *)userID
-{
-    return self;
-}
-
 
 - (void)viewDidLoad {
+    
+    viewRacesButton.layer.cornerRadius=8.0f;
+    viewRacesButton.layer.masksToBounds=YES;
+    viewRacesButton.layer.borderColor=[[UIColor whiteColor]CGColor];
+    viewRacesButton.layer.borderWidth= 1.0f;
+    
+    createWorkoutButton.layer.cornerRadius=8.0f;
+    createWorkoutButton.layer.masksToBounds=YES;
+    createWorkoutButton.layer.borderColor=[[UIColor whiteColor]CGColor];
+    createWorkoutButton.layer.borderWidth= 1.0f;
+
         
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.

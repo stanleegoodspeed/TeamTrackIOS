@@ -52,7 +52,7 @@
     self.loginButton.layer.borderColor=[[UIColor whiteColor]CGColor];
     self.loginButton.layer.borderWidth= 1.0f;
     
-    self.navigationController.navigationBar.hidden = TRUE;
+    //self.navigationController.navigationBar.hidden = TRUE;
     
     
     [super viewDidLoad];
@@ -82,7 +82,7 @@
 
 #pragma mark - PostToServer Delegate
 
-- (void)didCompletePost:(BOOL)status withData:(NSString *)data withDict:(NSDictionary *)dataDict
+- (void)didCompletePost:(NSDictionary *)dataDict
 {
     // Login Success
     if([[dataDict objectForKey:@"status"] doubleValue] == 200 ) {

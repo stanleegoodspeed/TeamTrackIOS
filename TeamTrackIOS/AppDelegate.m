@@ -7,8 +7,6 @@
 //
 
 #import "AppDelegate.h"
-//#import "CreateWorkoutViewController.h"
-//#import "HomeViewController.h"
 #import "LoginViewController.h"
 #import "KeychainWrapper.h"
 
@@ -22,8 +20,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
+    // Retrieve username/password from keychain if they exist
     KeychainWrapper *keychainItem = [[KeychainWrapper alloc] init];
-    //[keychainItem resetKeychainItem];
     NSString *password = [keychainItem myObjectForKey:(__bridge id)(kSecValueData)];
     NSString *username = [keychainItem myObjectForKey:(__bridge id)(kSecAttrAccount)];
     
@@ -39,17 +37,13 @@
     }
     else
     {
-        // Send keychain username/password to LoginAuth Helper. Once authenticated, go to Home Screen
+        // Send keychain username/password to LoginViewController. Once authenticated, auto push to Home Screen
         LoginViewController *loginViewController = [[LoginViewController alloc]initWithCreds:username andPassword:password];
         UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:loginViewController];
         [[UINavigationBar appearance]setTintColor:[UIColor whiteColor]]; // it set color of bar button item text
         [[UINavigationBar appearance]setBarTintColor:[UIColor colorWithRed:51.0/255.0 green:153.0/255.0 blue:255.0/255.0 alpha:1]]; // it set color of navigation
         [[self window] setRootViewController:navController];
     }
-    
-//    [[UINavigationBar appearance]setTintColor:[UIColor whiteColor]]; // it set color of bar button item text
-//    [[UINavigationBar appearance]setBarTintColor:[UIColor colorWithRed:51.0/255.0 green:153.0/255.0 blue:255.0/255.0 alpha:1]]; // it set color of navigation
-//    [[self window] setRootViewController:navController];
     
     [self.window makeKeyAndVisible];
     return YES;

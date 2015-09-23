@@ -8,7 +8,7 @@
             <connections>
                 <outlet property="eventNameInput" destination="5KH-om-lfn" id="NFi-dF-ENO"/>
                 <outlet property="nextBtn" destination="KWY-t8-P1f" id="gR9-lM-ET4"/>
-                <outlet property="typeInput" destination="apj-gt-bxO" id="QVe-pb-HsJ"/>
+                <outlet property="typeNameInput" destination="apj-gt-bxO" id="rBw-OP-s75"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="workoutNameInput" destination="2ac-1O-e1w" id="hnU-GC-GTP"/>
             </connections>
@@ -75,7 +75,7 @@
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KWY-t8-P1f">
                     <rect key="frame" x="130" y="367" width="114" height="46"/>
-                    <color key="backgroundColor" red="0.3761307566" green="0.78736565970000005" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.20000000000000001" green="0.59999999999999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                     <state key="normal" title="DONE">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -98,7 +98,7 @@
                     <exclude reference="sT6-Rj-Xhs"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="-781.5" y="266.5"/>
+            <point key="canvasLocation" x="-1988.5" y="239.5"/>
         </view>
     </objects>
 </document>

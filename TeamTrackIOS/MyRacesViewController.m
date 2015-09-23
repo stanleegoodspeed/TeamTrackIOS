@@ -10,6 +10,7 @@
 #import "RacesTableViewCell.h"
 #import "Race.h"
 #import "ResultsViewController.h"
+#import "KeychainWrapper.h"
 
 @interface MyRacesViewController ()
 
@@ -94,8 +95,11 @@
     // Flag used for PostToServer delegate
     flag = TRUE;
     
-    // *** HARDCODED CoachID *** // need to change!
-    NSString *queryStr = [NSString stringWithFormat:@"%@%i",@"getWorkoutsCoach/",1];
+    // Pull userID from keychain
+    KeychainWrapper *keychainItem = [[KeychainWrapper alloc] init];
+    NSNumber *userID = [keychainItem myObjectForKey:(__bridge id)(kSecAttrService)];
+    
+    NSString *queryStr = [NSString stringWithFormat:@"%@%@",@"getWorkoutsCoach/",userID];
     
     PostToServer *postToServer = [PostToServer sharedStore];
     postToServer.delegate = self;
@@ -110,7 +114,7 @@
     Race *myRace = [allRaces objectAtIndex:index];
     
     // Get Runners Per Race
-    NSString *queryStr = [NSString stringWithFormat:@"%@%i",@"getrunnerswithsplits/",[myRace.raceID intValue]];
+    NSString *queryStr = [NSString stringWithFormat:@"%@%i",@"getAthletesWithSplits/",[myRace.raceID intValue]];
     PostToServer *postToServer = [PostToServer sharedStore];
     postToServer.delegate = self;
     [postToServer getDataFromServer:queryStr];
@@ -120,39 +124,41 @@
 
 #pragma mark - PostToServer Delegate
 
-- (void)didCompleteGet:(BOOL)status withData:(NSMutableData *)data
+- (void)didCompleteGet:(NSDictionary *)data
 {
-    NSError *error = nil;
-    NSArray *dataArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-    
     // Fetch Races
     if(flag)
     {
-        for (int i = 0; i < dataArray.count; i++) {
+        for(NSDictionary *myDict in data)
+        {
             Race *myRace = [[Race alloc]init];
-            myRace.raceID = [dataArray[i] valueForKey:@"raceID"];
-            myRace.raceName = [dataArray[i] valueForKey:@"raceName"];
-            myRace.raceDate = [dataArray[i] valueForKey:@"raceDate"];
+            myRace.raceID = [myDict valueForKey:@"raceID"];
+            myRace.raceName = [myDict valueForKey:@"raceName"];
+            myRace.raceDate = [myDict valueForKey:@"raceDate"];
             [allRaces addObject:myRace];
         }
-        
+
         [self.tableView reloadData];
     }
     // Fetch Runners
     else
     {
-        // Get unique set of RunInRaceIDs
-        NSArray *matches = [dataArray valueForKey: @"runInRaceID"];
+        // Loop through all dictionary entries and extract all of the runInRaceID's (there will be dups, that is ok)
+        NSMutableArray *matches = [[NSMutableArray alloc]init];
+        for(NSDictionary *myDict in data)
+        {
+            [matches addObject:[myDict valueForKey: @"runInRaceID"]];
+        }
+        
+        // Get unique set of runInRaceIDs from the extracted set
         NSOrderedSet *orderedSet = [NSOrderedSet orderedSetWithArray:matches];
         NSSet *uniqueStates = [orderedSet set];
         
         // Iterate through unique set of IDs, pulling out the individual split times
         for (NSString *match in uniqueStates) {
-            // Var init
             Athlete *myAthlete = [[Athlete alloc]init];
             NSMutableArray *localSplits = [[NSMutableArray alloc]init];
-            
-            for (NSDictionary *myDict in dataArray) {
+            for(NSDictionary *myDict in data) {
                 if([myDict valueForKey:@"runInRaceID"] == match)
                 {
                     // Set general properties (try to move this outside of inner loop)

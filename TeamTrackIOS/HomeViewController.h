@@ -21,6 +21,5 @@
 - (IBAction)createWorkoutPressed:(id)sender;
 - (IBAction)viewRacesPressed:(id)sender;
 
-- (id)initWithUserID:(NSNumber *)userID;
 
 @end

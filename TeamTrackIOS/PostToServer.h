@@ -33,7 +33,7 @@
 
 @optional
 
-- (void)didCompletePost:(BOOL)status withData:(NSString *)data withDict:(NSDictionary *)dataDict;
-- (void)didCompleteGet:(BOOL)status withData:(NSMutableData *)data;
+- (void)didCompletePost:(NSDictionary *)dataDict;
+- (void)didCompleteGet:(NSDictionary *)dataDict;
 
 @end

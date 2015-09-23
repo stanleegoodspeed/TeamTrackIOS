@@ -7,6 +7,7 @@
 //
 
 #import "AthleteSelectViewController.h"
+#import "KeychainWrapper.h"
 
 @interface AthleteSelectViewController ()
 
@@ -29,7 +30,6 @@
         [[self navigationItem]setTitleView:label];
         self.navigationItem.hidesBackButton = YES;
         
-        //self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
         UIBarButtonItem *nextButton = [[UIBarButtonItem alloc]initWithTitle:@"Next" style:UIBarButtonItemStylePlain target:self action:@selector(nextBtnPressed)];
         self.navigationItem.rightBarButtonItem = nextButton;
         
@@ -128,13 +128,14 @@
 
 - (IBAction)backToStartButtonPressed:(id)sender
 {
-    [[self navigationController] popToRootViewControllerAnimated:YES];
+    [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:1] animated:YES];
+    //[[self navigationController] popToRootViewControllerAnimated:YES];
 }
                                               
 
 #pragma mark - PostToServer Delegate
 
-- (void)didCompletePost:(BOOL)status withData:(NSString *)data withDict:(NSDictionary *)dataDict
+- (void)didCompletePost:(NSDictionary *)dataDict
 {
     counter++;
     id myRunnerID = [dataDict valueForKey:@"runnerID"];
@@ -152,46 +153,15 @@
     }
 }
 
-#pragma mark - NSURLConnection Delegate
-
-//- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
-//{
-//    [jsonData appendData:data];
-//}
-//
-//- (void)connectionDidFinishLoading:(NSURLConnection *)connection;
-//{
-//    NSError *error = nil;
-//    NSArray *athleteArray = [NSJSONSerialization JSONObjectWithData:jsonData options:kNilOptions error:&error];
-//    
-//    for (int i = 0; i < athleteArray.count; i++) {
-//        Athlete *myAthlete = [[Athlete alloc]init];
-//        myAthlete.firstName = [athleteArray[i] valueForKey:@"firstName"];
-//        myAthlete.lastName = [athleteArray[i] valueForKey:@"lastName"];
-//        myAthlete.runnerID = [athleteArray[i] valueForKey:@"runnerID"];
-//        [allAthletes addObject:myAthlete];
-//        [athleteDict setObject:myAthlete forKey:myAthlete.runnerID];
-//    }
-//    
-//    [self.tableView reloadData];
-//}
-//
-//- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
-//{
-//    NSLog(@"error: %@",[error localizedDescription]);
-//}
-
 #pragma mark - Helpers
 
 - (void)fetchData
 {
-//    jsonData = [[NSMutableData alloc]init];
-//    NSURL *url = [NSURL URLWithString:@"http://192.168.1.3:4444/getAthletes/1"];
-//    
-//    NSURLRequest *req = [NSURLRequest requestWithURL:url];
-//    connection = [[NSURLConnection alloc]initWithRequest:req delegate:self startImmediately:YES];
+    // Pull userID from keychain
+    KeychainWrapper *keychainItem = [[KeychainWrapper alloc] init];
+    NSNumber *userID = [keychainItem myObjectForKey:(__bridge id)(kSecAttrService)];
     
-    NSString *queryStr = [NSString stringWithFormat:@"%@%i",@"getAthletes/",1]; /*HARDCODED - NEED TO FIX !!!! */
+    NSString *queryStr = [NSString stringWithFormat:@"%@%@",@"getAthletes/",userID];
     PostToServer *postToServer = [PostToServer sharedStore];
     postToServer.delegate = self;
     [postToServer getDataFromServer:queryStr];
@@ -199,16 +169,14 @@
 
 #pragma mark - PostToServer Delegate
 
-- (void)didCompleteGet:(BOOL)status withData:(NSMutableData *)data
+- (void)didCompleteGet:(NSDictionary *)data
 {
-    NSError *error = nil;
-    NSArray *athleteArray = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-    
-    for (int i = 0; i < athleteArray.count; i++) {
+    for(NSDictionary *myDict in data)
+    {
         Athlete *myAthlete = [[Athlete alloc]init];
-        myAthlete.firstName = [athleteArray[i] valueForKey:@"firstName"];
-        myAthlete.lastName = [athleteArray[i] valueForKey:@"lastName"];
-        myAthlete.runnerID = [athleteArray[i] valueForKey:@"runnerID"];
+        myAthlete.firstName = [myDict valueForKey:@"firstName"];
+        myAthlete.lastName = [myDict valueForKey:@"lastName"];
+        myAthlete.runnerID = [myDict valueForKey:@"runnerID"];
         [allAthletes addObject:myAthlete];
         [athleteDict setObject:myAthlete forKey:myAthlete.runnerID];
     }

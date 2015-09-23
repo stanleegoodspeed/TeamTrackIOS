@@ -20,6 +20,7 @@
     NSURLConnection *connection;
     int counter;
     int splitCount;
+    int stopPressedCount;
 }
 
 
