@@ -50,29 +50,10 @@
     self.typeNameInput.inputView = self.pickerView;
     
     eventList = [[NSMutableArray alloc]init];
-//    Dropdown *myDrop1 = [[Dropdown alloc]init];
-//    myDrop1.code = [NSNumber numberWithInt:1];
-//    myDrop1.myDescription = @"100";
-//    [eventList addObject:myDrop1];
-//    Dropdown *myDrop2 = [[Dropdown alloc]init];
-//    myDrop2.code = [NSNumber numberWithInt:1];
-//    myDrop2.myDescription = @"200";
-//    [eventList addObject:myDrop2];
-    
     typeList = [[NSMutableArray alloc]init];
-//    Dropdown *myDrop3 = [[Dropdown alloc]init];
-//    myDrop3.code = [NSNumber numberWithInt:1];
-//    myDrop3.myDescription = @"Race";
-//    [typeList addObject:myDrop3];
-//    Dropdown *myDrop5 = [[Dropdown alloc]init];
-//    myDrop5.code = [NSNumber numberWithInt:1];
-//    myDrop5.myDescription = @"Practice";
-//    [typeList addObject:myDrop5];
+
     
-    //[eventList addObject:@"800"];
-    //[eventList addObject:@"400"];
-    
-    //[self.view addSubview:self.pickerView];
+   
     
     // Add TapRecognizer to auto-close keyboard when clicked outside of zone
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
@@ -142,6 +123,26 @@
 
 - (IBAction)nextButtonPressed:(id)sender
 {
+    if(workoutNameInput.text.length == 0 || eventPickedVal == nil || typePickedVal == nil)
+    {
+        UIAlertController * alert=   [UIAlertController
+                                      alertControllerWithTitle:@"Whoops!"
+                                      message:@"Workout Name, Event, and Type are required fields."
+                                      preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* ok = [UIAlertAction
+                             actionWithTitle:@"OK"
+                             style:UIAlertActionStyleDefault
+                             handler:^(UIAlertAction * action)
+                             {
+                                 [self dismissViewControllerAnimated:YES completion:nil];
+                                 
+                             }];
+        [alert addAction:ok];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+    else
+    {
     // Pull userID from keychain
     KeychainWrapper *keychainItem = [[KeychainWrapper alloc] init];
     NSNumber *userID = [keychainItem myObjectForKey:(__bridge id)(kSecAttrService)];
@@ -157,6 +158,7 @@
     PostToServer *postToServer = [PostToServer sharedStore];
     postToServer.delegate = self;
     [postToServer postDataToServer:dataDictionary withQuery:queryStr];
+    }
 }
 
 #pragma mark - UIPickerViewDataSource

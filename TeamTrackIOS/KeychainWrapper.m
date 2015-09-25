@@ -117,10 +117,10 @@ static const UInt8 kKeychainItemIdentifier[]    = "com.apple.dts.KeychainUI\0";
     // Default generic data for Keychain Item:
     [keychainData setObject:@"Item label" forKey:(__bridge id)kSecAttrLabel];
     [keychainData setObject:@"Item description" forKey:(__bridge id)kSecAttrDescription];
-    [keychainData setObject:@"dummyaccount" forKey:(__bridge id)kSecAttrAccount];
-    [keychainData setObject:@"dummyservice" forKey:(__bridge id)kSecAttrService];
+    [keychainData setObject:@"" forKey:(__bridge id)kSecAttrAccount];
+    [keychainData setObject:@"" forKey:(__bridge id)kSecAttrService];
     [keychainData setObject:@"Your comment here." forKey:(__bridge id)kSecAttrComment];
-    [keychainData setObject:@"dummypassword" forKey:(__bridge id)kSecValueData];
+    [keychainData setObject:@"" forKey:(__bridge id)kSecValueData];
 }
 
 // Implement the dictionaryToSecItemFormat: method, which takes the attributes that

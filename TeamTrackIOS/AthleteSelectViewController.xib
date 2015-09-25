@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="PCC-Q5-Mt8">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="PCC-Q5-Mt8">
                     <rect key="frame" x="8" y="28" width="346" height="623"/>
                     <color key="backgroundColor" red="0.20000000000000001" green="0.59999999999999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="sectionIndexBackgroundColor" red="0.20000000000000001" green="0.59999999999999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -32,6 +32,12 @@
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.20000000000000001" green="0.59999999999999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="PCC-Q5-Mt8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="IDt-Ge-2Nw"/>
+                <constraint firstItem="PCC-Q5-Mt8" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="28" id="LVH-CK-Csi"/>
+                <constraint firstAttribute="bottom" secondItem="PCC-Q5-Mt8" secondAttribute="bottom" constant="16" id="NWg-an-Z3O"/>
+                <constraint firstAttribute="trailing" secondItem="PCC-Q5-Mt8" secondAttribute="trailing" constant="21" id="ThI-ER-cBi"/>
+            </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <variation key="default">
@@ -39,7 +45,7 @@
                     <exclude reference="iEV-80-sFk"/>
                 </mask>
             </variation>
-            <point key="canvasLocation" x="-371.5" y="306.5"/>
+            <point key="canvasLocation" x="-472.5" y="188.5"/>
         </view>
     </objects>
 </document>

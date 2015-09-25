@@ -25,6 +25,7 @@
             <connections>
                 <outlet property="nameLabel" destination="1rh-Cr-0So" id="4qw-T8-cQ0"/>
             </connections>
+            <point key="canvasLocation" x="581" y="405"/>
         </tableViewCell>
     </objects>
 </document>

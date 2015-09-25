@@ -13,26 +13,35 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZGt-YE-BnJ">
-                        <rect key="frame" x="15" y="8" width="149" height="27"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZGt-YE-BnJ">
+                        <rect key="frame" x="15" y="8" width="191" height="27"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQD-kt-Pdi">
-                        <rect key="frame" x="206" y="8" width="142" height="27"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQD-kt-Pdi">
+                        <rect key="frame" x="263" y="8" width="104" height="27"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="27" id="V4z-AT-CFP"/>
+                            <constraint firstAttribute="width" constant="104" id="pcP-8J-OIe"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="eQD-kt-Pdi" secondAttribute="trailing" constant="13" id="e4L-2F-Kka"/>
+                    <constraint firstItem="eQD-kt-Pdi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="iks-kX-cQE"/>
+                    <constraint firstAttribute="centerY" secondItem="eQD-kt-Pdi" secondAttribute="centerY" id="qNC-CI-0Jj"/>
+                </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.85316051140000004" green="0.85316051140000004" blue="0.85316051140000004" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="finishTimeLabel" destination="eQD-kt-Pdi" id="Jw2-hz-Z52"/>
                 <outlet property="nameLabel" destination="ZGt-YE-BnJ" id="OnB-WT-or0"/>
             </connections>
-            <point key="canvasLocation" x="325" y="252"/>
+            <point key="canvasLocation" x="166" y="226.5"/>
         </tableViewCell>
     </objects>
 </document>

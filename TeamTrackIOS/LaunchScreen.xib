@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -10,16 +11,23 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SPLTS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EqA-dB-heL">
-                    <rect key="frame" x="57" y="218" width="260" height="61"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="35"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" image="SPLTS_123x61.png" translatesAutoresizingMaskIntoConstraints="NO" id="d14-dt-qUn">
+                    <rect key="frame" x="126" y="303" width="123" height="61"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="d14-dt-qUn" secondAttribute="height" multiplier="123:61" id="hH5-9T-OPH"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="0.20000000000000001" green="0.59999999999999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="centerY" secondItem="d14-dt-qUn" secondAttribute="centerY" id="bry-lQ-XDx"/>
+                <constraint firstAttribute="centerX" secondItem="d14-dt-qUn" secondAttribute="centerX" id="cgi-22-RKX"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-            <point key="canvasLocation" x="-12.5" y="437.5"/>
+            <point key="canvasLocation" x="-1336.5" y="486.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="SPLTS_123x61.png" width="123" height="61"/>
+    </resources>
 </document>

@@ -10,7 +10,6 @@
 		3B1B4CAF1B718076007B0FAF /* Timer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B1B4CAE1B718076007B0FAF /* Timer.m */; };
 		3B1B4CB71B725DE0007B0FAF /* Athlete.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B1B4CB61B725DE0007B0FAF /* Athlete.m */; };
 		3B7E25E91B727605002FDA0A /* TimerViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B7E25E71B727605002FDA0A /* TimerViewCell.m */; };
-		3B7E25EA1B727605002FDA0A /* TimerViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B7E25E81B727605002FDA0A /* TimerViewCell.xib */; };
 		3B7E25ED1B72D2F0002FDA0A /* Split.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B7E25EC1B72D2F0002FDA0A /* Split.m */; };
 		3B8897821B701AE300BEBEA0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8897811B701AE300BEBEA0 /* main.m */; };
 		3B8897851B701AE300BEBEA0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8897841B701AE300BEBEA0 /* AppDelegate.m */; };
@@ -18,6 +17,7 @@
 		3B88979C1B701AE400BEBEA0 /* TeamTrackIOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B88979B1B701AE400BEBEA0 /* TeamTrackIOSTests.m */; };
 		3B8897AA1B701DDE00BEBEA0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B8897A81B701DDE00BEBEA0 /* ViewController.m */; };
 		3B8897AB1B701DDE00BEBEA0 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B8897A91B701DDE00BEBEA0 /* ViewController.xib */; };
+		3B8C87891BB4469300B3D481 /* SPLTS_123x61.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B8C87881BB4469300B3D481 /* SPLTS_123x61.png */; };
 		3B951E361B823C8D00FE3EB9 /* ResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B951E341B823C8D00FE3EB9 /* ResultsViewController.m */; };
 		3B951E371B823C8D00FE3EB9 /* ResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B951E351B823C8D00FE3EB9 /* ResultsViewController.xib */; };
 		3B951E3B1B824D3F00FE3EB9 /* ResultParentViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B951E391B824D3F00FE3EB9 /* ResultParentViewCell.m */; };
@@ -30,6 +30,7 @@
 		3BA340A31BB1DC4B00125034 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BA340A21BB1DC4B00125034 /* Security.framework */; };
 		3BA340A61BB1DCA600125034 /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA340A51BB1DCA600125034 /* KeychainWrapper.m */; };
 		3BA340AC1BB1F58E00125034 /* Dropdown.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BA340AB1BB1F58E00125034 /* Dropdown.m */; };
+		3BD8F6AC1BB57B5F0041BED4 /* TimerViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BD8F6AB1BB57B5F0041BED4 /* TimerViewCell.xib */; };
 		3BE2F0EA1B7A76D700E770F1 /* AthleteSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2F0E81B7A76D700E770F1 /* AthleteSelectViewController.m */; };
 		3BE2F0EB1B7A76D700E770F1 /* AthleteSelectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BE2F0E91B7A76D700E770F1 /* AthleteSelectViewController.xib */; };
 		3BE2F0EF1B7A78B100E770F1 /* AthleteSelectViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE2F0ED1B7A78B100E770F1 /* AthleteSelectViewCell.m */; };
@@ -65,7 +66,6 @@
 		3B1B4CB61B725DE0007B0FAF /* Athlete.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Athlete.m; sourceTree = "<group>"; };
 		3B7E25E61B727605002FDA0A /* TimerViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimerViewCell.h; path = ../TimerViewCell.h; sourceTree = "<group>"; };
 		3B7E25E71B727605002FDA0A /* TimerViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimerViewCell.m; path = ../TimerViewCell.m; sourceTree = "<group>"; };
-		3B7E25E81B727605002FDA0A /* TimerViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TimerViewCell.xib; path = ../TimerViewCell.xib; sourceTree = "<group>"; };
 		3B7E25EB1B72D2F0002FDA0A /* Split.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Split.h; sourceTree = "<group>"; };
 		3B7E25EC1B72D2F0002FDA0A /* Split.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Split.m; sourceTree = "<group>"; };
 		3B88977C1B701AE300BEBEA0 /* TeamTrackIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamTrackIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,6 +80,7 @@
 		3B8897A71B701DDE00BEBEA0 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		3B8897A81B701DDE00BEBEA0 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		3B8897A91B701DDE00BEBEA0 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		3B8C87881BB4469300B3D481 /* SPLTS_123x61.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SPLTS_123x61.png; sourceTree = "<group>"; };
 		3B951E331B823C8D00FE3EB9 /* ResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultsViewController.h; sourceTree = "<group>"; };
 		3B951E341B823C8D00FE3EB9 /* ResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultsViewController.m; sourceTree = "<group>"; };
 		3B951E351B823C8D00FE3EB9 /* ResultsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultsViewController.xib; sourceTree = "<group>"; };
@@ -99,6 +100,7 @@
 		3BA340A51BB1DCA600125034 /* KeychainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainWrapper.m; sourceTree = "<group>"; };
 		3BA340AA1BB1F58E00125034 /* Dropdown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dropdown.h; sourceTree = "<group>"; };
 		3BA340AB1BB1F58E00125034 /* Dropdown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dropdown.m; sourceTree = "<group>"; };
+		3BD8F6AB1BB57B5F0041BED4 /* TimerViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimerViewCell.xib; sourceTree = SOURCE_ROOT; };
 		3BE2F0E71B7A76D700E770F1 /* AthleteSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AthleteSelectViewController.h; sourceTree = "<group>"; };
 		3BE2F0E81B7A76D700E770F1 /* AthleteSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AthleteSelectViewController.m; sourceTree = "<group>"; };
 		3BE2F0E91B7A76D700E770F1 /* AthleteSelectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AthleteSelectViewController.xib; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 		3B88977E1B701AE300BEBEA0 /* TeamTrackIOS */ = {
 			isa = PBXGroup;
 			children = (
+				3B8C87881BB4469300B3D481 /* SPLTS_123x61.png */,
 				3B8897831B701AE300BEBEA0 /* AppDelegate.h */,
 				3B8897841B701AE300BEBEA0 /* AppDelegate.m */,
 				3BF313B51B84E129008E2BD6 /* LaunchScreen.xib */,
@@ -216,7 +219,7 @@
 				3B951E3A1B824D3F00FE3EB9 /* ResultParentViewCell.xib */,
 				3B7E25E61B727605002FDA0A /* TimerViewCell.h */,
 				3B7E25E71B727605002FDA0A /* TimerViewCell.m */,
-				3B7E25E81B727605002FDA0A /* TimerViewCell.xib */,
+				3BD8F6AB1BB57B5F0041BED4 /* TimerViewCell.xib */,
 				3BE2F0EC1B7A78B100E770F1 /* AthleteSelectViewCell.h */,
 				3BE2F0ED1B7A78B100E770F1 /* AthleteSelectViewCell.m */,
 				3BE2F0EE1B7A78B100E770F1 /* AthleteSelectViewCell.xib */,
@@ -342,13 +345,14 @@
 				3BF313CE1B877E12008E2BD6 /* SplitsTableViewCell.xib in Resources */,
 				3BA340A11BB1A74800125034 /* LoginViewController.xib in Resources */,
 				3B8897AB1B701DDE00BEBEA0 /* ViewController.xib in Resources */,
-				3B7E25EA1B727605002FDA0A /* TimerViewCell.xib in Resources */,
 				3B9747411B7E1D4A0088A9D0 /* CreateWorkoutViewController.xib in Resources */,
 				3BE2F0EB1B7A76D700E770F1 /* AthleteSelectViewController.xib in Resources */,
 				3B951E3C1B824D3F00FE3EB9 /* ResultParentViewCell.xib in Resources */,
 				3BE2F0F01B7A78B100E770F1 /* AthleteSelectViewCell.xib in Resources */,
 				3BF313C41B8778FC008E2BD6 /* HomeViewController.xib in Resources */,
+				3B8C87891BB4469300B3D481 /* SPLTS_123x61.png in Resources */,
 				3BF313B61B84E129008E2BD6 /* LaunchScreen.xib in Resources */,
+				3BD8F6AC1BB57B5F0041BED4 /* TimerViewCell.xib in Resources */,
 				3B88978D1B701AE300BEBEA0 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -495,11 +499,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Colin Cole (3QMHU6KFBK)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TeamTrackIOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -507,11 +513,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Colin Cole (3QMHU6KFBK)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TeamTrackIOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

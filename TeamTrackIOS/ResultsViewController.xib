@@ -19,7 +19,7 @@
                     <rect key="frame" x="8" y="116" width="359" height="401"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="5" sectionFooterHeight="5" translatesAutoresizingMaskIntoConstraints="NO" id="P87-r7-dPI">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="5" sectionFooterHeight="5" translatesAutoresizingMaskIntoConstraints="NO" id="P87-r7-dPI">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" red="0.85316051140000004" green="0.85316051140000004" blue="0.85316051140000004" alpha="1" colorSpace="calibratedRGB"/>
                     <color key="sectionIndexBackgroundColor" red="0.85316051140000004" green="0.85316051140000004" blue="0.85316051140000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -30,6 +30,12 @@
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="P87-r7-dPI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="H9E-L3-ST1"/>
+                <constraint firstAttribute="bottom" secondItem="P87-r7-dPI" secondAttribute="bottom" id="H9b-rp-sBd"/>
+                <constraint firstAttribute="trailing" secondItem="P87-r7-dPI" secondAttribute="trailing" id="KQh-mh-Szf"/>
+                <constraint firstItem="P87-r7-dPI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="T90-5v-owf"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <variation key="default">
                 <mask key="subviews">

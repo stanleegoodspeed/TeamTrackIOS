@@ -111,18 +111,39 @@
 
 - (IBAction)nextBtnPressed
 {
-    NSString *queryStr = @"addAthleteToWorkout";
-    NSMutableDictionary *dataDictionary = [NSMutableDictionary dictionaryWithCapacity:1];
+    if(selectedAthletes.count == 0)
+    {
+        UIAlertController * alert=   [UIAlertController
+                                      alertControllerWithTitle:@"Whoops!"
+                                      message:@"At least one athlete must be selected."
+                                      preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction* ok = [UIAlertAction
+                             actionWithTitle:@"OK"
+                             style:UIAlertActionStyleDefault
+                             handler:^(UIAlertAction * action)
+                             {
+                                 [self dismissViewControllerAnimated:YES completion:nil];
+                                 
+                             }];
+        [alert addAction:ok];
+        
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+    else
+    {
+        NSString *queryStr = @"addAthleteToWorkout";
+        NSMutableDictionary *dataDictionary = [NSMutableDictionary dictionaryWithCapacity:1];
     
-    for (Athlete *myAthlete in selectedAthletes) {
+        for (Athlete *myAthlete in selectedAthletes) {
         
-        [dataDictionary setObject:raceID forKey:@"fk_raceID"];
-        [dataDictionary setObject:myAthlete.runnerID forKey:@"fk_runnerID"];
+            [dataDictionary setObject:raceID forKey:@"fk_raceID"];
+            [dataDictionary setObject:myAthlete.runnerID forKey:@"fk_runnerID"];
         
-        //PostToServer *postToServer = [[PostToServer alloc]init];
-        PostToServer *postToServer = [PostToServer sharedStore];
-        postToServer.delegate = self;
-        [postToServer postDataToServer:dataDictionary withQuery:queryStr];
+            //PostToServer *postToServer = [[PostToServer alloc]init];
+            PostToServer *postToServer = [PostToServer sharedStore];
+            postToServer.delegate = self;
+            [postToServer postDataToServer:dataDictionary withQuery:queryStr];
+        }
     }
 }
 

@@ -17,9 +17,12 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fkb-1R-5bT">
-                    <rect key="frame" x="90" y="222" width="208" height="50"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fkb-1R-5bT">
+                    <rect key="frame" x="55" y="222" width="265" height="50"/>
                     <color key="backgroundColor" red="0.20000000000000001" green="0.59999999999999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="siv-1t-4g2"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                     <state key="normal" title="Create New Workout">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -28,8 +31,11 @@
                         <action selector="createWorkoutPressed:" destination="-1" eventType="touchUpInside" id="JxE-9z-gVI"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lMf-WL-rYM">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lMf-WL-rYM">
                     <rect key="frame" x="33" y="157" width="308" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="cjO-bY-l7h"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="26"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
@@ -40,9 +46,12 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="agl-O4-aZn">
-                    <rect key="frame" x="90" y="280" width="208" height="50"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="agl-O4-aZn">
+                    <rect key="frame" x="55" y="292" width="265" height="50"/>
                     <color key="backgroundColor" red="0.20000000000000001" green="0.59999999999999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="KoI-63-TeD"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
                     <state key="normal" title="View My Races">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -60,14 +69,42 @@
                 </label>
             </subviews>
             <color key="backgroundColor" red="0.20000000000000001" green="0.59999999999999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="fkb-1R-5bT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="90" id="2L3-nw-1aa"/>
+                <constraint firstItem="lMf-WL-rYM" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="2sr-tN-das"/>
+                <constraint firstItem="fkb-1R-5bT" firstAttribute="trailing" secondItem="agl-O4-aZn" secondAttribute="trailing" id="4i5-Ns-tVJ"/>
+                <constraint firstItem="agl-O4-aZn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="55" id="A2h-3L-hsH"/>
+                <constraint firstItem="fkb-1R-5bT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="222" id="DDA-zk-n0h"/>
+                <constraint firstAttribute="trailing" secondItem="fkb-1R-5bT" secondAttribute="trailing" constant="77" id="MZ6-Yi-474"/>
+                <constraint firstItem="fkb-1R-5bT" firstAttribute="top" secondItem="lMf-WL-rYM" secondAttribute="bottom" constant="35" id="SKz-iH-KRs"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="fkb-1R-5bT" secondAttribute="trailing" constant="77" id="ZmD-0k-EJE"/>
+                <constraint firstItem="agl-O4-aZn" firstAttribute="top" secondItem="fkb-1R-5bT" secondAttribute="bottom" constant="20" id="cdm-Ob-iMK"/>
+                <constraint firstAttribute="trailing" secondItem="agl-O4-aZn" secondAttribute="trailing" constant="55" id="csy-6Y-sSO"/>
+                <constraint firstAttribute="trailing" secondItem="fkb-1R-5bT" secondAttribute="trailing" constant="77" id="f4r-1o-CtK"/>
+                <constraint firstItem="fkb-1R-5bT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="90" id="oQJ-I0-pys"/>
+                <constraint firstItem="agl-O4-aZn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" symbolic="YES" id="qfe-Aj-Cr5"/>
+                <constraint firstItem="lMf-WL-rYM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="33" id="tri-Wm-sMn"/>
+                <constraint firstItem="fkb-1R-5bT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="90" id="wsD-le-B6A"/>
+                <constraint firstItem="fkb-1R-5bT" firstAttribute="leading" secondItem="agl-O4-aZn" secondAttribute="leading" id="zXv-Af-0uK"/>
+            </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <variation key="default">
                 <mask key="subviews">
+                    <exclude reference="lMf-WL-rYM"/>
                     <exclude reference="irf-3X-O2I"/>
                     <exclude reference="h6U-ka-Gqn"/>
                 </mask>
+                <mask key="constraints">
+                    <exclude reference="2L3-nw-1aa"/>
+                    <exclude reference="MZ6-Yi-474"/>
+                    <exclude reference="ZmD-0k-EJE"/>
+                    <exclude reference="f4r-1o-CtK"/>
+                    <exclude reference="oQJ-I0-pys"/>
+                    <exclude reference="wsD-le-B6A"/>
+                    <exclude reference="qfe-Aj-Cr5"/>
+                </mask>
             </variation>
-            <point key="canvasLocation" x="-87.5" y="153.5"/>
+            <point key="canvasLocation" x="-301.5" y="62.5"/>
         </view>
     </objects>
 </document>

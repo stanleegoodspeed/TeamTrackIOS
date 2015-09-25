@@ -14,18 +14,27 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RVy-07-HbL">
-                        <rect key="frame" x="15" y="10" width="163" height="21"/>
+                        <rect key="frame" x="15" y="8" width="224" height="27"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YBE-fl-C6t">
-                        <rect key="frame" x="209" y="10" width="163" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YBE-fl-C6t">
+                        <rect key="frame" x="264" y="8" width="108" height="27"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="27" id="Y8F-m4-0Ly"/>
+                            <constraint firstAttribute="width" constant="108" id="kWd-kQ-0o5"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="YBE-fl-C6t" secondAttribute="trailing" constant="8" id="Fwr-8Z-6xY"/>
+                    <constraint firstAttribute="centerY" secondItem="YBE-fl-C6t" secondAttribute="centerY" id="KMg-2q-Uc3"/>
+                    <constraint firstItem="YBE-fl-C6t" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="n8e-On-g3B"/>
+                </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" red="0.85316051140000004" green="0.85316051140000004" blue="0.85316051140000004" alpha="1" colorSpace="calibratedRGB"/>
             <connections>

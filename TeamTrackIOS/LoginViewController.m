@@ -93,6 +93,7 @@
         }
         else
         {
+            // Set items in keychain for the first time
             NSNumber *userID = [NSNumber numberWithInteger:[[dataDict objectForKey:@"userID"] intValue]];
             
             KeychainWrapper *keychainItem = [[KeychainWrapper alloc] init];
