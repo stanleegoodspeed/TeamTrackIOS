@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController">
+            <connections>
+                <outlet property="createWorkoutButton" destination="fkb-1R-5bT" id="lPb-aa-nQ1"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="viewRacesButton" destination="agl-O4-aZn" id="k1J-0X-Drx"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fkb-1R-5bT">
+                    <rect key="frame" x="55" y="222" width="265" height="50"/>
+                    <color key="backgroundColor" red="0.20000000000000001" green="0.59999999999999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="siv-1t-4g2"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                    <state key="normal" title="Create New Workout">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="createWorkoutPressed:" destination="-1" eventType="touchUpInside" id="JxE-9z-gVI"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="agl-O4-aZn">
+                    <rect key="frame" x="55" y="292" width="265" height="50"/>
+                    <color key="backgroundColor" red="0.20000000000000001" green="0.59999999999999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="KoI-63-TeD"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                    <state key="normal" title="View My Races">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="viewRacesPressed:" destination="-1" eventType="touchUpInside" id="nIt-Wh-6bf"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.20000000000000001" green="0.59999999999999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="fkb-1R-5bT" firstAttribute="trailing" secondItem="agl-O4-aZn" secondAttribute="trailing" id="4i5-Ns-tVJ"/>
+                <constraint firstItem="agl-O4-aZn" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="55" id="A2h-3L-hsH"/>
+                <constraint firstItem="fkb-1R-5bT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="222" id="DDA-zk-n0h"/>
+                <constraint firstItem="agl-O4-aZn" firstAttribute="top" secondItem="fkb-1R-5bT" secondAttribute="bottom" constant="20" id="cdm-Ob-iMK"/>
+                <constraint firstAttribute="trailing" secondItem="agl-O4-aZn" secondAttribute="trailing" constant="55" id="csy-6Y-sSO"/>
+                <constraint firstItem="fkb-1R-5bT" firstAttribute="leading" secondItem="agl-O4-aZn" secondAttribute="leading" id="zXv-Af-0uK"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <point key="canvasLocation" x="-52.5" y="109.5"/>
+        </view>
+    </objects>
+</document>

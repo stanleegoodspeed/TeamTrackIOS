@@ -1,0 +1,458 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3B2CB41E1BB5A1DA008EBB50 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2CB3E31BB5A1DA008EBB50 /* AppDelegate.m */; };
+		3B2CB41F1BB5A1DA008EBB50 /* Athlete.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2CB3E51BB5A1DA008EBB50 /* Athlete.m */; };
+		3B2CB4201BB5A1DA008EBB50 /* AthleteSelectViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2CB3E71BB5A1DA008EBB50 /* AthleteSelectViewCell.m */; };
+		3B2CB4211BB5A1DA008EBB50 /* AthleteSelectViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B2CB3E81BB5A1DA008EBB50 /* AthleteSelectViewCell.xib */; };
+		3B2CB4221BB5A1DA008EBB50 /* AthleteSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2CB3EA1BB5A1DA008EBB50 /* AthleteSelectViewController.m */; };
+		3B2CB4231BB5A1DA008EBB50 /* AthleteSelectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B2CB3EB1BB5A1DA008EBB50 /* AthleteSelectViewController.xib */; };
+		3B2CB4241BB5A1DA008EBB50 /* CreateWorkoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2CB3ED1BB5A1DA008EBB50 /* CreateWorkoutViewController.m */; };
+		3B2CB4251BB5A1DA008EBB50 /* CreateWorkoutViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B2CB3EE1BB5A1DA008EBB50 /* CreateWorkoutViewController.xib */; };
+		3B2CB4261BB5A1DA008EBB50 /* Dropdown.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2CB3F01BB5A1DA008EBB50 /* Dropdown.m */; };
+		3B2CB4271BB5A1DA008EBB50 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2CB3F21BB5A1DA008EBB50 /* HomeViewController.m */; };
+		3B2CB4281BB5A1DA008EBB50 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B2CB3F31BB5A1DA008EBB50 /* HomeViewController.xib */; };
+		3B2CB4291BB5A1DA008EBB50 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B2CB3F41BB5A1DA008EBB50 /* Images.xcassets */; };
+		3B2CB42B1BB5A1DA008EBB50 /* KeychainWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2CB3F71BB5A1DA008EBB50 /* KeychainWrapper.m */; };
+		3B2CB42C1BB5A1DA008EBB50 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B2CB3F81BB5A1DA008EBB50 /* LaunchScreen.xib */; };
+		3B2CB42D1BB5A1DA008EBB50 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2CB3FA1BB5A1DA008EBB50 /* LoginViewController.m */; };
+		3B2CB42E1BB5A1DA008EBB50 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B2CB3FB1BB5A1DA008EBB50 /* LoginViewController.xib */; };
+		3B2CB42F1BB5A1DA008EBB50 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2CB3FC1BB5A1DA008EBB50 /* main.m */; };
+		3B2CB4301BB5A1DA008EBB50 /* MyRacesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2CB3FE1BB5A1DA008EBB50 /* MyRacesViewController.m */; };
+		3B2CB4311BB5A1DA008EBB50 /* MyRacesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B2CB3FF1BB5A1DA008EBB50 /* MyRacesViewController.xib */; };
+		3B2CB4321BB5A1DA008EBB50 /* PostToServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2CB4011BB5A1DA008EBB50 /* PostToServer.m */; };
+		3B2CB4331BB5A1DA008EBB50 /* Race.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2CB4031BB5A1DA008EBB50 /* Race.m */; };
+		3B2CB4341BB5A1DA008EBB50 /* RacesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2CB4051BB5A1DA008EBB50 /* RacesTableViewCell.m */; };
+		3B2CB4351BB5A1DA008EBB50 /* RacesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B2CB4061BB5A1DA008EBB50 /* RacesTableViewCell.xib */; };
+		3B2CB4361BB5A1DA008EBB50 /* ResultParentViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2CB4081BB5A1DA008EBB50 /* ResultParentViewCell.m */; };
+		3B2CB4371BB5A1DA008EBB50 /* ResultParentViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B2CB4091BB5A1DA008EBB50 /* ResultParentViewCell.xib */; };
+		3B2CB4381BB5A1DA008EBB50 /* ResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2CB40B1BB5A1DA008EBB50 /* ResultsViewController.m */; };
+		3B2CB4391BB5A1DA008EBB50 /* ResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B2CB40C1BB5A1DA008EBB50 /* ResultsViewController.xib */; };
+		3B2CB43A1BB5A1DA008EBB50 /* Split.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2CB40E1BB5A1DA008EBB50 /* Split.m */; };
+		3B2CB43B1BB5A1DA008EBB50 /* SplitsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2CB4101BB5A1DA008EBB50 /* SplitsTableViewCell.m */; };
+		3B2CB43C1BB5A1DA008EBB50 /* SplitsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B2CB4111BB5A1DA008EBB50 /* SplitsTableViewCell.xib */; };
+		3B2CB43D1BB5A1DA008EBB50 /* SplitsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2CB4131BB5A1DA008EBB50 /* SplitsViewController.m */; };
+		3B2CB43E1BB5A1DA008EBB50 /* SplitsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B2CB4141BB5A1DA008EBB50 /* SplitsViewController.xib */; };
+		3B2CB43F1BB5A1DA008EBB50 /* SPLTS_123x61.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2CB4151BB5A1DA008EBB50 /* SPLTS_123x61.png */; };
+		3B2CB4401BB5A1DA008EBB50 /* Timer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2CB4171BB5A1DA008EBB50 /* Timer.m */; };
+		3B2CB4411BB5A1DA008EBB50 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2CB4191BB5A1DA008EBB50 /* ViewController.m */; };
+		3B2CB4421BB5A1DA008EBB50 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B2CB41A1BB5A1DA008EBB50 /* ViewController.xib */; };
+		3B2CB4431BB5A1DA008EBB50 /* TimerViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B2CB41B1BB5A1DA008EBB50 /* TimerViewCell.xib */; };
+		3B2CB4441BB5A1DA008EBB50 /* TimerViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2CB41C1BB5A1DA008EBB50 /* TimerViewCell.m */; };
+		3BA340A31BB1DC4B00125034 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3BA340A21BB1DC4B00125034 /* Security.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3B2CB3E21BB5A1DA008EBB50 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		3B2CB3E31BB5A1DA008EBB50 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3B2CB3E41BB5A1DA008EBB50 /* Athlete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Athlete.h; sourceTree = "<group>"; };
+		3B2CB3E51BB5A1DA008EBB50 /* Athlete.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Athlete.m; sourceTree = "<group>"; };
+		3B2CB3E61BB5A1DA008EBB50 /* AthleteSelectViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AthleteSelectViewCell.h; sourceTree = "<group>"; };
+		3B2CB3E71BB5A1DA008EBB50 /* AthleteSelectViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AthleteSelectViewCell.m; sourceTree = "<group>"; };
+		3B2CB3E81BB5A1DA008EBB50 /* AthleteSelectViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AthleteSelectViewCell.xib; sourceTree = "<group>"; };
+		3B2CB3E91BB5A1DA008EBB50 /* AthleteSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AthleteSelectViewController.h; sourceTree = "<group>"; };
+		3B2CB3EA1BB5A1DA008EBB50 /* AthleteSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AthleteSelectViewController.m; sourceTree = "<group>"; };
+		3B2CB3EB1BB5A1DA008EBB50 /* AthleteSelectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AthleteSelectViewController.xib; sourceTree = "<group>"; };
+		3B2CB3EC1BB5A1DA008EBB50 /* CreateWorkoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateWorkoutViewController.h; sourceTree = "<group>"; };
+		3B2CB3ED1BB5A1DA008EBB50 /* CreateWorkoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateWorkoutViewController.m; sourceTree = "<group>"; };
+		3B2CB3EE1BB5A1DA008EBB50 /* CreateWorkoutViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateWorkoutViewController.xib; sourceTree = "<group>"; };
+		3B2CB3EF1BB5A1DA008EBB50 /* Dropdown.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dropdown.h; sourceTree = "<group>"; };
+		3B2CB3F01BB5A1DA008EBB50 /* Dropdown.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dropdown.m; sourceTree = "<group>"; };
+		3B2CB3F11BB5A1DA008EBB50 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		3B2CB3F21BB5A1DA008EBB50 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		3B2CB3F31BB5A1DA008EBB50 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		3B2CB3F41BB5A1DA008EBB50 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3B2CB3F51BB5A1DA008EBB50 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3B2CB3F61BB5A1DA008EBB50 /* KeychainWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainWrapper.h; sourceTree = "<group>"; };
+		3B2CB3F71BB5A1DA008EBB50 /* KeychainWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainWrapper.m; sourceTree = "<group>"; };
+		3B2CB3F81BB5A1DA008EBB50 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		3B2CB3F91BB5A1DA008EBB50 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		3B2CB3FA1BB5A1DA008EBB50 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		3B2CB3FB1BB5A1DA008EBB50 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		3B2CB3FC1BB5A1DA008EBB50 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3B2CB3FD1BB5A1DA008EBB50 /* MyRacesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRacesViewController.h; sourceTree = "<group>"; };
+		3B2CB3FE1BB5A1DA008EBB50 /* MyRacesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRacesViewController.m; sourceTree = "<group>"; };
+		3B2CB3FF1BB5A1DA008EBB50 /* MyRacesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyRacesViewController.xib; sourceTree = "<group>"; };
+		3B2CB4001BB5A1DA008EBB50 /* PostToServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostToServer.h; sourceTree = "<group>"; };
+		3B2CB4011BB5A1DA008EBB50 /* PostToServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostToServer.m; sourceTree = "<group>"; };
+		3B2CB4021BB5A1DA008EBB50 /* Race.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Race.h; sourceTree = "<group>"; };
+		3B2CB4031BB5A1DA008EBB50 /* Race.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Race.m; sourceTree = "<group>"; };
+		3B2CB4041BB5A1DA008EBB50 /* RacesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RacesTableViewCell.h; sourceTree = "<group>"; };
+		3B2CB4051BB5A1DA008EBB50 /* RacesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RacesTableViewCell.m; sourceTree = "<group>"; };
+		3B2CB4061BB5A1DA008EBB50 /* RacesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RacesTableViewCell.xib; sourceTree = "<group>"; };
+		3B2CB4071BB5A1DA008EBB50 /* ResultParentViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultParentViewCell.h; sourceTree = "<group>"; };
+		3B2CB4081BB5A1DA008EBB50 /* ResultParentViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultParentViewCell.m; sourceTree = "<group>"; };
+		3B2CB4091BB5A1DA008EBB50 /* ResultParentViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultParentViewCell.xib; sourceTree = "<group>"; };
+		3B2CB40A1BB5A1DA008EBB50 /* ResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultsViewController.h; sourceTree = "<group>"; };
+		3B2CB40B1BB5A1DA008EBB50 /* ResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultsViewController.m; sourceTree = "<group>"; };
+		3B2CB40C1BB5A1DA008EBB50 /* ResultsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResultsViewController.xib; sourceTree = "<group>"; };
+		3B2CB40D1BB5A1DA008EBB50 /* Split.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Split.h; sourceTree = "<group>"; };
+		3B2CB40E1BB5A1DA008EBB50 /* Split.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Split.m; sourceTree = "<group>"; };
+		3B2CB40F1BB5A1DA008EBB50 /* SplitsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplitsTableViewCell.h; sourceTree = "<group>"; };
+		3B2CB4101BB5A1DA008EBB50 /* SplitsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplitsTableViewCell.m; sourceTree = "<group>"; };
+		3B2CB4111BB5A1DA008EBB50 /* SplitsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplitsTableViewCell.xib; sourceTree = "<group>"; };
+		3B2CB4121BB5A1DA008EBB50 /* SplitsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplitsViewController.h; sourceTree = "<group>"; };
+		3B2CB4131BB5A1DA008EBB50 /* SplitsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplitsViewController.m; sourceTree = "<group>"; };
+		3B2CB4141BB5A1DA008EBB50 /* SplitsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SplitsViewController.xib; sourceTree = "<group>"; };
+		3B2CB4151BB5A1DA008EBB50 /* SPLTS_123x61.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SPLTS_123x61.png; sourceTree = "<group>"; };
+		3B2CB4161BB5A1DA008EBB50 /* Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timer.h; sourceTree = "<group>"; };
+		3B2CB4171BB5A1DA008EBB50 /* Timer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Timer.m; sourceTree = "<group>"; };
+		3B2CB4181BB5A1DA008EBB50 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		3B2CB4191BB5A1DA008EBB50 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		3B2CB41A1BB5A1DA008EBB50 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		3B2CB41B1BB5A1DA008EBB50 /* TimerViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TimerViewCell.xib; path = ../TimerViewCell.xib; sourceTree = "<group>"; };
+		3B2CB41C1BB5A1DA008EBB50 /* TimerViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimerViewCell.m; path = ../TimerViewCell.m; sourceTree = "<group>"; };
+		3B2CB41D1BB5A1DA008EBB50 /* TimerViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimerViewCell.h; path = ../TimerViewCell.h; sourceTree = "<group>"; };
+		3B88977C1B701AE300BEBEA0 /* SPLTS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SPLTS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BA340A21BB1DC4B00125034 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3B8897791B701AE300BEBEA0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BA340A31BB1DC4B00125034 /* Security.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3B2CB3E11BB5A1DA008EBB50 /* SPLTS */ = {
+			isa = PBXGroup;
+			children = (
+				3B2CB3E21BB5A1DA008EBB50 /* AppDelegate.h */,
+				3B2CB3E31BB5A1DA008EBB50 /* AppDelegate.m */,
+				3B2CB3E41BB5A1DA008EBB50 /* Athlete.h */,
+				3B2CB3E51BB5A1DA008EBB50 /* Athlete.m */,
+				3B2CB3E61BB5A1DA008EBB50 /* AthleteSelectViewCell.h */,
+				3B2CB3E71BB5A1DA008EBB50 /* AthleteSelectViewCell.m */,
+				3B2CB3E81BB5A1DA008EBB50 /* AthleteSelectViewCell.xib */,
+				3B2CB3E91BB5A1DA008EBB50 /* AthleteSelectViewController.h */,
+				3B2CB3EA1BB5A1DA008EBB50 /* AthleteSelectViewController.m */,
+				3B2CB3EB1BB5A1DA008EBB50 /* AthleteSelectViewController.xib */,
+				3B2CB3EC1BB5A1DA008EBB50 /* CreateWorkoutViewController.h */,
+				3B2CB3ED1BB5A1DA008EBB50 /* CreateWorkoutViewController.m */,
+				3B2CB3EE1BB5A1DA008EBB50 /* CreateWorkoutViewController.xib */,
+				3B2CB3EF1BB5A1DA008EBB50 /* Dropdown.h */,
+				3B2CB3F01BB5A1DA008EBB50 /* Dropdown.m */,
+				3B2CB3F11BB5A1DA008EBB50 /* HomeViewController.h */,
+				3B2CB3F21BB5A1DA008EBB50 /* HomeViewController.m */,
+				3B2CB3F31BB5A1DA008EBB50 /* HomeViewController.xib */,
+				3B2CB3F41BB5A1DA008EBB50 /* Images.xcassets */,
+				3B2CB3F51BB5A1DA008EBB50 /* Info.plist */,
+				3B2CB3F61BB5A1DA008EBB50 /* KeychainWrapper.h */,
+				3B2CB3F71BB5A1DA008EBB50 /* KeychainWrapper.m */,
+				3B2CB3F81BB5A1DA008EBB50 /* LaunchScreen.xib */,
+				3B2CB3F91BB5A1DA008EBB50 /* LoginViewController.h */,
+				3B2CB3FA1BB5A1DA008EBB50 /* LoginViewController.m */,
+				3B2CB3FB1BB5A1DA008EBB50 /* LoginViewController.xib */,
+				3B2CB3FC1BB5A1DA008EBB50 /* main.m */,
+				3B2CB3FD1BB5A1DA008EBB50 /* MyRacesViewController.h */,
+				3B2CB3FE1BB5A1DA008EBB50 /* MyRacesViewController.m */,
+				3B2CB3FF1BB5A1DA008EBB50 /* MyRacesViewController.xib */,
+				3B2CB4001BB5A1DA008EBB50 /* PostToServer.h */,
+				3B2CB4011BB5A1DA008EBB50 /* PostToServer.m */,
+				3B2CB4021BB5A1DA008EBB50 /* Race.h */,
+				3B2CB4031BB5A1DA008EBB50 /* Race.m */,
+				3B2CB4041BB5A1DA008EBB50 /* RacesTableViewCell.h */,
+				3B2CB4051BB5A1DA008EBB50 /* RacesTableViewCell.m */,
+				3B2CB4061BB5A1DA008EBB50 /* RacesTableViewCell.xib */,
+				3B2CB4071BB5A1DA008EBB50 /* ResultParentViewCell.h */,
+				3B2CB4081BB5A1DA008EBB50 /* ResultParentViewCell.m */,
+				3B2CB4091BB5A1DA008EBB50 /* ResultParentViewCell.xib */,
+				3B2CB40A1BB5A1DA008EBB50 /* ResultsViewController.h */,
+				3B2CB40B1BB5A1DA008EBB50 /* ResultsViewController.m */,
+				3B2CB40C1BB5A1DA008EBB50 /* ResultsViewController.xib */,
+				3B2CB40D1BB5A1DA008EBB50 /* Split.h */,
+				3B2CB40E1BB5A1DA008EBB50 /* Split.m */,
+				3B2CB41B1BB5A1DA008EBB50 /* TimerViewCell.xib */,
+				3B2CB41C1BB5A1DA008EBB50 /* TimerViewCell.m */,
+				3B2CB41D1BB5A1DA008EBB50 /* TimerViewCell.h */,
+				3B2CB40F1BB5A1DA008EBB50 /* SplitsTableViewCell.h */,
+				3B2CB4101BB5A1DA008EBB50 /* SplitsTableViewCell.m */,
+				3B2CB4111BB5A1DA008EBB50 /* SplitsTableViewCell.xib */,
+				3B2CB4121BB5A1DA008EBB50 /* SplitsViewController.h */,
+				3B2CB4131BB5A1DA008EBB50 /* SplitsViewController.m */,
+				3B2CB4141BB5A1DA008EBB50 /* SplitsViewController.xib */,
+				3B2CB4151BB5A1DA008EBB50 /* SPLTS_123x61.png */,
+				3B2CB4161BB5A1DA008EBB50 /* Timer.h */,
+				3B2CB4171BB5A1DA008EBB50 /* Timer.m */,
+				3B2CB4181BB5A1DA008EBB50 /* ViewController.h */,
+				3B2CB4191BB5A1DA008EBB50 /* ViewController.m */,
+				3B2CB41A1BB5A1DA008EBB50 /* ViewController.xib */,
+			);
+			path = SPLTS;
+			sourceTree = "<group>";
+		};
+		3B8897731B701AE300BEBEA0 = {
+			isa = PBXGroup;
+			children = (
+				3B2CB3E11BB5A1DA008EBB50 /* SPLTS */,
+				3BA340A21BB1DC4B00125034 /* Security.framework */,
+				3B88977D1B701AE300BEBEA0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3B88977D1B701AE300BEBEA0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3B88977C1B701AE300BEBEA0 /* SPLTS.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3B88977B1B701AE300BEBEA0 /* SPLTS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3B88979F1B701AE400BEBEA0 /* Build configuration list for PBXNativeTarget "SPLTS" */;
+			buildPhases = (
+				3B8897781B701AE300BEBEA0 /* Sources */,
+				3B8897791B701AE300BEBEA0 /* Frameworks */,
+				3B88977A1B701AE300BEBEA0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SPLTS;
+			productName = TeamTrackIOS;
+			productReference = 3B88977C1B701AE300BEBEA0 /* SPLTS.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3B8897741B701AE300BEBEA0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = "Colin Cole";
+				TargetAttributes = {
+					3B88977B1B701AE300BEBEA0 = {
+						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = H457N4N5N6;
+					};
+				};
+			};
+			buildConfigurationList = 3B8897771B701AE300BEBEA0 /* Build configuration list for PBXProject "SPLTS" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3B8897731B701AE300BEBEA0;
+			productRefGroup = 3B88977D1B701AE300BEBEA0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3B88977B1B701AE300BEBEA0 /* SPLTS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3B88977A1B701AE300BEBEA0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B2CB4351BB5A1DA008EBB50 /* RacesTableViewCell.xib in Resources */,
+				3B2CB4371BB5A1DA008EBB50 /* ResultParentViewCell.xib in Resources */,
+				3B2CB4421BB5A1DA008EBB50 /* ViewController.xib in Resources */,
+				3B2CB4311BB5A1DA008EBB50 /* MyRacesViewController.xib in Resources */,
+				3B2CB4391BB5A1DA008EBB50 /* ResultsViewController.xib in Resources */,
+				3B2CB42E1BB5A1DA008EBB50 /* LoginViewController.xib in Resources */,
+				3B2CB43F1BB5A1DA008EBB50 /* SPLTS_123x61.png in Resources */,
+				3B2CB4231BB5A1DA008EBB50 /* AthleteSelectViewController.xib in Resources */,
+				3B2CB43C1BB5A1DA008EBB50 /* SplitsTableViewCell.xib in Resources */,
+				3B2CB4291BB5A1DA008EBB50 /* Images.xcassets in Resources */,
+				3B2CB42C1BB5A1DA008EBB50 /* LaunchScreen.xib in Resources */,
+				3B2CB4211BB5A1DA008EBB50 /* AthleteSelectViewCell.xib in Resources */,
+				3B2CB43E1BB5A1DA008EBB50 /* SplitsViewController.xib in Resources */,
+				3B2CB4251BB5A1DA008EBB50 /* CreateWorkoutViewController.xib in Resources */,
+				3B2CB4431BB5A1DA008EBB50 /* TimerViewCell.xib in Resources */,
+				3B2CB4281BB5A1DA008EBB50 /* HomeViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3B8897781B701AE300BEBEA0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3B2CB4411BB5A1DA008EBB50 /* ViewController.m in Sources */,
+				3B2CB43D1BB5A1DA008EBB50 /* SplitsViewController.m in Sources */,
+				3B2CB4331BB5A1DA008EBB50 /* Race.m in Sources */,
+				3B2CB4301BB5A1DA008EBB50 /* MyRacesViewController.m in Sources */,
+				3B2CB43B1BB5A1DA008EBB50 /* SplitsTableViewCell.m in Sources */,
+				3B2CB4341BB5A1DA008EBB50 /* RacesTableViewCell.m in Sources */,
+				3B2CB4441BB5A1DA008EBB50 /* TimerViewCell.m in Sources */,
+				3B2CB4381BB5A1DA008EBB50 /* ResultsViewController.m in Sources */,
+				3B2CB42F1BB5A1DA008EBB50 /* main.m in Sources */,
+				3B2CB4261BB5A1DA008EBB50 /* Dropdown.m in Sources */,
+				3B2CB42B1BB5A1DA008EBB50 /* KeychainWrapper.m in Sources */,
+				3B2CB41E1BB5A1DA008EBB50 /* AppDelegate.m in Sources */,
+				3B2CB4241BB5A1DA008EBB50 /* CreateWorkoutViewController.m in Sources */,
+				3B2CB4201BB5A1DA008EBB50 /* AthleteSelectViewCell.m in Sources */,
+				3B2CB42D1BB5A1DA008EBB50 /* LoginViewController.m in Sources */,
+				3B2CB4361BB5A1DA008EBB50 /* ResultParentViewCell.m in Sources */,
+				3B2CB4221BB5A1DA008EBB50 /* AthleteSelectViewController.m in Sources */,
+				3B2CB4401BB5A1DA008EBB50 /* Timer.m in Sources */,
+				3B2CB4321BB5A1DA008EBB50 /* PostToServer.m in Sources */,
+				3B2CB43A1BB5A1DA008EBB50 /* Split.m in Sources */,
+				3B2CB4271BB5A1DA008EBB50 /* HomeViewController.m in Sources */,
+				3B2CB41F1BB5A1DA008EBB50 /* Athlete.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		3B88979D1B701AE400BEBEA0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Colin Cole (3QMHU6KFBK)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Colin Cole (3QMHU6KFBK)";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		3B88979E1B701AE400BEBEA0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Colin Cole (3QMHU6KFBK)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Colin Cole (3QMHU6KFBK)";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3B8897A01B701AE400BEBEA0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Colin Cole (3QMHU6KFBK)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "$(SRCROOT)/SPLTS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = SPLTS;
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		3B8897A11B701AE400BEBEA0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Colin Cole (3QMHU6KFBK)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "$(SRCROOT)/SPLTS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = SPLTS;
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3B8897771B701AE300BEBEA0 /* Build configuration list for PBXProject "SPLTS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B88979D1B701AE400BEBEA0 /* Debug */,
+				3B88979E1B701AE400BEBEA0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3B88979F1B701AE400BEBEA0 /* Build configuration list for PBXNativeTarget "SPLTS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3B8897A01B701AE400BEBEA0 /* Debug */,
+				3B8897A11B701AE400BEBEA0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3B8897741B701AE300BEBEA0 /* Project object */;
+}
